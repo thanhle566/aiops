@@ -1,0 +1,44 @@
+---
+title: "Jira Cloud Provider"
+sidebarTitle: "Jira Cloud Provider"
+description: "Jira Cloud provider is a provider used to query data and creating issues in Jira"
+---
+
+## Inputs
+
+The `query` function take following parameters as inputs:
+
+- `host` (required): Jira host name of the project.
+- `board_id` (required): Jira board id.
+- `email` (required): Your accout email.
+
+The `notify` function take following parameters as inputs:
+
+- `host` (required): Jira host name of the project.
+- `email` (required): Your accout email.
+- `project_key` (required): Your jira project key.
+- `summary` (required): Incident/issue name or short description.
+- `description` (optional): Additional details related to the incident/issue.
+- `issue_type` (optional): Issue type name. For example: `Story`, `Bug` etc
+- `issue_id` (optional): When you want to update an existing issue, provide the issue id.
+
+## Outputs
+
+## Authentication Parameters
+
+The `query` and `notify` function requires an `api_token` from Jira.
+
+## Connecting with the Provider
+
+1. Go to https://id.atlassian.com/manage-profile/security/api-tokens to Create API token and generated token should be passed to jira authentication.
+2. Get `host` and `board_id` from your respective board from its URL.
+3. Get `project_key` from your project > settings > details.
+4. `email` would be same as of your account email.
+
+## Notes
+
+## Useful Links
+
+- https://id.atlassian.com/manage-profile/security/api-tokens
+- https://developer.atlassian.com/cloud/jira/software/rest/api-group-board/#api-rest-agile-1-0-board-boardid-issue-get
+- https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-post

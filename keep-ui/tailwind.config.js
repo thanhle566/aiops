@@ -48,7 +48,7 @@ module.exports = {
           content: {
             subtle: "#646464", // Custom black-400 (light black)
             DEFAULT: "#333333", // Custom black-500 (standard black)
-            emphasis: "#1a1a1a", // Custom black-700 (darker black)
+            emphasis: "#ffffff", // Custom black-700 (darker black)
             strong: "#000000", // Custom black-900 (the darkest black)
             inverted: "#ffffff", // white
           },

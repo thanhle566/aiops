@@ -43,7 +43,7 @@ export function SameIncidentField({ incident }: { incident: IncidentDto }) {
             {getIncidentName(same_incident_in_the_past)}
           </Link>
           <Button
-            color="orange"
+            color="#233e43"
             variant="secondary"
             size="xs"
             className="!px-1 !py-0.5"
@@ -57,7 +57,7 @@ export function SameIncidentField({ incident }: { incident: IncidentDto }) {
           <p className="flex items-baseline gap-2">
             No linked incidents
             <Button
-              color="orange"
+              color="#233e43"
               variant="secondary"
               size="xs"
               className="!px-1 !py-0.5"

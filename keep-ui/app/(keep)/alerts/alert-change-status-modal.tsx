@@ -108,10 +108,10 @@ export default function AlertChangeStatusModal({
         </div>
       </Subtitle>
       <div className="flex justify-end mt-4 gap-2">
-        <Button onClick={handleClose} color="orange" variant="secondary">
+        <Button onClick={handleClose} color="#233e43" variant="secondary">
           Cancel
         </Button>
-        <Button onClick={handleChangeStatus} color="orange">
+        <Button onClick={handleChangeStatus} color="#233e43">
           Change Status
         </Button>
       </div>

@@ -210,7 +210,7 @@ export const TableFilters: React.FC<TableFiltersProps> = ({ workflowId }) => {
         />
       </div>
       <Button
-        color="orange"
+        color="#233e43"
         variant="secondary"
         onClick={() => {
           filterRef.current = { trigger: [], status: [], execution_id: "" };

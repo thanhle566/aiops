@@ -268,7 +268,7 @@ export function IncidentOverview({ incident: initialIncidentData }: Props) {
                     {notNullServices.map((service) => (
                       <Badge
                         key={service}
-                        color="orange"
+                        color="#233e43"
                         size="sm"
                         className="cursor-pointer"
                         onClick={() => filterBy("service", service)}
@@ -290,7 +290,7 @@ export function IncidentOverview({ incident: initialIncidentData }: Props) {
                       <Badge
                         key={env}
                         size="sm"
-                        color="orange"
+                        color="#233e43"
                         className="cursor-pointer"
                         onClick={() => filterBy("environment", env)}
                       >
@@ -310,7 +310,7 @@ export function IncidentOverview({ incident: initialIncidentData }: Props) {
                   <div className="flex flex-wrap gap-1 truncate">
                     <Badge
                       size="sm"
-                      color="orange"
+                      color="#233e43"
                       icon={
                         incident.enrichments?.incident_provider
                           ? (props: any) => (
@@ -349,7 +349,7 @@ export function IncidentOverview({ incident: initialIncidentData }: Props) {
                       return (
                         <Badge
                           key={repo}
-                          color="orange"
+                          color="#233e43"
                           size="sm"
                           icon={(props: any) => (
                             <DynamicImageProviderIcon
@@ -404,7 +404,7 @@ export function IncidentOverview({ incident: initialIncidentData }: Props) {
                     <FieldHeader>Grouped by</FieldHeader>
                     <div className="flex flex-wrap gap-1">
                       <Badge
-                        color="orange"
+                        color="#233e43"
                         size="sm"
                         className="cursor-pointer overflow-ellipsis"
                         tooltip={incident.rule_fingerprint}
@@ -457,7 +457,7 @@ export function IncidentOverview({ incident: initialIncidentData }: Props) {
           <FieldHeader>Resolve on</FieldHeader>
           <Badge
             size="sm"
-            color="orange"
+            color="#233e43"
             className="cursor-help"
             tooltip={
               incident.resolve_on === "all_resolved"

@@ -219,7 +219,7 @@ export default function SignInForm({
           <Button
             type="submit"
             size="lg"
-            color="orange"
+            color="#233e43"
             variant="primary"
             className="w-full"
             disabled={isSubmitting || isRedirecting}

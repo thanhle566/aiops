@@ -33,7 +33,7 @@ export const AlertsCountBadge: React.FC<AlertsCountBadgeProps> = ({
               vertical ? "flex-col" : "flex-row"
             } items-center gap-2`}
           >
-            <Badge size="xl" color="orange">
+            <Badge size="xl" color="#233e43">
               ...
             </Badge>
             <Text className="text-gray-500 text-sm">Searching...</Text>
@@ -56,7 +56,7 @@ export const AlertsCountBadge: React.FC<AlertsCountBadgeProps> = ({
             vertical ? "flex-col" : "flex-row"
           } items-center gap-2`}
         >
-          <Badge size="xl" color="orange">
+          <Badge size="xl" color="#233e43">
             {totalCount}
           </Badge>
           <Text className="text-gray-500 text-sm">

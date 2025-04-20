@@ -59,7 +59,7 @@ export function IncidentActivityComment({
         placeholder="Add a new comment..."
       />
       <Button
-        color="orange"
+        color="#233e43"
         variant="secondary"
         className="ml-2.5"
         disabled={!comment}

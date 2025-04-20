@@ -45,7 +45,7 @@ export const GenerateReportModal: React.FC<GenerateReportModalProps> = ({
             </div>
             <div className="flex justify-end p-6 border-teal-100 border-t">
               <Button
-                color="orange"
+                color="#233e43"
                 variant="primary"
                 size="md"
                 icon={PrinterIcon}

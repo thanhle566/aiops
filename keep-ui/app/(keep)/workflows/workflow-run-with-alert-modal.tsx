@@ -233,14 +233,14 @@ export default function AlertTriggerModal({
             </div>
           ))}
           <div className="flex justify-center">
-            <Button color="orange" onClick={handleAddField}>
+            <Button color="#233e43" onClick={handleAddField}>
               Add another field
             </Button>
           </div>
         </Card>
 
         <div className="mt-4 flex gap-2">
-          <Button color="orange" type="submit">
+          <Button color="#233e43" type="submit">
             Run workflow
           </Button>
           <Button

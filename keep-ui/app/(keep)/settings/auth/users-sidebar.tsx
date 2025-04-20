@@ -190,7 +190,7 @@ const UsersSidebar = ({
                   <Callout
                     className="mt-4"
                     title="Users are managed externally"
-                    color="orange"
+                    color="#233e43"
                   >
                     User management is handled through your external
                     authentication system.
@@ -352,7 +352,7 @@ const UsersSidebar = ({
               )}
               <div className="mt-6 flex justify-end gap-2">
                 <Button
-                  color="orange"
+                  color="#233e43"
                   variant="secondary"
                   onClick={(e) => {
                     e.preventDefault();
@@ -364,7 +364,7 @@ const UsersSidebar = ({
                 </Button>
                 {userCreationAllowed && (
                   <Button
-                    color="orange"
+                    color="#233e43"
                     type="submit"
                     disabled={isSubmitting || (isNewUser ? false : !isDirty)}
                   >

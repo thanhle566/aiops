@@ -115,7 +115,7 @@ export function WorkflowTemplates() {
         <div className="flex justify-end">
           <Button
             icon={ArrowPathIcon}
-            color="orange"
+            color="#233e43"
             size="sm"
             onClick={() => {
               refresh();

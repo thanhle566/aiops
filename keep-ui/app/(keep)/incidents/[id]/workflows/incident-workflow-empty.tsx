@@ -24,7 +24,7 @@ export function IncidentWorkflowsEmptyState({
         description="No workflows have been executed for this incident yet."
       >
         <Button
-          color="orange"
+          color="#233e43"
           variant="primary"
           size="md"
           onClick={(e) => {

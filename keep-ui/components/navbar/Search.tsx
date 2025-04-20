@@ -163,7 +163,7 @@ export const Search = () => {
     if (query.length && queriedOptions.length === 0) {
       return (
         <ListItem className="flex flex-col items-center justify-center cursor-default select-none px-4 py-2 text-gray-700 h-72">
-          <Icon color="orange" size="xl" icon={MdOutlineSearchOff} />
+          <Icon color="#233e43" size="xl" icon={MdOutlineSearchOff} />
           Nothing found.
         </ListItem>
       );
@@ -189,7 +189,7 @@ export const Search = () => {
                       active ? "bg-orange-400 text-white" : "text-gray-900"
                     }`}
                     icon={option.icon}
-                    color="orange"
+                    color="#233e43"
                   />
                   <span className="text-left">{option.label}</span>
                 </ListItem>
@@ -227,7 +227,7 @@ export const Search = () => {
                       active ? "bg-orange-400 text-white" : "text-gray-900"
                     }`}
                     icon={option.icon}
-                    color="orange"
+                    color="#233e43"
                   />
                   <span className="text-left">{option.label}</span>
                 </ListItem>
@@ -252,7 +252,7 @@ export const Search = () => {
                       active ? "bg-orange-400 text-white" : "text-gray-900"
                     }`}
                     icon={option.icon}
-                    color="orange"
+                    color="#233e43"
                   />
                   <span className="text-left">{option.label}</span>
                 </ListItem>
@@ -280,20 +280,17 @@ export const Search = () => {
     if (!isMac()) {
       return;
     }
-    setPlaceholderText("Search or start with ⌘K");
+    setPlaceholderText("Filter navigator");
   }, []);
 
   return (
-    <div className="flex items-center space-x-3 py-3 px-2 border-b border-gray-300">
-      <Link href="/">
-        <Image className="w-8" src={KeepPng} alt="Keep Logo" />
-      </Link>
+    <div className="flex items-center space-x-3 py-3 px-2 border-b border-gray-300 w-full">
 
       <Combobox
         value={query}
         onChange={onOptionSelection}
         as="div"
-        className="relative"
+        className="relative w-full"
       >
         {({ open }) => (
           <>
@@ -303,11 +300,11 @@ export const Search = () => {
                 aria-hidden="true"
               />
             )}
-            <ComboboxButton ref={comboboxBtnRef}>
+            <ComboboxButton ref={comboboxBtnRef} className="w-full">
               <ComboboxInput
-                className="z-20 tremor-TextInput-root relative flex items-center min-w-[10rem] outline-none rounded-tremor-default transition duration-100 border shadow-tremor-input dark:shadow-dark-tremor-input bg-tremor-background dark:bg-dark-tremor-background hover:bg-tremor-background-muted dark:hover:bg-dark-tremor-background-muted text-tremor-content dark:text-dark-tremor-content border-tremor-border dark:border-dark-tremor-border tremor-TextInput-input w-full bg-transparent focus:outline-none focus:ring-0 text-tremor-default py-2  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none pr-3 pl-3 placeholder:text-tremor-content dark:placeholder:text-dark-tremor-content"
+                className="z-20 tremor-TextInput-root relative flex items-center outline-none rounded-tremor-default transition duration-100 border shadow-tremor-input dark:shadow-dark-tremor-input bg-tremor-background dark:bg-dark-tremor-background hover:bg-tremor-background-muted dark:hover:bg-dark-tremor-background-muted text-tremor-content dark:text-dark-tremor-content border-tremor-border dark:border-dark-tremor-border tremor-TextInput-input w-full bg-transparent focus:outline-none focus:ring-0 text-tremor-default py-2  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none pr-3 pl-3 placeholder:text-tremor-content dark:placeholder:text-dark-tremor-content"
                 placeholder={placeholderText}
-                color="orange"
+                color="#233e43"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 ref={comboboxInputRef}

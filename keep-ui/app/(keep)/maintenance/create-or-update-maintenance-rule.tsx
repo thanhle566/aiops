@@ -237,7 +237,7 @@ export default function CreateOrUpdateMaintenanceRule({
       <div className={"space-x-1 flex flex-row justify-end items-center"}>
         {editMode ? (
           <Button
-            color="orange"
+            color="#233e43"
             size="xs"
             variant="secondary"
             onClick={exitEditMode}
@@ -247,7 +247,7 @@ export default function CreateOrUpdateMaintenanceRule({
         ) : null}
         <Button
           disabled={!submitEnabled()}
-          color="orange"
+          color="#233e43"
           size="xs"
           type="submit"
         >

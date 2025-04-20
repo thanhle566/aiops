@@ -126,7 +126,7 @@ export function Pagination({
         {isRefreshAllowed && (
           <Button
             icon={ArrowPathIcon}
-            color="orange"
+            color="#233e43"
             size="xs"
             disabled={isRefreshing}
             loading={isRefreshing}

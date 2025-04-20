@@ -194,7 +194,7 @@ req.end();
             <div>
               <Button
                 icon={PlayIcon}
-                color="orange"
+                color="#233e43"
                 onClick={tryNow}
                 id="tooltip-select-0"
               >
@@ -220,7 +220,7 @@ req.end();
               <Button
                 icon={ClipboardDocumentIcon}
                 size="xs"
-                color="orange"
+                color="#233e43"
                 onClick={onCopyCode}
               >
                 Copy code

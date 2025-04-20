@@ -198,7 +198,7 @@ const DeduplicationSidebar: React.FC<DeduplicationSidebarProps> = ({
               ? `Edit ${selectedDeduplicationRule.name}`
               : "Add deduplication rule"}
             {selectedDeduplicationRule?.default && (
-              <Badge className="ml-2" color="orange">
+              <Badge className="ml-2" color="#233e43">
                 Default Rule
               </Badge>
             )}
@@ -217,7 +217,7 @@ const DeduplicationSidebar: React.FC<DeduplicationSidebarProps> = ({
             className="mb-4 py-8"
             title="Editing a Default Rule"
             icon={ExclamationTriangleIcon}
-            color="orange"
+            color="#233e43"
           >
             Editing a default deduplication rule requires advanced knowledge.
             Default rules are carefully designed to provide optimal
@@ -245,7 +245,7 @@ const DeduplicationSidebar: React.FC<DeduplicationSidebarProps> = ({
             className="mb-4 py-8"
             title="Editing a Provisioned Rule"
             icon={ExclamationTriangleIcon}
-            color="orange"
+            color="#233e43"
           >
             <Text>
               Editing a provisioned deduplication rule is not allowed. Please
@@ -521,7 +521,7 @@ const DeduplicationSidebar: React.FC<DeduplicationSidebarProps> = ({
         </div>
         <div className="mt-6 flex justify-end gap-2">
           <Button
-            color="orange"
+            color="#233e43"
             variant="secondary"
             onClick={handleToggle}
             type="button"
@@ -530,7 +530,7 @@ const DeduplicationSidebar: React.FC<DeduplicationSidebarProps> = ({
             Cancel
           </Button>
           <Button
-            color="orange"
+            color="#233e43"
             type="submit"
             disabled={isSubmitting || selectedDeduplicationRule?.is_provisioned}
           >

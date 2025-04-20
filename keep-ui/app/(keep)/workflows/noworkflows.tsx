@@ -53,7 +53,7 @@ const WorkflowsEmptyState = () => {
           <Button
             icon={PlusIcon}
             className="mt-4 px-6 py-2"
-            color="orange"
+            color="#233e43"
             variant="primary"
             onClick={() => {
               router.push("/workflows/builder");

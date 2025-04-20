@@ -220,7 +220,7 @@ export function AlertMethodModal({
           })}
           <Button
             type="submit"
-            color="orange"
+            color="#233e43"
             onClick={() => invokeMethod(provider, method, inputParameters)}
             disabled={!isInvokeEnabled()}
           >

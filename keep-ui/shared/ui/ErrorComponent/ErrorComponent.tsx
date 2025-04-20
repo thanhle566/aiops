@@ -71,7 +71,7 @@ export function ErrorComponent({
       )}
       <div className="flex gap-2">
         {error instanceof KeepApiError && error.statusCode === 401 ? (
-          <Button onClick={signOut} color="orange" variant="secondary">
+          <Button onClick={signOut} color="#233e43" variant="secondary">
             <Text>Sign Out</Text>
           </Button>
         ) : (
@@ -83,14 +83,14 @@ export function ErrorComponent({
                 window.location.reload();
               }
             }}
-            color="orange"
+            color="#233e43"
             variant="primary"
           >
             Try again
           </Button>
         )}{" "}
         <Button
-          color="orange"
+          color="#233e43"
           variant="secondary"
           onClick={() => window.open(contactUsUrl, "_blank")}
         >

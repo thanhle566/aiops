@@ -155,7 +155,7 @@ const AlertErrorEventModal: React.FC<AlertErrorEventModalProps> = ({
             <div className="flex space-x-2">
               <Button
                 size="xs"
-                color="orange"
+                color="#233e43"
                 onClick={handleDismissSelected}
                 disabled={isDismissing || !selectedAlert}
               >
@@ -163,7 +163,7 @@ const AlertErrorEventModal: React.FC<AlertErrorEventModalProps> = ({
               </Button>
               <Button
                 size="xs"
-                color="orange"
+                color="#233e43"
                 variant="secondary"
                 onClick={handleDismissAll}
                 disabled={isDismissing}
@@ -195,7 +195,7 @@ const AlertErrorEventModal: React.FC<AlertErrorEventModalProps> = ({
 
               <div className="mb-4">
                 <Subtitle>Timestamp</Subtitle>
-                <Badge color="orange">
+                <Badge color="#233e43">
                   {formatDate(selectedAlert.timestamp)}
                 </Badge>
               </div>

@@ -586,7 +586,7 @@ export function TopologyMap({
           <div className="flex gap-2">
             <Button
               onClick={() => setIsSidePanelOpen(true)}
-              color="orange"
+              color="#233e43"
               variant="primary"
               size="md"
               icon={PlusIcon}
@@ -674,7 +674,7 @@ export function TopologyMap({
                     >
                       <div className="flex gap-2">
                         <Button
-                          color="orange"
+                          color="#233e43"
                           variant="secondary"
                           size="md"
                           onClick={handleImportTopology}
@@ -682,7 +682,7 @@ export function TopologyMap({
                           Import
                         </Button>
                         <Button
-                          color="orange"
+                          color="#233e43"
                           variant="primary"
                           size="md"
                           onClick={() =>

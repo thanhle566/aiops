@@ -47,7 +47,7 @@ export default function MaintenanceRulesTable({
       cell: (context) => (
         <div className={"space-x-1 flex flex-row items-center justify-center"}>
           <Button
-            color="orange"
+            color="#233e43"
             size="xs"
             variant="secondary"
             icon={MdModeEdit}
@@ -104,9 +104,9 @@ export default function MaintenanceRulesTable({
       cell: (context) => (
         <div>
           {context.row.original.enabled ? (
-            <Icon icon={IoCheckmark} size="md" color="orange" />
+            <Icon icon={IoCheckmark} size="md" color="#233e43" />
           ) : (
-            <Icon icon={HiMiniXMark} size="md" color="orange" />
+            <Icon icon={HiMiniXMark} size="md" color="#233e43" />
           )}
         </div>
       ),

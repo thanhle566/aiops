@@ -182,13 +182,13 @@ const EnrichAlertSidePanel: React.FC<EnrichAlertModalProps> = ({
         </Button>
         <Button
           onClick={handleSave}
-          color="orange"
+          color="#233e43"
           variant="primary"
           disabled={!isDataValid}
         >
           Save
         </Button>
-        <Button onClick={handleClose} color="orange" variant="secondary">
+        <Button onClick={handleClose} color="#233e43" variant="secondary">
           Close
         </Button>
       </div>

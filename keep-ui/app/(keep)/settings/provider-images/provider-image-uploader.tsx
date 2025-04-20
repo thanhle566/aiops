@@ -106,11 +106,11 @@ export function ProviderImageUploader({
         </div>
 
         <div className="flex justify-end gap-2">
-          <Button variant="secondary" color="orange" onClick={handleClose}>
+          <Button variant="secondary" color="#233e43" onClick={handleClose}>
             Cancel
           </Button>
           <Button
-            color="orange"
+            color="#233e43"
             onClick={handleUpload}
             disabled={!selectedFile || !selectedProvider || isUploading}
           >

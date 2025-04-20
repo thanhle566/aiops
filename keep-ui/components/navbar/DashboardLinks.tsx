@@ -87,11 +87,11 @@ export const DashboardLinks = () => {
         {({ open }) => (
           <>
             <div className="flex justify-between items-center w-full">
-              <Subtitle className="text-xs ml-2 text-gray-900 font-medium uppercase">
+              <Subtitle className="text-xs ml-2  font-medium uppercase">
                 Dashboards
               </Subtitle>
               <div className="flex items-center">
-                <Badge color="orange" size="xs" className="ml-2 mr-2">
+                <Badge color="white" size="xs" className="ml-2 mr-2">
                   Beta
                 </Badge>
                 <IoChevronUp
@@ -136,7 +136,7 @@ export const DashboardLinks = () => {
         {/* TODO: use link instead of button */}
         <Button
           size="xs"
-          color="orange"
+          color="white"
           variant="secondary"
           className="h-5 mx-2"
           onClick={handleCreateDashboard}

@@ -95,12 +95,12 @@ export function MergeIncidentsModal({
         </div>
       </div>
       <div className="flex justify-end mt-4 gap-2">
-        <Button onClick={handleClose} color="orange" variant="secondary">
+        <Button onClick={handleClose} color="#233e43" variant="secondary">
           Cancel
         </Button>
         <Button
           onClick={handleMerge}
-          color="orange"
+          color="#233e43"
           disabled={Object.values(errors).length != 0}
         >
           Confirm merge

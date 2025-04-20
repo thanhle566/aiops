@@ -58,19 +58,19 @@ export function IncidentChat({
       <div className="flex mt-3 gap-2">
         {!inProgress ? (
           <Button
-            color="orange"
+            color="#233e43"
             onClick={runChatCompletion}
             loading={inProgress}
           >
             Regenerate response
           </Button>
         ) : (
-          <Button color="orange" onClick={stopGeneration} icon={StopIcon}>
+          <Button color="#233e43" onClick={stopGeneration} icon={StopIcon}>
             Stop generating
           </Button>
         )}
         <Button
-          color="orange"
+          color="#233e43"
           variant="secondary"
           tooltip="Clear chat"
           onClick={() => {

@@ -307,7 +307,7 @@ export const RuleFields = ({
             onClick={onAddRuleFieldClick}
             type="button"
             variant="light"
-            color="orange"
+            color="#233e43"
             disabled={availableFields.length === 0}
           >
             Add condition

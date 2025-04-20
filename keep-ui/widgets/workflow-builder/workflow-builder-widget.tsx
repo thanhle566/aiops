@@ -109,7 +109,7 @@ export function WorkflowBuilderWidget({
             {!workflowRaw && (
               <>
                 <Button
-                  color="orange"
+                  color="#233e43"
                   size="md"
                   onClick={createNewWorkflow}
                   icon={PlusIcon}
@@ -120,7 +120,7 @@ export function WorkflowBuilderWidget({
                   New
                 </Button>
                 <Button
-                  color="orange"
+                  color="#233e43"
                   size="md"
                   onClick={loadWorkflow}
                   className="min-w-28"
@@ -142,7 +142,7 @@ export function WorkflowBuilderWidget({
             {isInitialized && <WorkflowEnabledSwitch />}
             {workflowRaw && (
               <Button
-                color="orange"
+                color="#233e43"
                 size="md"
                 onClick={() => setIsEditModalOpen(true)}
                 icon={PencilIcon}
@@ -154,7 +154,7 @@ export function WorkflowBuilderWidget({
               </Button>
             )}
             <Button
-              color="orange"
+              color="#233e43"
               size="md"
               className="min-w-28 disabled:opacity-70"
               icon={PlayIcon}
@@ -164,7 +164,7 @@ export function WorkflowBuilderWidget({
               Test Run
             </Button>
             <Button
-              color="orange"
+              color="#233e43"
               size="md"
               className="min-w-28 relative disabled:opacity-70"
               icon={ArrowUpOnSquareIcon}

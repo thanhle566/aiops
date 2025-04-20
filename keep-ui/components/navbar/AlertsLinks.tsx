@@ -82,7 +82,7 @@ export const AlertsLinks = ({ session }: AlertsLinksProps) => {
           <>
             <Disclosure.Button className="w-full flex justify-between items-center px-2">
               <div className="flex items-center relative group">
-                <Subtitle className="text-xs ml-2 text-gray-900 font-medium uppercase">
+                <Subtitle className="text-xs ml-2 font-medium uppercase">
                   Alerts
                 </Subtitle>
                 <FiFilter
@@ -90,7 +90,7 @@ export const AlertsLinks = ({ session }: AlertsLinksProps) => {
                     "absolute left-full ml-2 cursor-pointer text-gray-400 transition-opacity",
                     {
                       "opacity-100 text-orange-500": storedTags.length > 0,
-                      "opacity-0 group-hover:opacity-100 group-hover:text-orange-500":
+                      "opacity-0":
                         storedTags.length === 0,
                     }
                   )}
@@ -134,7 +134,7 @@ export const AlertsLinks = ({ session }: AlertsLinksProps) => {
       >
         <div className="space-y-2">
           <Subtitle>Select tags to watch</Subtitle>
-          <Callout title="" color="orange">
+          <Callout title="" color="#233e43">
             Customize your presets list by watching specific tags.
           </Callout>
           <CreatableMultiSelect
@@ -154,7 +154,7 @@ export const AlertsLinks = ({ session }: AlertsLinksProps) => {
             <Button
               size="lg"
               variant="secondary"
-              color="orange"
+              color="#233e43"
               onClick={() => setIsTagModalOpen(false)}
               tooltip="Close Modal"
             >
@@ -162,7 +162,7 @@ export const AlertsLinks = ({ session }: AlertsLinksProps) => {
             </Button>
             <Button
               size="lg"
-              color="orange"
+              color="#233e43"
               onClick={handleApplyTags}
               tooltip="Apply Tags"
             >

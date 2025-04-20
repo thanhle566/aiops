@@ -30,7 +30,7 @@ export function RootCauseAnalysis({
               </span>
             </div>
 
-            <Badge size="sm" color="orange" className="ml-4">
+            <Badge size="sm" color="#233e43" className="ml-4">
               🕵🏻‍♂️ Investigation
             </Badge>
           </div>

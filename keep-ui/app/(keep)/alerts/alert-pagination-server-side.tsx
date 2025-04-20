@@ -174,7 +174,7 @@ export default function AlertPaginationServerSide({
           <Button
             variant="primary"
             icon={ArrowPathIcon}
-            color="orange"
+            color="#233e43"
             size="xs"
             disabled={isRefreshing}
             loading={isMounted && isRefreshing}

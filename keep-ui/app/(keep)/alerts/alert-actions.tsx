@@ -127,7 +127,7 @@ export default function AlertActions({
       <Button
         icon={PlusIcon}
         size="xs"
-        color="orange"
+        color="#233e43"
         className="ml-2.5"
         onClick={async () => await addOrUpdatePreset()}
         tooltip="Save current filter as a view"
@@ -137,7 +137,7 @@ export default function AlertActions({
       <Button
         icon={PlusIcon}
         size="xs"
-        color="orange"
+        color="#233e43"
         className="ml-2.5"
         onClick={showIncidentSelector}
         tooltip="Associate events with incident"
@@ -147,7 +147,7 @@ export default function AlertActions({
       <Button
         icon={RocketIcon}
         size="xs"
-        color="orange"
+        color="#233e43"
         className="ml-2.5"
         onClick={showCreateIncidentWithAI}
         tooltip="Create incidents using AI"

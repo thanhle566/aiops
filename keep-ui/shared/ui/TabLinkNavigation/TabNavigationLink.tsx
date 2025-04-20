@@ -38,7 +38,7 @@ export function TabNavigationLink({
         Icon && "gap-1.5",
 
         // Default/Hover states
-        "hover:border-tremor-content hover:text-tremor-content-emphasis text-tremor-content",
+        "hover:border-tremor-content text-tremor-content",
         "ui-not-selected:dark:hover:border-dark-tremor-content-emphasis",
         "ui-not-selected:dark:hover:text-dark-tremor-content-emphasis",
         "ui-not-selected:dark:text-dark-tremor-content",
@@ -60,7 +60,7 @@ export function TabNavigationLink({
       {Icon && <Icon className="!size-5 flex-shrink-0" />}
       <span className="truncate">{children}</span>
       {count && (
-        <Badge size="xs" color="orange">
+        <Badge size="xs" color="#233e43">
           {count}
         </Badge>
       )}

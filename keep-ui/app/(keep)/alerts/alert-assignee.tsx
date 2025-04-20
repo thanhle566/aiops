@@ -34,7 +34,7 @@ export default function AlertAssignee({ assignee }: Props) {
   ) : (
     <NameInitialsAvatar
       name={userName}
-      bgColor="orange"
+      bgcolor="#233e43"
       borderWidth="1px"
       textColor="white"
       size="32px"

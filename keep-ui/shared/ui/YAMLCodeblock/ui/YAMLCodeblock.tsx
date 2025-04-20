@@ -45,7 +45,7 @@ export function YAMLCodeblock({ yamlString, filename }: Props) {
       <CopyBlock {...copyBlockProps} />
       <div className="flex justify-end p-2 border-t border-gray-200">
         <Button
-          color="orange"
+          color="#233e43"
           className="w-36"
           icon={ArrowDownTrayIcon}
           onClick={download}

@@ -34,7 +34,7 @@ const ProviderLogs: React.FC<ProviderLogsProps> = ({ providerId }) => {
             description="Provider logs need to be enabled on the backend. Please check the documentation for instructions on how to enable provider logs."
           >
             <Button
-              color="orange"
+              color="#233e43"
               variant="primary"
               onClick={() =>
                 window.open(

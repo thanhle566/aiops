@@ -198,7 +198,7 @@ const DashboardPage = () => {
               className="border-orange-500 focus:border-orange-600 focus:ring-orange-600"
             />
           ) : (
-            <Subtitle color="orange" className="mr-2">
+            <Subtitle color="#233e43" className="mr-2">
               {dashboardName}
             </Subtitle>
           )}
@@ -207,7 +207,7 @@ const DashboardPage = () => {
             icon={FiEdit2}
             onClick={toggleEditingName}
             className="cursor-pointer absolute right-0 top-0 transform -translate-y-1/2 translate-x-1/2 text-sm"
-            color="orange"
+            color="#233e43"
           />
         </div>
         <div className="flex gap-1 items-end">
@@ -215,12 +215,12 @@ const DashboardPage = () => {
           <div className="flex">
             <Button
               icon={FiSave}
-              color="orange"
+              color="#233e43"
               size="sm"
               onClick={handleSaveDashboard}
               tooltip="Save current dashboard"
             />
-            <Button color="orange" onClick={openModal} className="ml-2">
+            <Button color="#233e43" onClick={openModal} className="ml-2">
               Add Widget
             </Button>
           </div>

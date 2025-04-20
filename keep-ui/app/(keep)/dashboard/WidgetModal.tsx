@@ -323,7 +323,7 @@ const WidgetModal: React.FC<WidgetModalProps> = ({
               <div className="flex items-center justify-between">
                 <Subtitle>Thresholds</Subtitle>
                 <Button
-                  color="orange"
+                  color="#233e43"
                   variant="secondary"
                   type="button"
                   onClick={handleAddThreshold}
@@ -355,7 +355,7 @@ const WidgetModal: React.FC<WidgetModalProps> = ({
                         className="p-2"
                       >
                         <Icon
-                          color="orange"
+                          color="#233e43"
                           icon={Trashcan}
                           className="h-5 w-5"
                         />
@@ -419,7 +419,7 @@ const WidgetModal: React.FC<WidgetModalProps> = ({
             />
           </div>
         )}
-        <Button color="orange" type="submit">
+        <Button color="#233e43" type="submit">
           {editingItem ? "Update Widget" : "Add Widget"}
         </Button>
       </form>

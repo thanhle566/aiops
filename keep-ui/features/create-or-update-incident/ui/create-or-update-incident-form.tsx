@@ -199,7 +199,7 @@ export function CreateOrUpdateIncidentForm({
           <Switch
             id="resolve-on-alerts"
             name="resolve-on-alerts"
-            color="orange"
+            color="#233e43"
             checked={resolveOnAlertsResolved === "all_resolved"}
             onChange={() =>
               setResolveOnAlertsResolved(
@@ -218,7 +218,7 @@ export function CreateOrUpdateIncidentForm({
       <div className="mt-auto pt-6 space-x-1 flex flex-row justify-end items-center">
         {cancellable && (
           <Button
-            color="orange"
+            color="#233e43"
             size="xs"
             variant="secondary"
             onClick={exitEditMode}
@@ -228,7 +228,7 @@ export function CreateOrUpdateIncidentForm({
         )}
         <Button
           disabled={!submitEnabled()}
-          color="orange"
+          color="#233e43"
           size="xs"
           type="submit"
         >

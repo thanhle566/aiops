@@ -103,7 +103,7 @@ export const ThemeSelection = ({
           </TabGroup>
         </div>
       </div>
-      <Button className="mt-4" color="orange" onClick={onApplyTheme}>
+      <Button className="mt-4" color="#233e43" onClick={onApplyTheme}>
         Apply theme
       </Button>
     </div>

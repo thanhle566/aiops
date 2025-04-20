@@ -25,7 +25,7 @@ export default function NotFound() {
         onClick={() => {
           router.back();
         }}
-        color="orange"
+        color="#233e43"
         variant="secondary"
       >
         Go back

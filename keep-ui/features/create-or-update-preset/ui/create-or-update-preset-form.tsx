@@ -236,7 +236,7 @@ export function CreateOrUpdatePresetForm({
         <Button
           size="lg"
           variant="secondary"
-          color="orange"
+          color="#233e43"
           onClick={handleCancel}
           tooltip="Close"
         >
@@ -244,7 +244,7 @@ export function CreateOrUpdatePresetForm({
         </Button>
         <Button
           size="lg"
-          color="orange"
+          color="#233e43"
           variant="primary"
           tooltip="Save Preset"
         >

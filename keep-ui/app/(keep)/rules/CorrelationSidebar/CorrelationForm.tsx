@@ -261,7 +261,7 @@ export const CorrelationForm = ({
           name="requireApprove"
           render={({ field: { value, onChange } }) => (
             <Switch
-              color="orange"
+              color="#233e43"
               id="requireManualApprove"
               onChange={onChange}
               checked={value}

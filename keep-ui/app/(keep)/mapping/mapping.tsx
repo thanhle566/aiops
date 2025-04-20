@@ -46,7 +46,7 @@ export default function Mapping() {
         </div>
         <div>
           <Button
-            color="orange"
+            color="#233e43"
             size="md"
             type="submit"
             onClick={() => setIsSidePanelOpen(true)}
@@ -87,7 +87,7 @@ export default function Mapping() {
               description="Create a new mapping rule using the mapping rules wizard"
             >
               <Button
-                color="orange"
+                color="#233e43"
                 size="md"
                 type="submit"
                 onClick={() => setIsSidePanelOpen(true)}

@@ -656,7 +656,7 @@ export const AlertsRulesBuilder = ({
           {showSave && (
             <Button
               icon={FiSave}
-              color="orange"
+              color="#233e43"
               variant="secondary"
               size="sm"
               disabled={!celRules.length}
@@ -670,7 +670,7 @@ export const AlertsRulesBuilder = ({
           )}
           {showSqlImport && (
             <Button
-              color="orange"
+              color="#233e43"
               variant="secondary"
               type="button"
               onClick={onImportSQL}
@@ -716,7 +716,7 @@ export const AlertsRulesBuilder = ({
           )}
           <div className="flex justify-end">
             <Button
-              color="orange"
+              color="#233e43"
               onClick={onImportSQLSubmit}
               disabled={!(sqlQuery.length > 0)}
             >
@@ -744,7 +744,7 @@ export const AlertsRulesBuilder = ({
           </div>
           <div className="inline-flex justify-end">
             <Button
-              color="orange"
+              color="#233e43"
               onClick={onGenerateQuery}
               disabled={!query.rules.length}
             >

@@ -292,7 +292,7 @@ export default function IncidentAlerts({ incident }: Props) {
       >
         <div className="flex gap-2">
           <Button
-            color="orange"
+            color="#233e43"
             variant="secondary"
             size="md"
             onClick={() => {
@@ -302,7 +302,7 @@ export default function IncidentAlerts({ incident }: Props) {
             Add Alerts Manually
           </Button>
           <Button
-            color="orange"
+            color="#233e43"
             variant="primary"
             size="md"
             onClick={() => {

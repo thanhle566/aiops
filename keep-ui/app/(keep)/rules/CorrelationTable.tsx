@@ -119,7 +119,7 @@ export const CorrelationTable = ({ rules }: CorrelationTableProps) => {
         cell: (context) => {
           const template = context.getValue();
           return template ? (
-            <Badge color="orange">{template}</Badge>
+            <Badge color="#233e43">{template}</Badge>
           ) : (
             <Badge color="gray">default</Badge>
           );
@@ -129,7 +129,7 @@ export const CorrelationTable = ({ rules }: CorrelationTableProps) => {
         header: "Incident Prefix",
         cell: (context) =>
           context.getValue() && (
-            <Badge color="orange">{context.getValue()}</Badge>
+            <Badge color="#233e43">{context.getValue()}</Badge>
           ),
       }),
       columnHelper.accessor("definition_cel", {
@@ -143,7 +143,7 @@ export const CorrelationTable = ({ rules }: CorrelationTableProps) => {
         cell: (context) =>
           context.getValue().map((group, index) => (
             <>
-              <Badge color="orange" key={group}>
+              <Badge color="#233e43" key={group}>
                 {group}
               </Badge>
               {context.getValue().length !== index + 1 && (
@@ -183,7 +183,7 @@ export const CorrelationTable = ({ rules }: CorrelationTableProps) => {
           </PageSubtitle>
         </div>
         <Button
-          color="orange"
+          color="#233e43"
           size="md"
           variant="primary"
           onClick={() => onCorrelationClick()}

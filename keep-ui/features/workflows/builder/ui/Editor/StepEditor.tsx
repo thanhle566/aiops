@@ -837,7 +837,7 @@ function ActionOrStepEditor({
             <div className="sticky flex justify-end bottom-0 px-4 py-2.5 bg-white border-t border-gray-200">
               <Button
                 variant="primary"
-                color="orange"
+                color="#233e43"
                 className="w-full disabled:opacity-70"
                 onClick={() => {
                   handleSubmit();
@@ -868,7 +868,7 @@ function ActionOrStepEditor({
             <div className="sticky flex justify-end bottom-0 px-4 py-2.5 bg-white border-t border-gray-200">
               <Button
                 variant="primary"
-                color="orange"
+                color="#233e43"
                 className="w-full disabled:opacity-70"
                 onClick={() => {
                   handleSubmit();

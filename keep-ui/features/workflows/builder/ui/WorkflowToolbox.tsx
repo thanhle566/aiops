@@ -94,7 +94,7 @@ const GroupedMenu = ({
         return (
           <>
             <Disclosure.Button className="w-full flex justify-between items-center p-2">
-              <Subtitle className="text-xs ml-2 text-gray-900 font-medium uppercase">
+              <Subtitle className="text-xs ml-2 font-medium uppercase">
                 {name}
               </Subtitle>
               <IoChevronUp

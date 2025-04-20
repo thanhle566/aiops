@@ -332,7 +332,7 @@ const CreateIncidentWithAIModal = ({
             <div className="space-y-6">
               <Callout
                 title="Help the AI out by adjusting the incident groupings"
-                color="orange"
+                color="#233e43"
               >
                 - Drag and drop alerts between incidents to adjust the incidents
                 and improve the AI&apos;s algorithm.
@@ -358,7 +358,7 @@ const CreateIncidentWithAIModal = ({
               ))}
               <Button
                 className="w-full"
-                color="orange"
+                color="#233e43"
                 onClick={handleCreateIncidents}
               >
                 Create Incidents
@@ -396,7 +396,7 @@ const CreateIncidentWithAIModal = ({
               {alerts.length > 50 ? (
                 <Callout
                   title="Alert Limit"
-                  color="orange"
+                  color="#233e43"
                   className="w-full mb-4"
                 >
                   You have selected {alerts.length} alerts. Keep currently
@@ -422,7 +422,7 @@ const CreateIncidentWithAIModal = ({
             <div className="flex-1" />
             <Button
               className="w-full"
-              color="orange"
+              color="#233e43"
               onClick={createIncidentWithAI}
             >
               Generate incident suggestions with AI

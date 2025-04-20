@@ -28,7 +28,7 @@ export const NoiseReductionLinks = ({ session }: NoiseReductionLinksProps) => {
       <Disclosure.Button className="w-full flex justify-between items-center px-2">
         {({ open }) => (
           <>
-            <Subtitle className="text-xs ml-2 text-gray-900 font-medium uppercase">
+            <Subtitle className="text-xs ml-2 font-medium uppercase">
               NOISE REDUCTION
             </Subtitle>
             <IoChevronUp

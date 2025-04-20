@@ -104,7 +104,7 @@ export default function ColumnSelection({
           </ul>
         </div>
       </div>
-      <Button className="mt-4" color="orange" type="submit">
+      <Button className="mt-4" color="#233e43" type="submit">
         Save changes
       </Button>
     </form>

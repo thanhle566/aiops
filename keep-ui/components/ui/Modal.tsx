@@ -29,7 +29,7 @@ export default function Modal({
               <Text className="text-sm text-gray-500">{beforeTitle}</Text>
             )}
             <Title>
-              {title} {beta && <Badge color="orange">Beta</Badge>}
+              {title} {beta && <Badge color="#233e43">Beta</Badge>}
             </Title>
           </div>
         )}

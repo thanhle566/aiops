@@ -251,7 +251,7 @@ export default function WorkflowsPage({
               icon={FunnelIcon}
             >
               <Button
-                color="orange"
+                color="#233e43"
                 variant="secondary"
                 onClick={() => setClearFiltersToken(uuidV4())}
               >
@@ -274,7 +274,7 @@ export default function WorkflowsPage({
               icon={MagnifyingGlassIcon}
             >
               <Button
-                color="orange"
+                color="#233e43"
                 variant="secondary"
                 onClick={() => setSearchedValue(null)}
               >
@@ -373,7 +373,7 @@ export default function WorkflowsPage({
             />
             <div className="flex gap-2">
               <Button
-                color="orange"
+                color="#233e43"
                 size="md"
                 variant="secondary"
                 onClick={() => {
@@ -385,7 +385,7 @@ export default function WorkflowsPage({
                 Upload Workflows
               </Button>
               <Button
-                color="orange"
+                color="#233e43"
                 size="md"
                 variant="primary"
                 onClick={() => router.push("/workflows/builder")}
@@ -476,7 +476,7 @@ export default function WorkflowsPage({
             />
             <Button
               className="mt-2"
-              color="orange"
+              color="#233e43"
               size="md"
               variant="primary"
               onClick={() => handleWorkflowDefinitionString(workflowDefinition)}
@@ -488,7 +488,7 @@ export default function WorkflowsPage({
             <h3>Or just try some from Keep examples:</h3>
             <Button
               className="mt-2"
-              color="orange"
+              color="#233e43"
               size="md"
               variant="secondary"
               icon={ArrowRightIcon}
@@ -499,7 +499,7 @@ export default function WorkflowsPage({
 
             <Button
               className="mt-2"
-              color="orange"
+              color="#233e43"
               size="md"
               variant="secondary"
               icon={ArrowRightIcon}
@@ -522,7 +522,7 @@ export default function WorkflowsPage({
           <div className="mt-4">
             <Button
               className="mt-2"
-              color="orange"
+              color="#233e43"
               variant="secondary"
               onClick={() => setIsModalOpen(false)}
             >

@@ -44,17 +44,17 @@ export const LinkWithIcon = ({
       );
 
   const iconClasses = clsx(
-    "group-hover:text-orange-400",
+    "group-hover:text-white",
     {
-      "text-orange-400": isActive,
-      "text-black": !isActive,
+      "text-white": isActive,
+      "!text-white": !isActive,
     },
     iconClassName
   );
 
   const textClasses = clsx("truncate", {
-    "text-orange-400": isActive,
-    "text-black": !isActive,
+    "text-white": isActive,
+    "!text-white": !isActive,
   });
 
   const handleMouseEnter = () => setIsHovered(true);
@@ -69,10 +69,10 @@ export const LinkWithIcon = ({
   return (
     <div
       className={clsx(
-        "flex items-center justify-between p-1 font-medium rounded-lg focus:ring focus:ring-orange-300 group w-full min-w-0",
+        "flex items-center justify-between p-1 font-medium rounded-lg focus:ring focus:ring-white-300 group w-full min-w-0",
         {
-          "bg-stone-200/50": isActive,
-          "hover:bg-stone-200/50": !isActive,
+          "bg-[#385257]": isActive,
+          "hover:bg-[#385257]": !isActive,
         },
         className
       )}
@@ -93,7 +93,7 @@ export const LinkWithIcon = ({
         {count !== undefined && count !== null && (
           <Badge
             size="xs"
-            color="orange"
+            color="white"
             data-testid={`${testId}-badge`}
             className="px-1 mr-1 min-w-5"
           >
@@ -101,7 +101,7 @@ export const LinkWithIcon = ({
           </Badge>
         )}
         {isBeta && (
-          <Badge color="orange" size="xs" className="ml-2">
+          <Badge color="white" size="xs" className="ml-2">
             Beta
           </Badge>
         )}

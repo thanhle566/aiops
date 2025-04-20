@@ -84,8 +84,8 @@ export const AlertPresetLink = ({
         className={clsx(
           "flex items-center space-x-2 p-1 text-slate-400 font-medium rounded-lg",
           {
-            "bg-stone-200/50": isActive,
-            "hover:text-orange-400 focus:ring focus:ring-orange-300 group hover:bg-stone-200/50":
+            "bg-[#385257]": isActive,
+            "hover:text-orange-400 focus:ring focus:ring-orange-300 group hover:bg-[#385257]":
               !isDragging,
           }
         )}

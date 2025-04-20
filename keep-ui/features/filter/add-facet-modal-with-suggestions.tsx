@@ -114,11 +114,11 @@ export const AddFacetModalWithSuggestions: React.FC<
           </div>
         </div>
         <div className="flex flex-1 justify-end gap-2">
-          <Button color="orange" size="xs" variant="secondary" onClick={close}>
+          <Button color="#233e43" size="xs" variant="secondary" onClick={close}>
             Cancel
           </Button>
           <Button
-            color="orange"
+            color="#233e43"
             size="xs"
             variant="primary"
             type="submit"

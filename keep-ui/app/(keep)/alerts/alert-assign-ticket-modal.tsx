@@ -226,12 +226,12 @@ const AlertAssignTicketModal = ({
               <Button
                 onClick={handleModalClose}
                 variant="secondary"
-                color="orange"
+                color="#233e43"
               >
                 Cancel
               </Button>
               <Button
-                color="orange"
+                color="#233e43"
                 variant="primary"
                 type="submit"
                 disabled={isSubmitting}
@@ -250,14 +250,14 @@ const AlertAssignTicketModal = ({
               onClick={() =>
                 window.open("/providers?labels=ticketing", "_blank")
               }
-              color="orange"
+              color="#233e43"
               className="mt-4 mr-4"
             >
               <Text>Connect Ticketing Provider</Text>
             </Button>
             <Button
               onClick={handleModalClose}
-              color="orange"
+              color="#233e43"
               variant="secondary"
               className="mt-4 border border-orange-500 text-orange-500"
             >

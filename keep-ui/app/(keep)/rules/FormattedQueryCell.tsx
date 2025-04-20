@@ -24,7 +24,7 @@ export const FormattedQueryCell = ({ query }: FormattedQueryCellProps) => {
                         <span className="space-x-2">
                           <b>{rule.field}</b>{" "}
                           <code className="font-mono">{rule.operator}</code>
-                          <Badge color="orange" className="px-1 min-w-6">
+                          <Badge color="#233e43" className="px-1 min-w-6">
                             {rule.value}
                           </Badge>
                         </span>
@@ -48,7 +48,7 @@ export const FormattedQueryCell = ({ query }: FormattedQueryCellProps) => {
                     <span className="space-x-2">
                       <b>{rule.field}</b>{" "}
                       <code className="font-mono">{rule.operator}</code>
-                      {rule.value && <Badge color="orange">{rule.value}</Badge>}
+                      {rule.value && <Badge color="#233e43">{rule.value}</Badge>}
                     </span>
                   ) : undefined}
                 </Fragment>

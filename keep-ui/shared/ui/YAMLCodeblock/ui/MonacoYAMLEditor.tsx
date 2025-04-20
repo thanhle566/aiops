@@ -451,7 +451,7 @@ const MonacoYAMLEditor = ({
         <div className="absolute right-2 top-2 z-10 flex gap-2">
           {!readOnly && (
             <Button
-              color="orange"
+              color="#233e43"
               size="sm"
               className="h-8 px-2 bg-white"
               onClick={handleSaveWorkflow}
@@ -463,7 +463,7 @@ const MonacoYAMLEditor = ({
             </Button>
           )}
           <Button
-            color="orange"
+            color="#233e43"
             size="sm"
             className="h-8 px-2 bg-white"
             onClick={copyToClipboard}
@@ -478,7 +478,7 @@ const MonacoYAMLEditor = ({
             )}
           </Button>
           <Button
-            color="orange"
+            color="#233e43"
             size="sm"
             className="h-8 px-2 bg-white"
             onClick={downloadYaml}

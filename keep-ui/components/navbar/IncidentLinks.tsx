@@ -38,7 +38,7 @@ export const IncidentsLinks = ({ session }: IncidentsLinksProps) => {
       <Disclosure.Button className="w-full flex justify-between items-center px-2">
         {({ open }) => (
           <>
-            <Subtitle className="text-xs ml-2 text-gray-900 font-medium uppercase">
+            <Subtitle className="text-xs ml-2 text-white font-medium uppercase">
               INCIDENTS
             </Subtitle>
             <IoChevronUp
@@ -51,11 +51,12 @@ export const IncidentsLinks = ({ session }: IncidentsLinksProps) => {
       <Disclosure.Panel as="ul" className="space-y-2 px-2 relative">
         <li className="relative">
           <LinkWithIcon
+            className="!text-white"
             href="/incidents"
             icon={MdFlashOn}
             count={incidents?.count}
           >
-            <Subtitle>Incidents</Subtitle>
+            <Subtitle className="!text-white">Incidents</Subtitle>
           </LinkWithIcon>
         </li>
       </Disclosure.Panel>

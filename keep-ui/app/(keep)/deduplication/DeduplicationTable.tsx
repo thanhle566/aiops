@@ -176,12 +176,12 @@ export const DeduplicationTable: React.FC<DeduplicationTableProps> = ({
                   Default
                 </Badge>
               ) : (
-                <Badge color="orange" size="xs" className="ml-2">
+                <Badge color="#233e43" size="xs" className="ml-2">
                   Custom
                 </Badge>
               )}
               {info.row.original.full_deduplication && (
-                <Badge color="orange" size="xs" className="ml-2">
+                <Badge color="#233e43" size="xs" className="ml-2">
                   Full Deduplication
                 </Badge>
               )}
@@ -251,7 +251,7 @@ export const DeduplicationTable: React.FC<DeduplicationTableProps> = ({
           if (!displayFields || displayFields.length === 0) {
             return (
               <div className="flex flex-wrap items-center gap-2 w-[200px]">
-                <Badge color="orange" size="md">
+                <Badge color="#233e43" size="md">
                   N/A
                 </Badge>
               </div>
@@ -263,7 +263,7 @@ export const DeduplicationTable: React.FC<DeduplicationTableProps> = ({
               {displayFields.map((field: string, index: number) => (
                 <React.Fragment key={field}>
                   {index > 0 && <PlusIcon className="w-4 h-4 text-gray-400" />}
-                  <Badge color="orange" size="md">
+                  <Badge color="#233e43" size="md">
                     {field}
                   </Badge>
                 </React.Fragment>
@@ -336,7 +336,7 @@ export const DeduplicationTable: React.FC<DeduplicationTableProps> = ({
           </PageSubtitle>
         </div>
         <Button
-          color="orange"
+          color="#233e43"
           onClick={() => {
             setSelectedDeduplicationRule(null);
             setIsSidebarOpen(true);

@@ -457,7 +457,7 @@ const ProviderForm = ({
           <>
             <Button
               type="button"
-              color="orange"
+              color="#233e43"
               variant="secondary"
               icon={ArrowTopRightOnSquareIcon}
               onClick={handleOauth}
@@ -686,7 +686,7 @@ const ProviderForm = ({
               icon={GlobeAltIcon}
               onClick={callInstallWebhook}
               variant="secondary"
-              color="orange"
+              color="#233e43"
               className="mt-2.5"
               disabled={!installOrUpdateWebhookEnabled || provider.provisioned}
               tooltip={
@@ -715,7 +715,7 @@ const ProviderForm = ({
           <div className="flex-grow flex gap-1">
             <Title>Connect to {provider.display_name}</Title>
             {provider.provisioned && (
-              <Badge color="orange" className="ml-2">
+              <Badge color="#233e43" className="ml-2">
                 Provisioned
               </Badge>
             )}
@@ -767,7 +767,7 @@ const ProviderForm = ({
             <Callout
               title=""
               icon={ExclamationTriangleIcon}
-              color="orange"
+              color="#233e43"
               className="w-full"
             >
               <Text>
@@ -794,13 +794,13 @@ const ProviderForm = ({
               <Icon
                 icon={ArrowLongLeftIcon}
                 size="xl"
-                color="orange"
+                color="#233e43"
                 className="py-0"
               />
               <Icon
                 icon={ArrowLongRightIcon}
                 size="xl"
-                color="orange"
+                color="#233e43"
                 className="py-0 pb-2.5"
               />
             </div>
@@ -859,7 +859,7 @@ const ProviderForm = ({
       <div className="flex justify-end p-5 border-t sticky bottom-0 bg-white">
         <Button
           variant="secondary"
-          color="orange"
+          color="#233e43"
           onClick={closeModal}
           className="mr-2.5"
           disabled={isLoading}
@@ -870,7 +870,7 @@ const ProviderForm = ({
           <>
             <Button
               onClick={deleteProvider}
-              color="orange"
+              color="#233e43"
               className="mr-2.5"
               disabled={provider.provisioned}
               variant="secondary"
@@ -881,7 +881,7 @@ const ProviderForm = ({
               <Button
                 loading={isLoading}
                 onClick={handleUpdateClick}
-                color="orange"
+                color="#233e43"
                 disabled={provider.provisioned}
                 variant="secondary"
               >
@@ -894,7 +894,7 @@ const ProviderForm = ({
           <Button
             loading={isLoading}
             onClick={handleConnectClick}
-            color="orange"
+            color="#233e43"
           >
             {isHealthCheck ? `Check health` : `Connect`}
           </Button>

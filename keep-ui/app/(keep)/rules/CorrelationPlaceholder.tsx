@@ -22,7 +22,7 @@ export const CorrelationPlaceholder = () => {
       >
         <Button
           className="mb-10"
-          color="orange"
+          color="#233e43"
           variant="primary"
           size="md"
           onClick={() => onCorrelationClick()}

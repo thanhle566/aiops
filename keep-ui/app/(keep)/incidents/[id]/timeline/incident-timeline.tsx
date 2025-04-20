@@ -255,7 +255,7 @@ const IncidentTimelineNoAlerts: React.FC = () => {
         description="No alerts found for this incident. Go to the alerts feed and assign alerts to view the timeline."
       >
         <Button
-          color="orange"
+          color="#233e43"
           variant="primary"
           size="md"
           onClick={() => router.push("/alerts/feed")}

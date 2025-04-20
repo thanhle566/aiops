@@ -83,7 +83,7 @@ export default function ExtractionExecutionDetailsPage(props: {
                 execution.enrichment_event.enriched_fields || {}
               ).map(([key, value]) => (
                 <div key={key}>
-                  <Badge color="orange" size="sm">
+                  <Badge color="#233e43" size="sm">
                     {key}
                   </Badge>
                   <div className="mt-1 text-sm">{JSON.stringify(value)}</div>

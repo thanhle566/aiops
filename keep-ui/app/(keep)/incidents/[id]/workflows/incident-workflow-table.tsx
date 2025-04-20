@@ -169,7 +169,7 @@ export default function IncidentWorkflowTable({ incident }: Props) {
         return triggered_by ? (
           <div className="flex items-center gap-2 flex-wrap">
             {details.map((detail, index) => (
-              <Badge key={index} className="px-3 py-1" color="orange">
+              <Badge key={index} className="px-3 py-1" color="#233e43">
                 {detail}
               </Badge>
             ))}
@@ -204,7 +204,7 @@ export default function IncidentWorkflowTable({ incident }: Props) {
             className="m-4"
             title="No Workflows"
             icon={ExclamationTriangleIcon}
-            color="orange"
+            color="#233e43"
           >
             No workflows have been executed for this incident yet.
           </Callout>

@@ -51,13 +51,13 @@ export function EditWorkflowMetadataForm({
         />
       </div>
       <div className="mt-auto pt-6 space-x-1 flex flex-row justify-end items-center">
-        <Button color="orange" size="xs" variant="secondary" onClick={onCancel}>
+        <Button color="#233e43" size="xs" variant="secondary" onClick={onCancel}>
           Cancel
         </Button>
         <Button
           disabled={!isSubmitEnabled}
           variant="primary"
-          color="orange"
+          color="#233e43"
           size="xs"
           type="submit"
         >

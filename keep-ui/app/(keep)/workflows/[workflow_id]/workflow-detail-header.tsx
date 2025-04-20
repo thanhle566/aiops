@@ -75,7 +75,7 @@ export default function WorkflowDetailHeader({
           {!!workflow && (
             <Button
               size="xs"
-              color="orange"
+              color="#233e43"
               disabled={isRunning || isRunButtonDisabled}
               className="p-2 px-4"
               onClick={(e: React.MouseEvent<HTMLButtonElement>) => {

@@ -333,7 +333,7 @@ export default function CreateOrEditMapping({ editRule, editCallback }: Props) {
                           }}
                         />
                         <Button
-                          color="orange"
+                          color="#233e43"
                           size="xs"
                           variant="secondary"
                           onClick={processCsvText}
@@ -397,7 +397,7 @@ export default function CreateOrEditMapping({ editRule, editCallback }: Props) {
                 mappingType !== "topology" && (
                   <Button
                     onClick={addAttributeGroup}
-                    color="orange"
+                    color="#233e43"
                     size="xs"
                     variant="secondary"
                     className="flex items-center"
@@ -435,7 +435,7 @@ export default function CreateOrEditMapping({ editRule, editCallback }: Props) {
                 (attribute) => !attributeGroups.flat().includes(attribute)
               )
               .map((attribute) => (
-                <Badge key={attribute} color="orange">
+                <Badge key={attribute} color="#233e43">
                   {attribute}
                 </Badge>
               ))
@@ -445,7 +445,7 @@ export default function CreateOrEditMapping({ editRule, editCallback }: Props) {
 
       <div className={"space-x-1 flex flex-row justify-end items-center"}>
         <Button
-          color="orange"
+          color="#233e43"
           size="xs"
           variant="secondary"
           onClick={exitEditOrCreateMode}
@@ -454,7 +454,7 @@ export default function CreateOrEditMapping({ editRule, editCallback }: Props) {
         </Button>
 
         <Button
-          color="orange"
+          color="#233e43"
           size="xs"
           type="submit"
           disabled={!mapName || !attributeGroups.flat().length}

@@ -280,7 +280,7 @@ export default function CreateOrUpdateExtractionRule({
             <Badge color="gray">...</Badge>
           ) : (
             extractedAttributes.map((attribute) => (
-              <Badge key={attribute} color="orange">
+              <Badge key={attribute} color="#233e43">
                 {attribute}
               </Badge>
             ))
@@ -289,7 +289,7 @@ export default function CreateOrUpdateExtractionRule({
       </div>
       <div className={"space-x-1 flex flex-row justify-end items-center"}>
         <Button
-          color="orange"
+          color="#233e43"
           size="xs"
           variant="secondary"
           onClick={exitEditOrCreateMode}
@@ -298,7 +298,7 @@ export default function CreateOrUpdateExtractionRule({
         </Button>
         <Button
           disabled={!submitEnabled()}
-          color="orange"
+          color="#233e43"
           size="xs"
           type="submit"
         >

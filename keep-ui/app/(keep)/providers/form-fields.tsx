@@ -337,7 +337,7 @@ export function FileField({
       <FieldLabel id={id} config={config} />
       <Button
         type="button"
-        color="orange"
+        color="#233e43"
         size="md"
         icon={ArrowDownOnSquareIcon}
         disabled={disabled}
@@ -395,7 +395,7 @@ export function KVForm({
           className="ml-2"
           icon={PlusIcon}
           variant="secondary"
-          color="orange"
+          color="#233e43"
           size="xs"
           onClick={handleAdd}
           disabled={disabled}
@@ -450,7 +450,7 @@ export const KVInput = ({
             type="button"
             icon={TrashIcon}
             variant="secondary"
-            color="orange"
+            color="#233e43"
             size="xs"
             onClick={() => removeEntry(index)}
           />

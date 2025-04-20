@@ -25,7 +25,7 @@ export default function NotFound() {
         onClick={() => {
           router.push("/incidents");
         }}
-        color="orange"
+        color="#233e43"
         variant="secondary"
       >
         Go all incidents

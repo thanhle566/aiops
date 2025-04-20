@@ -32,7 +32,7 @@ export default function RootLayout({
             <Card
               className="w-full max-w-md p-8 min-w-96 flex flex-col gap-6 items-center"
               decoration="top"
-              decorationColor="orange"
+              decorationcolor="#233e43"
             >
               {children}
             </Card>

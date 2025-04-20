@@ -72,7 +72,7 @@ export function ChangeSameIncidentInThePastForm({
           <div className="flex items-center justify-between w-full gap-6">
             <Button
               className="flex-1"
-              color="orange"
+              color="#233e43"
               onClick={() => router.push("/incidents")}
             >
               Incidents page
@@ -125,7 +125,7 @@ export function ChangeSameIncidentInThePastForm({
             </Button>
           )}
           <Button
-            color="orange"
+            color="#233e43"
             onClick={handleLinkIncident}
             disabled={selectedIncident === null}
           >

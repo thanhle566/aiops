@@ -1,0 +1,57 @@
+---
+title: "Grafana OnCall Provider"
+description: "Grafana Oncall Provider is a class that allows to ingest data to the Grafana OnCall."
+---
+
+## Inputs
+
+- **title** (required): The title of the alert
+- **message**: The alert description
+- **alert_uid**: Grouping ID which will be used on the OnCall side
+- **image_url**: Image URL
+- **state**: Either "alerting" or "resolved"
+- **link_to_upstream_details**: Link assigned to the alert
+
+## Outputs
+
+Grafana Oncall Provider does not currently support the `query` function.
+
+## Authentication Parameters
+
+The Grafana Oncall Provider uses API token authentication. You need to provide the following authentication parameters to connect to Grafana OnCall:
+
+- **token** (required): Your Grafana OnCall API Token.
+- **host** (required): The URL of your Grafana OnCall host (e.g., https://oncall-prod-us-central-0.grafana.net/oncall/ or http://localhost:8000/) please note that in the Grafana Сloud, oncall's API is under `../oncall/`
+
+## Connecting with the Provider
+
+To connect to Grafana OnCall, you need to create an API Token:
+
+1. Log in to your Grafana account.
+2. Go To "Alerts & IRM" -> OnCall.
+3. Go to the **Settings** page.
+4. Click the **Create** button and provide a name for your token.
+5. Copy the token value and keep it secure.
+6. Add the token value to the `authentication` section in the Grafana Oncall Provider configuration.
+
+## Notes
+
+- This provider allows you to interact with Grafana OnCall to create alerts.
+- Keep will create "Webhook" type integration called "Keep Integration" inside Grafana OnCall.
+
+Payload example:
+
+```json
+{
+    "alert_uid": "08d6891a-835c-e661-39fa-96b6a9e26552",
+    "title": "The whole system is down",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Grumpy_Cat_by_Gage_Skidmore.jpg",
+    "state": "alerting",
+    "link_to_upstream_details": "https://en.wikipedia.org/wiki/Downtime",
+    "message": "Smth happened. Oh no!"
+}
+```
+
+## Useful Links
+
+- [Grafana OnCall Inbound Webhook Integration](https://grafana.com/docs/oncall/latest/configure/integrations/references/webhook/)

@@ -1,0 +1,33 @@
+---
+title: "New Relic"
+sidebarTitle: "New Relic Provider"
+description: "New Relic Provider enables querying AI alerts and registering webhooks."
+---
+
+## Inputs
+
+- `account_id` (required): Account id of the new relic account.
+
+## Authentication Parameters
+- `account_id` (required): Account id of the new relic account.
+- `api_key` (required): New Relic User key. To receive webhooks, use `User key` of an admin account.
+- `api_url` (required): API url to query from NRQL either US or EU based.
+
+## Connecting with the Provider
+
+1. Go to https://one.newrelic.com/admin-portal/api-keys/home to create User Key.
+2. Get `api_key` and `account_id` from the key created.
+3. Based on region get `api_url` from here https://docs.newrelic.com/docs/apis/rest-api-v2/get-started/introduction-new-relic-rest-api-v2 .
+
+## Webhook Integration Modifications
+
+The webhook integration adds Keep as a destination within the "Alerts and AI" API within New Relic.
+This grants Keep access to the following scopes within New Relic:
+- `ai.destinations:read`
+- `ai.destinations:write`
+- `ai.channels:read`
+- `ai.channels:write`
+
+## Useful Links
+
+- https://docs.newrelic.com/docs/apis/rest-api-v2/get-started/introduction-new-relic-rest-api-v2

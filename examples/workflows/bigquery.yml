@@ -1,0 +1,20 @@
+workflow:
+  id: bq-sql-query
+  triggers:
+    - type: manual
+  description: Monitor that time difference is no more than 1 hour
+  steps:
+    - name: get-max-datetime
+      provider:
+        type: bigquery
+        config: "{{ providers.bigquery-prod }}"
+        with:
+          # Get max(datetime) from the random table
+          query: "SELECT MAX(created_date) as date FROM `bigquery-public-data.austin_311.311_service_requests` LIMIT 1"
+    - name: runbook-step1-bigquery-sql
+      provider:
+        type: bigquery
+        config: "{{ providers.bigquery }}"
+        with:
+          # Get max(datetime) from the random table
+          query: "SELECT * FROM `bigquery-public-data.austin_bikeshare.bikeshare_stations` LIMIT 10"

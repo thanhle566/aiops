@@ -1,0 +1,115 @@
+applications:
+- description: 'A sample application for monitoring and management'
+  id: 398e7b9a-bc0f-487a-b6d7-049a16e500e4
+  name: monitoring-app
+  repository: 'https://github.com/sample-org/monitoring-app'
+  services:
+  - 556041
+  - 556061
+dependencies:
+- depends_on_service_id: 556051
+  id: 6219
+  protocol: HTTP
+  service_id: 556041
+- depends_on_service_id: 556081
+  id: 6220
+  protocol: HTTPS
+  service_id: 556051
+- depends_on_service_id: 556041
+  id: 6221
+  protocol: GRPC
+  service_id: 556061
+- depends_on_service_id: 556071
+  id: 6222
+  protocol: TCP
+  service_id: 556061
+- depends_on_service_id: 556051
+  id: 6223
+  protocol: UDP
+  service_id: 556071
+services:
+- id: 556041
+  display_name: Auth Service
+  service: PAH3VXB
+  category: Backend
+  description: 'Handles user authentication and session management'
+  email: 'auth-team@example.com'
+  environment: production
+  ip_address: '192.168.1.10'
+  is_manual: false
+  mac_address: '00:1A:2B:3C:4D:5E'
+  manufacturer: 'Dell'
+  namespace: 'auth'
+  repository: 'https://github.com/sample-org/auth-service'
+  slack: '#auth-alerts'
+  source_provider_id: ebe062c4814f483cb2c5d556fbb9395c
+  tags: ['authentication', 'security']
+  team: 'Auth Team'
+- id: 556051
+  display_name: Log Aggregator
+  service: PFRKUOO
+  category: Monitoring
+  description: 'Main service responsible for collecting and aggregating logs'
+  email: 'logs-team@example.com'
+  environment: staging
+  ip_address: '192.168.1.11'
+  is_manual: false
+  mac_address: '00:1A:2B:3C:4D:5F'
+  manufacturer: 'HP'
+  namespace: 'logs'
+  repository: 'https://github.com/sample-org/log-aggregator'
+  slack: '#logs-alerts'
+  source_provider_id: ebe062c4814f483cb2c5d556fbb9395c
+  tags: ['monitoring', 'logging']
+  team: 'Logs Team'
+- id: 556061
+  display_name: Core API
+  service: PWKXGRK
+  category: API
+  description: 'Main business logic service for processing user data'
+  email: 'backend-team@example.com'
+  environment: production
+  ip_address: '192.168.1.12'
+  is_manual: false
+  mac_address: '00:1A:2B:3C:4D:60'
+  manufacturer: 'Cisco'
+  namespace: 'api'
+  repository: 'https://github.com/sample-org/core-api'
+  slack: '#backend-alerts'
+  source_provider_id: ebe062c4814f483cb2c5d556fbb9395c
+  tags: ['api', 'backend']
+  team: 'Backend Team'
+- id: 556071
+  display_name: Database Service
+  service: PFEIHAU
+  category: Storage
+  description: 'Handles database operations and caching'
+  email: 'db-team@example.com'
+  environment: production
+  ip_address: '192.168.1.13'
+  is_manual: false
+  mac_address: '00:1A:2B:3C:4D:61'
+  manufacturer: 'IBM'
+  namespace: 'db'
+  repository: 'https://github.com/sample-org/database-service'
+  slack: '#db-alerts'
+  source_provider_id: ebe062c4814f483cb2c5d556fbb9395c
+  tags: ['database', 'storage']
+  team: 'Database Team'
+- id: 556081
+  display_name: Service Mesh
+  service: PC8HHE7
+  category: Infrastructure
+  description: 'Handles networking and service discovery'
+  email: 'infra-team@example.com'
+  environment: production
+  ip_address: '192.168.1.14'
+  is_manual: false
+  mac_address: '00:1A:2B:3C:4D:62'
+  manufacturer: 'Juniper'
+  namespace: 'mesh'
+  repository: 'https://github.com/sample-org/service-mesh'
+  slack: '#infra-alerts'
+  source_provider_id: ebe062c4814f483cb2c5d556fbb9395c
+  tags: ['networking', 'mesh']
+  team: 'Infra Team'

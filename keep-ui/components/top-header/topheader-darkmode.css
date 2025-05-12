@@ -1,0 +1,23 @@
+/* Dark mode styles for top header */
+.dark .top-header {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+.dark .top-header-button {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.dark .top-header-icon {
+  color: #e0e0e0;
+}
+
+.dark .dropdown-button {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.dark .logo-container {
+  filter: brightness(0.9);
+} 

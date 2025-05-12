@@ -1,0 +1,64 @@
+:root {
+  --primary-color: #243E40;
+  --primary-color-light: #34595c;
+  --primary-color-dark: #1a2e2f;
+  --primary-color-50: #e8eded;
+  --primary-color-100: #c5d1d2;
+  --primary-color-200: #9eb2b3;
+  --primary-color-300: #779395;
+  --primary-color-400: #587a7c;
+  --primary-color-500: #243E40;
+  --primary-color-600: #20383a;
+  --primary-color-700: #1a2e2f;
+  --primary-color-800: #152526;
+  --primary-color-900: #0f1b1c;
+}
+
+/* Apply primary color to links */
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-color-dark);
+}
+
+/* Apply primary color to buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
+  color: white;
+}
+
+/* Apply primary color to selection */
+::selection {
+  background-color: var(--primary-color-200);
+}
+
+/* Apply primary color to active menu items */
+.active-menu-item {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Apply primary color to icons */
+.icon-primary {
+  color: var(--primary-color);
+}
+
+/* Apply primary color to selected/checked elements */
+.selected, .checked {
+  background-color: var(--primary-color-100);
+  border-color: var(--primary-color);
+}
+
+/* Apply primary color to progress bars */
+.progress-bar {
+  background-color: var(--primary-color);
+} 

@@ -1,0 +1,49 @@
+{
+    "version": "1.0.0",            // topology template schema version
+    "nodeTemplates": [             // reusable node types
+      {
+        "id": "default-server",
+        "icon": "fa-server",
+        "labels": ["{{host}}"]
+      },
+      {
+        "id": "default-db",
+        "icon": "fa-database",
+        "labels": ["{{database}}"]
+      }
+    ],
+    "nodes": [                     // actual nodes on the canvas
+      {
+        "id": "node-1",
+        "templateId": "default-server",
+        "position": { "x": 100, "y": 200 },
+        "properties": {
+          "host": "web01.example.com"
+        }
+      },
+      {
+        "id": "node-2",
+        "templateId": "default-db",
+        "position": { "x": 400, "y": 200 },
+        "properties": {
+          "database": "customers"
+        }
+      }
+    ],
+    "links": [                     // connections between nodes
+      {
+        "id": "link-1",
+        "source": "node-1",
+        "target": "node-2",
+        "properties": {
+          "throughput": "{{metric.value}}"
+        }
+      }
+    ],
+    "settings": {                  // panel‐level options
+      "layout": "force-directed",
+      "showLabels": true,
+      "linkColor": "#ccc"
+    }
+  }
+  

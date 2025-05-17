@@ -1,7 +1,7 @@
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.alert import AlertDto
-from keep.api.models.db.workflow import Workflow as WorkflowDB
-from keep.workflowmanager.workflowmanager import WorkflowManager
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.alert import AlertDto
+from techhala.api.models.db.workflow import Workflow as WorkflowDB
+from techhala.workflowmanager.workflowmanager import WorkflowManager
 
 
 def test_regex_service_filter(db_session):

@@ -16,18 +16,18 @@ from jwt.exceptions import (
     MissingRequiredClaimError,
 )
 
-from keep.api.core.db import create_user, update_user_last_sign_in, user_exists
-from keep.identitymanager.authenticatedentity import AuthenticatedEntity
-from keep.identitymanager.authverifierbase import AuthVerifierBase, oauth2_scheme
-from keep.identitymanager.rbac import Admin as AdminRole
-from keep.identitymanager.rbac import Noc as NOCRole
-from keep.identitymanager.rbac import get_role_by_role_name
+from techhala.api.core.db import create_user, update_user_last_sign_in, user_exists
+from techhala.identitymanager.authenticatedentity import AuthenticatedEntity
+from techhala.identitymanager.authverifierbase import AuthVerifierBase, oauth2_scheme
+from techhala.identitymanager.rbac import Admin as AdminRole
+from techhala.identitymanager.rbac import Noc as NOCRole
+from techhala.identitymanager.rbac import get_role_by_role_name
 
 logger = logging.getLogger(__name__)
 
 
 class AzureADGroupMapper:
-    """Maps Azure AD groups to Keep roles"""
+    """Maps Azure AD groups to techhala roles"""
 
     def __init__(self):
         # Get group IDs from environment variables
@@ -47,7 +47,7 @@ class AzureADGroupMapper:
 
     def get_role_from_groups(self, groups: List[str]) -> Optional[str]:
         """
-        Determine Keep role based on Azure AD group membership
+        Determine techhala role based on Azure AD group membership
         Returns highest privilege role if user is in multiple groups
         """
         user_roles = set()
@@ -149,7 +149,7 @@ class AzureadAuthVerifier(AuthVerifierBase):
             )
 
         self.group_mapper = AzureADGroupMapper()
-        # Keep track of hashed tokens so we won't update the user on the same token
+        # techhala track of hashed tokens so we won't update the user on the same token
         self.saw_tokens = set()
 
     def _verify_bearer_token(
@@ -270,7 +270,7 @@ class AzureadAuthVerifier(AuthVerifierBase):
             role_name = self.group_mapper.get_role_from_groups(groups)
             if not role_name:
                 self.logger.warning(
-                    f"User {email} is not a member of any authorized groups for Keep",
+                    f"User {email} is not a member of any authorized groups for techhala",
                     extra={
                         "tenant_id": tenant_id,
                         "groups": groups,
@@ -278,7 +278,7 @@ class AzureadAuthVerifier(AuthVerifierBase):
                 )
                 raise HTTPException(
                     status_code=403,
-                    detail="User not a member of any authorized groups for Keep",
+                    detail="User not a member of any authorized groups for techhala",
                 )
 
             # Validate role scopes

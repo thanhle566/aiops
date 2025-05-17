@@ -2,8 +2,8 @@ import json
 import os
 import unittest
 
-from keep.api.models.db.incident import IncidentSeverity, IncidentStatus
-from keep.providers.pagerduty_provider.pagerduty_provider import PagerdutyProvider
+from techhala.api.models.db.incident import IncidentSeverity, IncidentStatus
+from techhala.providers.pagerduty_provider.pagerduty_provider import PagerdutyProvider
 
 
 class TestPagerdutyProvider(unittest.TestCase):

@@ -5,7 +5,7 @@ import sys
 import requests
 from playwright.sync_api import Page, expect
 
-from keep.providers.providers_factory import ProvidersFactory
+from techhala.providers.providers_factory import ProvidersFactory
 
 KEEP_UI_URL = "http://localhost:3000"
 
@@ -128,7 +128,7 @@ def init_e2e_test(browser: Page, tenant_id: str = None, next_url="/", wait_time=
     page.on("requestfailed", log_request_failed)
 
     if not tenant_id:
-        tenant_id = "keep" + str(os.getpid())
+        tenant_id = "techhala" + str(os.getpid())
 
     url = f"{KEEP_UI_URL}{next_url}?tenantId={tenant_id}"
     print("Going to URL: ", url)
@@ -216,8 +216,8 @@ def get_token():
     pid = os.getpid()
     return json.dumps(
         {
-            "tenant_id": "keep" + str(pid),
-            "user_id": "keep-user-for-no-auth-purposes",
+            "tenant_id": "techhala" + str(pid),
+            "user_id": "techhala-user-for-no-auth-purposes",
         }
     )
 

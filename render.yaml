@@ -1,9 +1,9 @@
 services:
   - type: worker
-    name: keep-worker
+    name: techhala-worker
     env: python
     buildCommand: pip install .
-    startCommand: keep -v run --interval 300 --alert-url https://raw.githubusercontent.com/keephq/keep/main/examples/alerts/db_disk_space.yml
+    startCommand: techhala -v run --interval 300 --alert-url https://raw.githubusercontent.com/keephq/keep/main/examples/alerts/db_disk_space.yml
     autoDeploy: false
     envVars:
       - key: PYTHON_VERSION

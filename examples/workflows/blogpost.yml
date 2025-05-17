@@ -35,7 +35,7 @@ workflow:
         with:
           table_name: INCIDENT
           payload:
-            short_description: "{{ alert.name }} - {{ alert.description }} [created by Keep][fingerprint: {{alert.fingerprint}}]"
+            short_description: "{{ alert.name }} - {{ alert.description }} [created by techhala][fingerprint: {{alert.fingerprint}}]"
             description: "{{ alert.description }}"
           enrich_alert:
             - key: ticket_type

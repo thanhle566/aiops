@@ -20,17 +20,17 @@ from sqlmodel import Session, SQLModel, create_engine
 from starlette_context import context, request_cycle_context
 
 # This import is required to create the tables
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.core.elastic import ElasticClient
-from keep.api.models.db.alert import *
-from keep.api.models.db.provider import *
-from keep.api.models.db.rule import *
-from keep.api.models.db.tenant import *
-from keep.api.models.db.user import *
-from keep.api.models.db.workflow import *
-from keep.api.tasks.process_event_task import process_event
-from keep.api.utils.enrichment_helpers import convert_db_alerts_to_dto_alerts
-from keep.contextmanager.contextmanager import ContextManager
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.core.elastic import ElasticClient
+from techhala.api.models.db.alert import *
+from techhala.api.models.db.provider import *
+from techhala.api.models.db.rule import *
+from techhala.api.models.db.tenant import *
+from techhala.api.models.db.user import *
+from techhala.api.models.db.workflow import *
+from techhala.api.tasks.process_event_task import process_event
+from techhala.api.utils.enrichment_helpers import convert_db_alerts_to_dto_alerts
+from techhala.contextmanager.contextmanager import ContextManager
 
 original_request = requests.Session.request  # noqa
 load_dotenv(find_dotenv())
@@ -319,9 +319,9 @@ actions:
     session.add_all(workflow_data)
     session.commit()
 
-    with patch("keep.api.core.db.engine", mock_engine):
-        with patch("keep.api.core.db_utils.create_db_engine", return_value=mock_engine):
-            with patch("keep.api.core.alerts.engine", mock_engine):
+    with patch("techhala.api.core.db.engine", mock_engine):
+        with patch("techhala.api.core.db_utils.create_db_engine", return_value=mock_engine):
+            with patch("techhala.api.core.alerts.engine", mock_engine):
                 yield session
 
     import logging

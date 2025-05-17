@@ -4,10 +4,10 @@ from datetime import timedelta
 import pytest
 from freezegun import freeze_time
 
-from keep.api.models.alert import AlertStatus
-from keep.contextmanager.contextmanager import ContextManager
-from keep.providers.keep_provider.keep_provider import KeepProvider
-from keep.searchengine.searchengine import SearchEngine
+from techhala.api.models.alert import AlertStatus
+from techhala.contextmanager.contextmanager import ContextManager
+from techhala.providers.keep_provider.keep_provider import KeepProvider
+from techhala.searchengine.searchengine import SearchEngine
 
 steps_dict = {
     # this is the step that will be used to trigger the alert

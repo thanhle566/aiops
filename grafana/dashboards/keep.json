@@ -720,7 +720,7 @@
   "refresh": "5s",
   "schemaVersion": 38,
   "style": "dark",
-  "tags": ["keep"],
+  "tags": ["techhala"],
   "templating": {
     "list": []
   },
@@ -730,8 +730,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Keep Dashboard",
-  "uid": "keep",
+  "title": "techhala Dashboard",
+  "uid": "techhala",
   "version": 1,
   "weekStart": ""
 }

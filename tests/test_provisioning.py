@@ -130,10 +130,10 @@ def test_reprovision_workflow(monkeypatch, db_session, client, test_app):
     monkeypatch.setenv("KEEP_WORKFLOWS_DIRECTORY", "./tests/provision/workflows_2")
 
     # Reload the app to apply the new environment changes
-    importlib.reload(sys.modules["keep.api.api"])
+    importlib.reload(sys.modules["techhala.api.api"])
 
     # Reinitialize the TestClient with the new app instance
-    from keep.api.api import get_app
+    from techhala.api.api import get_app
 
     app = get_app()
 
@@ -142,7 +142,7 @@ def test_reprovision_workflow(monkeypatch, db_session, client, test_app):
         asyncio.run(event_handler())
 
     # manually trigger the provision resources
-    from keep.api.config import provision_resources
+    from techhala.api.config import provision_resources
 
     provision_resources()
 
@@ -204,10 +204,10 @@ def test_reprovision_provider(monkeypatch, db_session, client, test_app):
     )
 
     # Reload the app to apply the new environment changes
-    importlib.reload(sys.modules["keep.api.api"])
+    importlib.reload(sys.modules["techhala.api.api"])
 
     # Reinitialize the TestClient with the new app instance
-    from keep.api.api import get_app
+    from techhala.api.api import get_app
 
     app = get_app()
 
@@ -216,7 +216,7 @@ def test_reprovision_provider(monkeypatch, db_session, client, test_app):
         asyncio.run(event_handler())
 
     # manually trigger the provision resources
-    from keep.api.config import provision_resources
+    from techhala.api.config import provision_resources
 
     provision_resources()
 
@@ -292,10 +292,10 @@ def test_reprovision_dashboard(monkeypatch, db_session, client, test_app):
     )
 
     # Reload the app to apply the new environment changes
-    importlib.reload(sys.modules["keep.api.api"])
+    importlib.reload(sys.modules["techhala.api.api"])
 
     # Reinitialize the TestClient with the new app instance
-    from keep.api.api import get_app
+    from techhala.api.api import get_app
 
     app = get_app()
 
@@ -304,7 +304,7 @@ def test_reprovision_dashboard(monkeypatch, db_session, client, test_app):
         asyncio.run(event_handler())
 
     # manually trigger the provision resources
-    from keep.api.config import provision_resources
+    from techhala.api.config import provision_resources
 
     provision_resources()
 

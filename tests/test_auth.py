@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
 from tests.fixtures.client import client, setup_api_key, test_app  # noqa
 
 MOCK_TOKEN = "MOCKTOKEN"
@@ -99,7 +99,7 @@ def test_bearer_token(db_session, client, test_app):
     """Tests the bearer token authentication"""
     auth_type = os.getenv("AUTH_TYPE")
     # Test bearer tokens
-    from keep.api.core import dependencies
+    from techhala.api.core import dependencies
 
     # Patch the jwks client (otherwise it will be None)
     dependencies.jwks_client = MockJWKClient()

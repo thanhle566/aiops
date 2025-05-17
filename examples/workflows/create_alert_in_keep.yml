@@ -1,13 +1,13 @@
 workflow:
   id: create-alert
-  description: Just creating one more alert in Keep
+  description: Just creating one more alert in techhala
   triggers:
     - type: manual
 
   actions:
     - name: create-alert
       provider:
-        type: keep
+        type: techhala
         with:
           alert:
             name: "Alert created from the workflow"

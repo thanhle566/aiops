@@ -7,8 +7,8 @@ from unittest.mock import patch
 
 import pytest
 
-from keep.api.models.alert import AlertDto
-from keep.iohandler.iohandler import IOHandler
+from techhala.api.models.alert import AlertDto
+from techhala.iohandler.iohandler import IOHandler
 
 
 def test_vanilla(context_manager):
@@ -37,7 +37,7 @@ def test_with_function(context_manager):
     context_manager.providers_context = {
         "name": "s3",
     }
-    s = iohandler.render("hello keep.len({{ steps.some_list }})")
+    s = iohandler.render("hello techhala.len({{ steps.some_list }})")
     assert s == "hello 3"
 
 
@@ -46,11 +46,11 @@ def test_with_function_is_business_hours_args(context_manager):
     context_manager.steps_context = {
         "current_time": "2024-03-20T10:00:00+02:00",  # Example time in Asia/Jerusalem timezone
     }
-    template = "keep.is_business_hours('2024-03-20T10:00:00+02:00', 8, 20, (0, 1, 2, 3, 6), 'Asia/Jerusalem')"
+    template = "techhala.is_business_hours('2024-03-20T10:00:00+02:00', 8, 20, (0, 1, 2, 3, 6), 'Asia/Jerusalem')"
 
-    # Mock keep.utcnow to return the specific datetime
+    # Mock techhala.utcnow to return the specific datetime
     with patch(
-        "keep.functions.utcnow",
+        "techhala.functions.utcnow",
         return_value=datetime.datetime(
             2024, 3, 20, 8, 0, tzinfo=datetime.timezone(datetime.timedelta(hours=2))
         ),
@@ -67,7 +67,7 @@ def test_with_function_is_business_hours_kwargs(context_manager):
         "current_time": "2024-03-20T10:00:00+02:00",  # Example time in Asia/Jerusalem timezone
     }
     template = (
-        "Business hours check: keep.is_business_hours("
+        "Business hours check: techhala.is_business_hours("
         "timezone='Asia/Jerusalem', "
         "business_days=(0, 1, 2, 3, 6), "
         "time_to_check='{{ steps.current_time }}')"
@@ -87,7 +87,7 @@ def test_with_function_2(context_manager):
     context_manager.providers_context = {
         "name": "s3",
     }
-    s = iohandler.render("hello keep.first({{ steps.some_list }})")
+    s = iohandler.render("hello techhala.first({{ steps.some_list }})")
     assert s == "hello 1"
 
 
@@ -99,7 +99,7 @@ def test_with_json_dumps(context_manager):
     context_manager.providers_context = {
         "name": "s3",
     }
-    s = iohandler.render("hello keep.json_dumps({{ steps.some_list }})")
+    s = iohandler.render("hello techhala.json_dumps({{ steps.some_list }})")
     assert s == "hello [\n    1,\n    2,\n    3\n]"
 
 
@@ -111,7 +111,7 @@ def test_with_json_dumps_when_json_string(context_manager):
     context_manager.providers_context = {
         "name": "s3",
     }
-    s = iohandler.render("hello keep.json_dumps({{ steps.some_list }})")
+    s = iohandler.render("hello techhala.json_dumps({{ steps.some_list }})")
     assert s == "hello [\n    1,\n    2,\n    3\n]"
 
 
@@ -353,7 +353,7 @@ def test_alert_with_odd_number_of_parentheses(context_manager):
     context_manager.event_context = context_manager.alert
     iohandler = IOHandler(context_manager)
     s = iohandler.render(
-        "{{#alert.exceptions}}\n*{{ type }}*\n{{ value }}\n\n*Stack Trace*\n{code:json} keep.json_dumps({{{ stacktrace }}}) {code}\n{{/alert.exceptions}}\n{{^alert.exceptions}}\nNo stack trace available\n{{/alert.exceptions}}\n\n*Tags*\n{code:json} keep.json_dumps({{{ alert.tags }}}) {code}\n\nSee: {{ alert.url }}\n",
+        "{{#alert.exceptions}}\n*{{ type }}*\n{{ value }}\n\n*Stack Trace*\n{code:json} techhala.json_dumps({{{ stacktrace }}}) {code}\n{{/alert.exceptions}}\n{{^alert.exceptions}}\nNo stack trace available\n{{/alert.exceptions}}\n\n*Tags*\n{code:json} techhala.json_dumps({{{ alert.tags }}}) {code}\n\nSee: {{ alert.url }}\n",
     )
     assert "test, test2, test3, test4, test5" in s
     assert "aptures a message event and sends it to Sentry" in s
@@ -364,7 +364,7 @@ def test_functions(mocked_context_manager):
         "steps": {"some_list": [["Asd", 2, 3], [4, 5, 6], [7, 8, 9]]},
     }
     iohandler = IOHandler(mocked_context_manager)
-    s = iohandler.render("result is keep.first(keep.first({{ steps.some_list }}))")
+    s = iohandler.render("result is techhala.first(techhala.first({{ steps.some_list }}))")
     assert s == "result is Asd"
 
 
@@ -373,14 +373,14 @@ def test_render_with_json_dumps_function(mocked_context_manager):
         "steps": {"some_object": {"key": "value"}}
     }
     iohandler = IOHandler(mocked_context_manager)
-    template = "JSON: keep.json_dumps({{ steps.some_object }})"
+    template = "JSON: techhala.json_dumps({{ steps.some_object }})"
     rendered = iohandler.render(template)
     assert rendered == 'JSON: {\n    "key": "value"\n}'
 
 
 def test_render_uppercase(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "hello keep.uppercase('world')"
+    template = "hello techhala.uppercase('world')"
     result = iohandler.render(template)
     assert result == "hello WORLD"
 
@@ -393,7 +393,7 @@ def test_render_datetime_compare(context_manager):
         "one_hour_ago": one_hour_ago.isoformat(),
     }
     iohandler = IOHandler(context_manager)
-    template = "Difference in hours: keep.datetime_compare(keep.to_utc('{{ steps.now }}'), keep.to_utc('{{ steps.one_hour_ago }}'))"
+    template = "Difference in hours: techhala.datetime_compare(techhala.to_utc('{{ steps.now }}'), techhala.to_utc('{{ steps.one_hour_ago }}'))"
     result = iohandler.render(template)
     assert "Difference in hours: 1.0" in result
 
@@ -489,7 +489,7 @@ def test_db_disk_space_alert(mocked_context_manager):
     }
 
     iohandler = IOHandler(mocked_context_manager)
-    template = "Number of logs: keep.len({{ steps.check-error-rate.results.logs }})"
+    template = "Number of logs: techhala.len({{ steps.check-error-rate.results.logs }})"
     rendered = iohandler.render(template)
 
     assert rendered == "Number of logs: 2"
@@ -563,7 +563,7 @@ this is actually a bug but minor priority for now
 
 def test_malformed_template_with_incorrect_function_syntax(context_manager):
     iohandler = IOHandler(context_manager)
-    wrong_function_use = "Incorrect function call keep.lenֿ[wrong_syntax]"
+    wrong_function_use = "Incorrect function call techhala.lenֿ[wrong_syntax]"
 
     rendered = iohandler.render(wrong_function_use)
 
@@ -574,20 +574,20 @@ def test_malformed_template_with_incorrect_function_syntax(context_manager):
 def test_unrecognized_function_call(context_manager):
     iohandler = IOHandler(context_manager)
     template_with_unrecognized_function = (
-        "Calling an unrecognized function keep.nonexistent_function()"
+        "Calling an unrecognized function techhala.nonexistent_function()"
     )
 
     with pytest.raises(Exception) as excinfo:
         iohandler.render(template_with_unrecognized_function)
 
-    assert "module 'keep.functions' has no attribute" in str(
+    assert "module 'techhala.functions' has no attribute" in str(
         excinfo.value
     )  # This assertion depends on the specific error handling and messaging in your application
 
 
 def test_missing_closing_parenthesis(context_manager):
     iohandler = IOHandler(context_manager)
-    malformed_template = "keep.len({{ steps.some_list }"
+    malformed_template = "techhala.len({{ steps.some_list }"
     extracted_functions = iohandler.extract_keep_functions(malformed_template)
     assert (
         len(extracted_functions) == 0
@@ -597,7 +597,7 @@ def test_missing_closing_parenthesis(context_manager):
 def test_nested_malformed_function_calls(context_manager):
     iohandler = IOHandler(context_manager)
     malformed_template = (
-        "keep.first(keep.len({{ steps.some_list }, keep.lowercase('TEXT')"
+        "techhala.first(techhala.len({{ steps.some_list }, techhala.lowercase('TEXT')"
     )
     extracted_functions = iohandler.extract_keep_functions(malformed_template)
     assert (
@@ -607,7 +607,7 @@ def test_nested_malformed_function_calls(context_manager):
 
 def test_extra_closing_parenthesis(context_manager):
     iohandler = IOHandler(context_manager)
-    malformed_template = "keep.len({{ steps.some_list }}))"
+    malformed_template = "techhala.len({{ steps.some_list }}))"
     extracted_functions = iohandler.extract_keep_functions(malformed_template)
     # Assuming the method can ignore the extra closing parenthesis and still extract the function correctly
     assert (
@@ -617,7 +617,7 @@ def test_extra_closing_parenthesis(context_manager):
 
 def test_incorrect_function_name(context_manager):
     iohandler = IOHandler(context_manager)
-    malformed_template = "keep.lenght({{ steps.some_list }})"
+    malformed_template = "techhala.lenght({{ steps.some_list }})"
     extracted_functions = iohandler.extract_keep_functions(malformed_template)
     # Assuming the method extracts the function call regardless of the function name being valid
     assert (
@@ -627,16 +627,16 @@ def test_incorrect_function_name(context_manager):
 
 def test_keep_in_string_not_as_function_call(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "Here is a sentence with keep. not as a function call: 'Let's keep. moving forward.'"
+    template = "Here is a sentence with techhala. not as a function call: 'Let's techhala. moving forward.'"
     extracted_functions = iohandler.extract_keep_functions(template)
     assert (
         len(extracted_functions) == 0
-    ), "Expected no functions to be extracted when 'keep.' is part of a string."
+    ), "Expected no functions to be extracted when 'techhala.' is part of a string."
 
 
 def test_no_function_calls(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "This is a sentence with keep. but no function calls."
+    template = "This is a sentence with techhala. but no function calls."
     # Assuming extract_keep_functions is a method of setup object
     functions = iohandler.extract_keep_functions(template)
     assert len(functions) == 0, "Should find no functions"
@@ -644,28 +644,28 @@ def test_no_function_calls(context_manager):
 
 def test_malformed_function_calls(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "Here is a malformed function call keep.(without closing parenthesis."
+    template = "Here is a malformed function call techhala.(without closing parenthesis."
     functions = iohandler.extract_keep_functions(template)
     assert len(functions) == 0, "Should handle malformed function calls gracefully."
 
 
 def test_mixed_content(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "Mix of valid keep.doSomething() and text keep. not as a call."
+    template = "Mix of valid techhala.doSomething() and text techhala. not as a call."
     functions = iohandler.extract_keep_functions(template)
     assert len(functions) == 1, "Should only extract valid function calls."
 
 
 def test_nested_functions(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "Nested functions keep.nest(keep.inner()) should be handled."
+    template = "Nested functions techhala.nest(techhala.inner()) should be handled."
     functions = iohandler.extract_keep_functions(template)
     assert len(functions) == 1, "Should handle nested functions without getting stuck."
 
 
 def test_endless_loop_potential(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "keep.() empty function call followed by text keep. not as a call."
+    template = "techhala.() empty function call followed by text techhala. not as a call."
     functions = iohandler.extract_keep_functions(template)
     assert (
         len(functions) == 1
@@ -675,7 +675,7 @@ def test_endless_loop_potential(context_manager):
 def test_edge_case_with_escaped_quotes(context_manager):
     iohandler = IOHandler(context_manager)
     template = (
-        r"Edge case keep.function('argument with an escaped quote\\') and more text."
+        r"Edge case techhala.function('argument with an escaped quote\\') and more text."
     )
     functions = iohandler.extract_keep_functions(template)
     assert (
@@ -685,14 +685,14 @@ def test_edge_case_with_escaped_quotes(context_manager):
 
 def test_consecutive_function_calls(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "Consecutive keep.first() and keep.second() calls."
+    template = "Consecutive techhala.first() and techhala.second() calls."
     functions = iohandler.extract_keep_functions(template)
     assert len(functions) == 2, "Should correctly handle consecutive function calls."
 
 
 def test_function_call_at_end(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "Function call at the very end keep.end()"
+    template = "Function call at the very end techhala.end()"
     functions = iohandler.extract_keep_functions(template)
     assert (
         len(functions) == 1
@@ -701,7 +701,7 @@ def test_function_call_at_end(context_manager):
 
 def test_complex_mixture(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "Mix keep.start() some text keep.in('middle') and malformed keep. and valid keep.end()."
+    template = "Mix techhala.start() some text techhala.in('middle') and malformed techhala. and valid techhala.end()."
     functions = iohandler.extract_keep_functions(template)
     assert (
         len(functions) == 3
@@ -710,7 +710,7 @@ def test_complex_mixture(context_manager):
 
 def test_escaped_quotes_inside_function_arguments(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "keep.split('some,string,with,escaped\\\\'quotes', ',')"
+    template = "techhala.split('some,string,with,escaped\\\\'quotes', ',')"
     extracted_functions = iohandler.extract_keep_functions(template)
     # Assuming the method can handle escaped quotes within function arguments
     assert (
@@ -722,7 +722,7 @@ def test_double_function_call(context_manager):
     iohandler = IOHandler(context_manager)
     template = """{ vars.alert_tier }} Alert: Pipelines are down
       Hi,
-      This {{ vars.alert_tier }} alert is triggered keep.get_firing_time('{{ alert }}', 'minutes') because the pipelines for {{ alert.host }} are down for more than keep.get_firing_time('{{ alert }}', 'minutes') minutes.
+      This {{ vars.alert_tier }} alert is triggered techhala.get_firing_time('{{ alert }}', 'minutes') because the pipelines for {{ alert.host }} are down for more than techhala.get_firing_time('{{ alert }}', 'minutes') minutes.
       Please visit monitoring.keeohq.dev for more!"""
     extracted_functions = iohandler.extract_keep_functions(template)
     assert (
@@ -756,7 +756,7 @@ def test_if_else_in_template_not_existing(mocked_context_manager):
 
 def test_escaped_quotes_with_with_space(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "keep.split('some string with 'quotes and with space' after', ',')"
+    template = "techhala.split('some string with 'quotes and with space' after', ',')"
     extracted_functions = iohandler.extract_keep_functions(template)
     # Assuming the method can handle escaped quotes within function arguments
     assert (
@@ -766,7 +766,7 @@ def test_escaped_quotes_with_with_space(context_manager):
 
 def test_escaped_quotes_with_with_newlines(context_manager):
     iohandler = IOHandler(context_manager)
-    template = "keep.split('some string with 'quotes and with space' \r\n after', ',')"
+    template = "techhala.split('some string with 'quotes and with space' \r\n after', ',')"
     extracted_functions = iohandler.extract_keep_functions(template)
     # Assuming the method can handle escaped quotes within function arguments
     assert (
@@ -787,7 +787,7 @@ def test_add_time_to_date_function(context_manager):
     context_manager.event_context = context_manager.alert
     iohandler = IOHandler(context_manager)
     s = iohandler.render(
-        'keep.add_time_to_date("{{ alert.date }}", "%Y-%m-%dT%H:%M:%S.%f%z", "1w 2d 3h 30m")'
+        'techhala.add_time_to_date("{{ alert.date }}", "%Y-%m-%dT%H:%M:%S.%f%z", "1w 2d 3h 30m")'
     )
     expected_date = datetime.datetime(
         2024, 8, 25, 17, 51, tzinfo=datetime.timezone(datetime.timedelta(hours=-5))
@@ -796,7 +796,7 @@ def test_add_time_to_date_function(context_manager):
 
     # one day
     s = iohandler.render(
-        'keep.add_time_to_date("{{ alert.date }}", "%Y-%m-%dT%H:%M:%S.%f%z", "1d")'
+        'techhala.add_time_to_date("{{ alert.date }}", "%Y-%m-%dT%H:%M:%S.%f%z", "1d")'
     )
     expected_date = datetime.datetime(
         2024, 8, 17, 14, 21, tzinfo=datetime.timezone(datetime.timedelta(hours=-5))
@@ -805,7 +805,7 @@ def test_add_time_to_date_function(context_manager):
 
 
 # def test_openobserve_rows_bug(db_session, context_manager):
-#     template = "keep.get_firing_time('{{ alert }}', 'minutes') >= 30 and keep.get_firing_time('{{ alert }}', 'minutes') < 90"
+#     template = "techhala.get_firing_time('{{ alert }}', 'minutes') >= 30 and techhala.get_firing_time('{{ alert }}', 'minutes') < 90"
 #     # from 1 hour ago
 #     lastReceived = datetime.datetime.utcnow() - datetime.timedelta(hours=1)
 #     alert = AlertDto(
@@ -896,7 +896,7 @@ def test_recursive_rendering_with_functions(context_manager):
     iohandler = IOHandler(context_manager)
     context_manager.steps_context = {
         "name": "world",
-        "greeting": "Hello keep.uppercase({{ steps.name }})",
+        "greeting": "Hello techhala.uppercase({{ steps.name }})",
     }
     template = "{{ steps.greeting }}!"
     result = iohandler.render(template)

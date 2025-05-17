@@ -6,12 +6,12 @@ from datetime import datetime, timedelta
 import pytest
 import pytz
 
-from keep.api.core.db import get_last_workflow_execution_by_workflow_id
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.alert import AlertDto, AlertStatus
-from keep.api.models.db.workflow import Workflow
-from keep.api.models.incident import IncidentDto
-from keep.workflowmanager.workflowmanager import WorkflowManager
+from techhala.api.core.db import get_last_workflow_execution_by_workflow_id
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.alert import AlertDto, AlertStatus
+from techhala.api.models.db.workflow import Workflow
+from techhala.api.models.incident import IncidentDto
+from techhala.workflowmanager.workflowmanager import WorkflowManager
 from tests.fixtures.client import client, test_app  # noqa
 
 # This workflow definition is used to test the execution of workflows based on alert firing times.
@@ -28,7 +28,7 @@ triggers:
     value: "server-is-down"
 actions:
 - name: send-slack-message-tier-1
-  if: "keep.get_firing_time('{{ alert }}', 'minutes') > 15  and keep.get_firing_time('{{ alert }}', 'minutes') < 30"
+  if: "techhala.get_firing_time('{{ alert }}', 'minutes') > 15  and techhala.get_firing_time('{{ alert }}', 'minutes') < 30"
   provider:
     type: console
     with:
@@ -36,7 +36,7 @@ actions:
         "Tier 1 Alert: {{ alert.name }} - {{ alert.description }}
         Alert details: {{ alert }}"
 - name: send-slack-message-tier-2
-  if: "keep.get_firing_time('{{ alert }}', 'minutes') > 30"
+  if: "techhala.get_firing_time('{{ alert }}', 'minutes') > 30"
   provider:
     type: console
     with:
@@ -80,7 +80,7 @@ def workflow_manager():
     """
     manager = None
     try:
-        from keep.workflowmanager.workflowscheduler import WorkflowScheduler
+        from techhala.workflowmanager.workflowscheduler import WorkflowScheduler
 
         scheduler = WorkflowScheduler(None)
         manager = WorkflowManager.get_instance()
@@ -305,7 +305,7 @@ triggers:
         value: "server-is-down"
 actions:
   - name: send-slack-message
-    if: "keep.is_first_time('{{ alert.fingerprint }}', '24h')"
+    if: "techhala.is_first_time('{{ alert.fingerprint }}', '24h')"
     provider:
       type: console
       with:
@@ -488,7 +488,7 @@ triggers:
     value: "server-is-down"
 actions:
 - name: send-slack-message-tier-0
-  if: keep.get_firing_time('{{ alert }}', 'minutes') > 0 and keep.get_firing_time('{{ alert }}', 'minutes') < 10
+  if: techhala.get_firing_time('{{ alert }}', 'minutes') > 0 and techhala.get_firing_time('{{ alert }}', 'minutes') < 10
   provider:
     type: console
     with:
@@ -496,7 +496,7 @@ actions:
         "Tier 0 Alert: {{ alert.name }} - {{ alert.description }}
         Alert details: {{ alert }}"
 - name: send-slack-message-tier-1
-  if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 10 and keep.get_firing_time('{{ alert }}', 'minutes') < 30"
+  if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 10 and techhala.get_firing_time('{{ alert }}', 'minutes') < 30"
   provider:
     type: console
     with:
@@ -617,7 +617,7 @@ triggers:
     value: "server-is-down"
 actions:
 - name: send-slack-message-tier-0
-  if: keep.get_firing_time('{{ alert }}', 'minutes') > 0 and keep.get_firing_time('{{ alert }}', 'minutes') < 10
+  if: techhala.get_firing_time('{{ alert }}', 'minutes') > 0 and techhala.get_firing_time('{{ alert }}', 'minutes') < 10
   provider:
     type: console
     with:
@@ -625,7 +625,7 @@ actions:
         "Tier 0 Alert: {{ alert.name }} - {{ alert.description }}
         Alert details: {{ alert }}"
 - name: send-slack-message-tier-1
-  if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 10 and keep.get_firing_time('{{ alert }}', 'minutes') < 30"
+  if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 10 and techhala.get_firing_time('{{ alert }}', 'minutes') < 30"
   provider:
     type: console
     with:
@@ -956,7 +956,7 @@ workflow_definition_routing = """workflow:
     - type: alert
   actions:
     - name: business-hours-check
-      if: "keep.is_business_hours(timezone='America/New_York')"
+      if: "techhala.is_business_hours(timezone='America/New_York')"
       # stop the workflow if it's business hours
       continue: false
       provider:
@@ -1138,9 +1138,9 @@ def test_alert_routing_policy(
 
     # Mock business hours check if needed
     if alert_data.get("during_business_hours"):
-        mocker.patch("keep.functions.is_business_hours", return_value=True)
+        mocker.patch("techhala.functions.is_business_hours", return_value=True)
     else:
-        mocker.patch("keep.functions.is_business_hours", return_value=False)
+        mocker.patch("techhala.functions.is_business_hours", return_value=False)
 
     # Create the current alert
     current_alert = AlertDto(

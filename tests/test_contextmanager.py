@@ -7,9 +7,9 @@ import tempfile
 
 import pytest
 
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.db.workflow import WorkflowExecution
-from keep.contextmanager.contextmanager import ContextManager
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.db.workflow import WorkflowExecution
+from techhala.contextmanager.contextmanager import ContextManager
 
 STATE_FILE_MOCK_DATA = {
     "new-github-stars": [

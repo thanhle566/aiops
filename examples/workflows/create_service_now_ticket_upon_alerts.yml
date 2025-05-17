@@ -17,7 +17,7 @@ workflow:
         with:
           table_name: "{{ alert.annotations.ticket_type }}"
           payload:
-            short_description: "{{ alert.name }} - {{ alert.description }} [created by Keep][fingerprint: {{alert.fingerprint}}]"
+            short_description: "{{ alert.name }} - {{ alert.description }} [created by techhala][fingerprint: {{alert.fingerprint}}]"
             description: "{{ alert.description }}"
           # enrich the alert with the ticket number and other details returned from servicenow
           enrich_alert:

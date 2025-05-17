@@ -17,7 +17,7 @@ workflow:
         with:
           # Checkout https://docs.keephq.dev/providers/documentation/grafana_incident-provider for other available fields
           operationType: create
-          title: Creating new incident from Keep
+          title: Creating new incident from techhala
           severity: critical
           status: active
           attachURL: https://keephq.dev

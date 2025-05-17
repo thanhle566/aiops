@@ -1,5 +1,5 @@
 id: update-workflows-from-s3
-description: Dump workflows from S3 and update them in Keep
+description: Dump workflows from S3 and update them in techhala
 triggers:
   - type: manual
 
@@ -9,19 +9,19 @@ steps:
       config: "{{ providers.s3 }}"
       type: s3
       with:
-        bucket: "keep-workflows"
+        bucket: "techhala-workflows"
 
 actions:
   # optional: delete all other workflows before updating for full sync
   # - name: delete-all-other-workflows
   #   provider:
-  #     type: keep
+  #     type: techhala
   #     with:
   #       delete_all_other_workflows: true
 
   - name: update
     foreach: "{{ steps.s3-dump.results }}"
     provider:
-      type: keep
+      type: techhala
       with:
         workflow_to_update_yaml: "raw_render_without_execution({{ foreach.value }})"

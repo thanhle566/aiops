@@ -1,9 +1,9 @@
 id: aad72d69-92b9-4e21-8f67-97d2a69bf8ac
-description: Create ILert incident upon Keep Alert
+description: Create ILert incident upon techhala Alert
 triggers:
 - filters:
   - key: source
-    value: keep
+    value: techhala
   type: alert
 owners: []
 services: []
@@ -18,6 +18,6 @@ actions:
       - impact: OPERATIONAL
         service:
           id: 339743
-      message: A mock incident created with Keep!
+      message: A mock incident created with techhala!
       status: INVESTIGATING
-      summary: Keep Incident {{ alert.name }}
+      summary: techhala Incident {{ alert.name }}

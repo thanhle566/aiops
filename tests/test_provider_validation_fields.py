@@ -1,7 +1,7 @@
 import pytest
 from pydantic import BaseModel, ValidationError
 
-from keep.validation.fields import (
+from techhala.validation.fields import (
     HttpsUrl,
     MultiHostUrl,
     NoSchemeMultiHostUrl,

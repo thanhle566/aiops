@@ -1,4 +1,4 @@
-# This file contains the end-to-end tests for Keep.
+# This file contains the end-to-end tests for techhala.
 
 # There are two mode of operations:
 # 1. Running the tests locally
@@ -204,7 +204,7 @@ def test_provider_validation(browser: Page, setup_page_logging, failure_artifact
         expect(error_msg).to_have_count(1)
         host_input.fill("http://localhost")
         expect(error_msg).to_be_hidden()
-        host_input.fill("https://keep.kb.us-central1.gcp.cloud.es.io")
+        host_input.fill("https://techhala.kb.us-central1.gcp.cloud.es.io")
         expect(error_msg).to_be_hidden()
         # test `port` field validation
         port_input = browser.get_by_placeholder("Enter kibana_port")
@@ -418,7 +418,7 @@ def test_provider_deletion(browser: Page):
         install_webhook_provider(
             browser=browser,
             provider_name=provider_name,
-            webhook_url="http://keep-backend:8080",
+            webhook_url="http://techhala-backend:8080",
             webhook_action="GET",
         )
         browser.wait_for_timeout(500)
@@ -442,7 +442,7 @@ def test_provider_deletion(browser: Page):
         install_webhook_provider(
             browser=browser,
             provider_name=provider_name,
-            webhook_url="http://keep-backend:8080",
+            webhook_url="http://techhala-backend:8080",
             webhook_action="GET",
         )
         browser.wait_for_timeout(500)

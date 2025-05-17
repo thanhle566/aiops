@@ -6,12 +6,12 @@ import pytest
 import pytz
 from freezegun import freeze_time
 
-import keep.functions as functions
-from keep.api.bl.enrichments_bl import EnrichmentsBl
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.action_type import ActionType
-from keep.api.models.alert import AlertStatus
-from keep.iohandler.iohandler import IOHandler
+import techhala.functions as functions
+from techhala.api.bl.enrichments_bl import EnrichmentsBl
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.action_type import ActionType
+from techhala.api.models.alert import AlertStatus
+from techhala.iohandler.iohandler import IOHandler
 
 
 @pytest.mark.parametrize(
@@ -765,7 +765,7 @@ def test_render_without_execution(mocked_context_manager):
     Test rendering a template without executing it's internal keep functions.
     """
     template = "My yaml is: {{ yaml }}!"
-    context = {"yaml": "keep.is_business_hours(2024-03-25T14:00:00Z)"}
+    context = {"yaml": "techhala.is_business_hours(2024-03-25T14:00:00Z)"}
     mocked_context_manager.get_full_context.return_value = context
     iohandler = IOHandler(mocked_context_manager)
     with pytest.raises(Exception):
@@ -779,7 +779,7 @@ def test_render_without_execution(mocked_context_manager):
         template,
         safe=True,
     )
-    assert rendered == "My yaml is: keep.is_business_hours(2024-03-25T14:00:00Z)!"
+    assert rendered == "My yaml is: techhala.is_business_hours(2024-03-25T14:00:00Z)!"
 
 
 def test_dictget_basic():

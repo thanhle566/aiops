@@ -5,7 +5,7 @@ workflow:
     - type: alert
   actions:
     - name: business-hours-check
-      if: "keep.is_business_hours(timezone='America/New_York')"
+      if: "techhala.is_business_hours(timezone='America/New_York')"
       # stop the workflow if it's business hours
       continue: false
       provider:

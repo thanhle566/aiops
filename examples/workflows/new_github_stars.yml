@@ -1,5 +1,5 @@
 id: new-github-stars
-description: Notify Slack about new GitHub star for keephq/keep
+description: Notify Slack about new GitHub star for keephq/techhala
 triggers:
   - type: manual
   - type: interval
@@ -16,7 +16,7 @@ steps:
         last_stargazer:
           default: ""
           key: "{{ last_workflow_results.get-github-stars.0.last_stargazer }}"
-        repository: keephq/keep
+        repository: keephq/techhala
 actions:
   - condition:
       - assert: "{{ steps.get-github-stars.results.new_stargazers_count }} > 0"
@@ -30,7 +30,7 @@ actions:
         blocks:
           - text:
               emoji: true
-              text: There are new keep.len({{ steps.get-github-stars.results.new_stargazers}}) stargazers for keephq/keep
+              text: There are new techhala.len({{ steps.get-github-stars.results.new_stargazers}}) stargazers for keephq/techhala
               type: plain_text
             type: section
           - text:

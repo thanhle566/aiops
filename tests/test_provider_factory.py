@@ -1,7 +1,7 @@
 import inspect
 from typing import Optional, Union
 
-from keep.providers.providers_factory import ProvidersFactory
+from techhala.providers.providers_factory import ProvidersFactory
 
 
 class TestProviderFactoryMethodParam:

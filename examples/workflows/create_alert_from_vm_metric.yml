@@ -27,7 +27,7 @@ workflow:
   actions:
     - name: create-alert
       provider:
-        type: keep
+        type: techhala
         with:
           # Create alert if CPU usage exceeds threshold
           if: "{{ value.1 }} > 0.0040"

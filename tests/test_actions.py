@@ -3,11 +3,11 @@ import time
 from uuid import uuid4
 from typing import List
 
-from keep.api.models.db.action import Action
-from keep.api.core.db import create_action
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.actions.actions_factory import ActionsCRUD
-from keep.actions.actions_exception import ActionsCRUDException
+from techhala.api.models.db.action import Action
+from techhala.api.core.db import create_action
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.actions.actions_factory import ActionsCRUD
+from techhala.actions.actions_exception import ActionsCRUDException
 
 NUMBER_OF_SEEDS = 10
 

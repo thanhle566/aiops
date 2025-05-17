@@ -13,4 +13,4 @@ workflow:
         type: console
         with:
           logger: true
-          message: keep.dictget( '{{ consts.severities }}', '{{ alert.severity }}', 'info')
+          message: techhala.dictget( '{{ consts.severities }}', '{{ alert.severity }}', 'info')

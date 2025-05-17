@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "keep"
+name = "techhala"
 version = "0.39.4"
 description = "Alerting. for developers, by developers."
 authors = ["Keep Alerting LTD"]
-packages = [{include = "keep"}]
+packages = [{include = "techhala"}]
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.12"

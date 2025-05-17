@@ -1,21 +1,21 @@
 services:
-  keep-frontend:
+  techhala-frontend:
     extends:
       file: docker-compose.common.yml
-      service: keep-frontend-common
+      service: techhala-frontend-common
     image: us-central1-docker.pkg.dev/keephq/keep/keep-ui
     environment:
       - AUTH_TYPE=NO_AUTH
-      - API_URL=http://keep-backend:8080
+      - API_URL=http://techhala-backend:8080
     volumes:
       - ./state:/state
     depends_on:
-      - keep-backend
+      - techhala-backend
 
-  keep-backend:
-    extends:
+  techhala-backend:
+
       file: docker-compose.common.yml
-      service: keep-backend-common
+      service: techhala-backend-common
     image: us-central1-docker.pkg.dev/keephq/keep/keep-api
     environment:
       - AUTH_TYPE=NO_AUTH
@@ -24,10 +24,10 @@ services:
     volumes:
       - ./state:/state
 
-  keep-websocket-server:
+  techhala-websocket-server:
     extends:
       file: docker-compose.common.yml
-      service: keep-websocket-server-common
+      service: techhala-websocket-server-common
 
   grafana:
     image: grafana/grafana:latest
@@ -57,4 +57,4 @@ services:
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
     depends_on:
-      - keep-backend
+      - techhala-backend

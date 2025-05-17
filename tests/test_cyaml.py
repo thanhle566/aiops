@@ -1,5 +1,5 @@
 from io import StringIO
-from keep.functions import cyaml
+from techhala.functions import cyaml
 
 
 def test_quotes_preserved_in_query():

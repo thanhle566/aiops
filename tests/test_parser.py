@@ -10,15 +10,15 @@ import requests
 import yaml
 from fastapi import HTTPException
 
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.db.action import Action
-from keep.contextmanager.contextmanager import ContextManager
-from keep.functions import cyaml
-from keep.parser.parser import Parser, ParserUtils
-from keep.providers.mock_provider.mock_provider import MockProvider
-from keep.providers.models.provider_config import ProviderConfig
-from keep.step.step import Step
-from keep.workflowmanager.workflowstore import WorkflowStore
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.db.action import Action
+from techhala.contextmanager.contextmanager import ContextManager
+from techhala.functions import cyaml
+from techhala.parser.parser import Parser, ParserUtils
+from techhala.providers.mock_provider.mock_provider import MockProvider
+from techhala.providers.models.provider_config import ProviderConfig
+from techhala.step.step import Step
+from techhala.workflowmanager.workflowstore import WorkflowStore
 
 
 def test_parse_with_nonexistent_file(db_session):

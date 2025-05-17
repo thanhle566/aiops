@@ -8,7 +8,7 @@ triggers:
         value: r".*"
     type: alert
 consts: {}
-name: Keep Teams Adaptive Cards
+name: techhala Teams Adaptive Cards
 owners: []
 services: []
 steps: []
@@ -19,5 +19,5 @@ actions:
       type: teams
       with:
         message: ""
-        sections: '[{"type": "TextBlock", "text": "{{alert.name}}"}, {"type": "TextBlock", "text": "Tal from Keep"}]'
+        sections: '[{"type": "TextBlock", "text": "{{alert.name}}"}, {"type": "TextBlock", "text": "Tal from techhala"}]'
         typeCard: message

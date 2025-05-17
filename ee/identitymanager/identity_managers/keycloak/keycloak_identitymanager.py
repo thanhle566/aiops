@@ -9,12 +9,12 @@ from starlette.routing import Route
 from ee.identitymanager.identity_managers.keycloak.keycloak_authverifier import (
     KeycloakAuthVerifier,
 )
-from keep.api.core.db import get_resource_ids_by_resource_type
-from keep.api.models.user import Group, PermissionEntity, ResourcePermission, Role, User
-from keep.contextmanager.contextmanager import ContextManager
-from keep.identitymanager.authenticatedentity import AuthenticatedEntity
-from keep.identitymanager.authverifierbase import AuthVerifierBase, get_all_scopes
-from keep.identitymanager.identitymanager import PREDEFINED_ROLES, BaseIdentityManager
+from techhala.api.core.db import get_resource_ids_by_resource_type
+from techhala.api.models.user import Group, PermissionEntity, ResourcePermission, Role, User
+from techhala.contextmanager.contextmanager import ContextManager
+from techhala.identitymanager.authenticatedentity import AuthenticatedEntity
+from techhala.identitymanager.authverifierbase import AuthVerifierBase, get_all_scopes
+from techhala.identitymanager.identitymanager import PREDEFINED_ROLES, BaseIdentityManager
 from keycloak import KeycloakAdmin
 from keycloak.exceptions import KeycloakDeleteError, KeycloakGetError, KeycloakPostError
 from keycloak.openid_connection import KeycloakOpenIDConnection
@@ -70,7 +70,7 @@ class KeycloakIdentityManager(BaseIdentityManager):
             self.admin_url = f'{os.environ["KEYCLOAK_URL"]}/admin/realms/{os.environ["KEYCLOAK_REALM"]}/clients/{self.client_id}'
             self.admin_url_without_client = f'{os.environ["KEYCLOAK_URL"]}/admin/realms/{os.environ["KEYCLOAK_REALM"]}'
             self.realm = os.environ["KEYCLOAK_REALM"]
-            # if Keep controls the Keycloak server so it have event listener
+            # if techhala controls the Keycloak server so it have event listener
             # for future use
             self.keep_controlled_keycloak = (
                 os.environ.get("KEYCLOAK_KEEP_CONTROLLED", "false") == "true"
@@ -118,7 +118,7 @@ class KeycloakIdentityManager(BaseIdentityManager):
                 methods = list(route.methods)
                 if len(methods) > 1:
                     self.logger.warning(
-                        "Keep does not support multiple methods for a single route",
+                        "techhala does not support multiple methods for a single route",
                     )
                     continue
                 protected_resource = methods[0] + " " + route.path
@@ -367,7 +367,7 @@ class KeycloakIdentityManager(BaseIdentityManager):
 
     def get_users(self) -> list[User]:
         try:
-            # TODO: query only users that Keep created (so not show all LDAP users)
+            # TODO: query only users that techhala created (so not show all LDAP users)
             users = self.keycloak_admin.get_users({})
             users = [user for user in users if "firstName" in user]
 
@@ -574,7 +574,7 @@ class KeycloakIdentityManager(BaseIdentityManager):
         resource = {
             "name": resource_name,
             "displayName": f"Resource for {resource_name}",
-            "type": "urn:keep:resources:" + resource_type,
+            "type": "urn:techhala:resources:" + resource_type,
             "scopes": [{"name": scope} for scope in scopes],
             "attributes": attributes,
         }
@@ -611,7 +611,7 @@ class KeycloakIdentityManager(BaseIdentityManager):
             for group in groups:
                 group_id = group["id"]
                 group_name = group["name"]
-                roles = group.get("clientRoles", {}).get("keep", [])
+                roles = group.get("clientRoles", {}).get("techhala", [])
 
                 # Fetch members for each group
                 members = self.keycloak_admin.get_group_members(group_id)
@@ -725,7 +725,7 @@ class KeycloakIdentityManager(BaseIdentityManager):
                     {
                         "name": permission.resource_id,
                         "displayName": permission.resource_name,
-                        "type": "urn:keep:resources:keep_" + permission.resource_type,
+                        "type": "urn:techhala:resources:keep_" + permission.resource_type,
                         "scopes": [],
                     },
                     skip_exists=True,
@@ -844,7 +844,7 @@ class KeycloakIdentityManager(BaseIdentityManager):
                 for policy in associated_policies:
                     try:
                         details = json.loads(policy["description"])
-                    # with Keep convention, the description should be a json
+                    # with techhala convention, the description should be a json
                     except json.JSONDecodeError:
                         self.logger.warning(
                             "Failed to parse policy description: %s",
@@ -916,7 +916,7 @@ class KeycloakIdentityManager(BaseIdentityManager):
         # also, we should see how it scale with many resources
         try:
             user_id = self.keycloak_admin.get_user_id(authenticated_entity.email)
-            resource_type = f"urn:keep:resources:keep_{resource_type}"
+            resource_type = f"urn:techhala:resources:keep_{resource_type}"
             resp = self.keycloak_admin.connection.raw_post(
                 f"{self.admin_url}/authz/resource-server/policy/evaluate",
                 data=json.dumps(

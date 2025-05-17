@@ -2,7 +2,7 @@ import hashlib
 
 import pytest
 
-from keep.api.models.alert import AlertDto
+from techhala.api.models.alert import AlertDto
 
 
 def create_basic_alert(name, last_received):

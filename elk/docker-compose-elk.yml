@@ -1,18 +1,18 @@
 services:
-  keep-backend-elk:
+  techhala-backend-elk:
     extends:
       file: ../docker-compose.common.yml
-      service: keep-backend-common
+      service: techhala-backend-common
     image: us-central1-docker.pkg.dev/keephq/keep/keep-api
     environment:
       - AUTH_TYPE=NO_AUTH
     volumes:
       - ./state:/state
 
-  keep-websocket-server:
+  techhala-websocket-server:
     extends:
       file: ../docker-compose.common.yml
-      service: keep-websocket-server-common
+      service: techhala-websocket-server-common
 
   elastic:
    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.0

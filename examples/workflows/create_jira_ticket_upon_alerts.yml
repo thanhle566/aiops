@@ -32,9 +32,9 @@ workflow:
           custom_fields:
             customfield_10201: "Critical"
           issuetype: "Task"
-          summary: "{{ alert.name }} - {{ alert.description }} (created by Keep)"
+          summary: "{{ alert.name }} - {{ alert.description }} (created by techhala)"
           description: |
-            "This ticket was created by Keep.
+            "This ticket was created by techhala.
             Please check the alert details below:
             {code:json} {{ alert }} {code}"
           # enrich the alerts

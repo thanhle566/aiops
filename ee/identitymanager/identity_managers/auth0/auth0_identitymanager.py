@@ -8,10 +8,10 @@ from ee.identitymanager.identity_managers.auth0.auth0_authverifier import (
     Auth0AuthVerifier,
 )
 from ee.identitymanager.identity_managers.auth0.auth0_utils import getAuth0Client
-from keep.api.models.user import User
-from keep.contextmanager.contextmanager import ContextManager
-from keep.identitymanager.identitymanager import BaseIdentityManager
-from keep.identitymanager.rbac import Admin as AdminRole
+from techhala.api.models.user import User
+from techhala.contextmanager.contextmanager import ContextManager
+from techhala.identitymanager.identitymanager import BaseIdentityManager
+from techhala.identitymanager.rbac import Admin as AdminRole
 
 
 class Auth0IdentityManager(BaseIdentityManager):
@@ -25,7 +25,7 @@ class Auth0IdentityManager(BaseIdentityManager):
         self.jwks_client = jwt.PyJWKClient(
             f"https://{self.domain}/.well-known/jwks.json",
             cache_keys=True,
-            headers={"User-Agent": "keep-api"},
+            headers={"User-Agent": "techhala-api"},
         )
 
     def get_users(self) -> list[User]:
@@ -77,7 +77,7 @@ class Auth0IdentityManager(BaseIdentityManager):
                 "password": secrets.token_urlsafe(13),
                 "email_verified": True,
                 "app_metadata": {"keep_tenant_id": tenant_id, "keep_role": role},
-                "connection": os.environ.get("AUTH0_DB_NAME", "keep-users"),
+                "connection": os.environ.get("AUTH0_DB_NAME", "techhala-users"),
             }
         )
         user_dto = User(

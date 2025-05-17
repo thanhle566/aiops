@@ -3,9 +3,9 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from keep.api.bl.maintenance_windows_bl import MaintenanceWindowsBl
-from keep.api.models.alert import AlertDto, AlertStatus
-from keep.api.models.db.maintenance_window import MaintenanceWindowRule
+from techhala.api.bl.maintenance_windows_bl import MaintenanceWindowsBl
+from techhala.api.models.alert import AlertDto, AlertStatus
+from techhala.api.models.db.maintenance_window import MaintenanceWindowRule
 
 
 @pytest.fixture

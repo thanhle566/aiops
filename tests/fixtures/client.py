@@ -5,8 +5,8 @@ import sys
 import pytest
 from fastapi.testclient import TestClient
 
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.db.tenant import TenantApiKey
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.db.tenant import TenantApiKey
 
 
 @pytest.fixture
@@ -28,22 +28,22 @@ def test_app(monkeypatch, request):
 
     # Clear and reload modules to ensure environment changes are reflected
     for module in list(sys.modules):
-        if module.startswith("keep.api.routes"):
+        if module.startswith("techhala.api.routes"):
             del sys.modules[module]
 
         # this is a fucking bug in db patching ffs it ruined my saturday
-        elif module.startswith("keep.providers.providers_service"):
+        elif module.startswith("techhala.providers.providers_service"):
             importlib.reload(sys.modules[module])
 
-    if "keep.api.api" in sys.modules:
-        importlib.reload(sys.modules["keep.api.api"])
+    if "techhala.api.api" in sys.modules:
+        importlib.reload(sys.modules["techhala.api.api"])
 
-    if "keep.api.config" in sys.modules:
-        importlib.reload(sys.modules["keep.api.config"])
+    if "techhala.api.config" in sys.modules:
+        importlib.reload(sys.modules["techhala.api.config"])
 
     # Import and return the app instance
-    from keep.api.api import get_app
-    from keep.api.config import provision_resources
+    from techhala.api.api import get_app
+    from techhala.api.config import provision_resources
 
     provision_resources()
     app = get_app()

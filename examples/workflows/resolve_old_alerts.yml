@@ -6,17 +6,17 @@ workflow:
     - type: interval
       value: 60
   steps:
-    # get the alerts from keep
+    # get the alerts from techhala
     - name: get-alerts
       provider:
-        type: keep
+        type: techhala
         with:
           version: 2
           filter: "status == 'firing'"
   actions:
     - name: resolve-alerts
       foreach: " {{ steps.get-alerts.results }} "
-      if: "keep.to_timestamp('{{ foreach.value.lastReceived }}') < keep.utcnowtimestamp() - 3600"
+      if: "techhala.to_timestamp('{{ foreach.value.lastReceived }}') < techhala.utcnowtimestamp() - 3600"
       provider:
         type: mock
         with:

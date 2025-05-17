@@ -1,25 +1,25 @@
 
 services:
-  keep-frontend:
+  techhala-frontend:
     extends:
       file: docker-compose.common.yml
-      service: keep-frontend-common
+      service: techhala-frontend-common
     build:
       context: ./keep-ui/
       dockerfile: ../docker/Dockerfile.ui
     environment:
       - AUTH_TYPE=NO_AUTH
-      - API_URL=http://keep-backend:8080
+      - API_URL=http://techhala-backend:8080
       - POSTHOG_DISABLED=true
       - FRIGADE_DISABLED=true
       - SENTRY_DISABLED=true
     depends_on:
-      - keep-backend
+      - techhala-backend
 
-  keep-backend:
+  techhala-backend:
     extends:
       file: docker-compose.common.yml
-      service: keep-backend-common
+      service: techhala-backend-common
     image: us-central1-docker.pkg.dev/keephq/keep/keep-api:latest
     environment:
       - AUTH_TYPE=NO_AUTH
@@ -33,10 +33,10 @@ services:
     depends_on:
       - keep-redis
 
-  keep-websocket-server:
+  techhala-websocket-server:
     extends:
       file: docker-compose.common.yml
-      service: keep-websocket-server-common
+      service: techhala-websocket-server-common
 
   keep-redis:
     image: redis/redis-stack

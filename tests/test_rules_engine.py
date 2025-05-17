@@ -5,20 +5,20 @@ from time import sleep
 
 import pytest
 
-from keep.api.core.db import create_rule as create_rule_db
-from keep.api.core.db import (
+from techhala.api.core.db import create_rule as create_rule_db
+from techhala.api.core.db import (
     enrich_incidents_with_alerts,
     get_incident_alerts_by_incident_id,
     get_last_incidents,
 )
-from keep.api.core.db import get_rules as get_rules_db
-from keep.api.core.db import set_last_alert
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.alert import AlertDto, AlertSeverity, AlertStatus
-from keep.api.models.db.alert import Alert, Incident
-from keep.api.models.db.incident import IncidentSeverity, IncidentStatus
-from keep.api.models.db.rule import CreateIncidentOn, ResolveOn
-from keep.rulesengine.rulesengine import RulesEngine
+from techhala.api.core.db import get_rules as get_rules_db
+from techhala.api.core.db import set_last_alert
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.alert import AlertDto, AlertSeverity, AlertStatus
+from techhala.api.models.db.alert import Alert, Incident
+from techhala.api.models.db.incident import IncidentSeverity, IncidentStatus
+from techhala.api.models.db.rule import CreateIncidentOn, ResolveOn
+from techhala.rulesengine.rulesengine import RulesEngine
 from tests.fixtures.client import client, test_app  # noqa
 
 

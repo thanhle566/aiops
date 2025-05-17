@@ -12,5 +12,5 @@ workflow:
          to:
           - "youremail@gmail.com"
           - "youranotheremail@gmail.com"
-         subject: "Hello from Keep!"
+         subject: "Hello from techhala!"
          html: "<strong>Test</strong> with HTML"

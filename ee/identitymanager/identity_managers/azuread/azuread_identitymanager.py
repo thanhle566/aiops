@@ -1,12 +1,12 @@
 from ee.identitymanager.identity_managers.azuread.azuread_authverifier import (
     AzureadAuthVerifier,
 )
-from keep.api.models.user import User
-from keep.contextmanager.contextmanager import ContextManager
-from keep.identitymanager.identity_managers.db.db_identitymanager import (
+from techhala.api.models.user import User
+from techhala.contextmanager.contextmanager import ContextManager
+from techhala.identitymanager.identity_managers.db.db_identitymanager import (
     DbIdentityManager,
 )
-from keep.identitymanager.identitymanager import BaseIdentityManager
+from techhala.identitymanager.identitymanager import BaseIdentityManager
 
 
 class AzureadIdentityManager(BaseIdentityManager):

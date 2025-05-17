@@ -1,4 +1,4 @@
-BASE_DN = "dc=keep,dc=com"
+BASE_DN = "dc=techhala,dc=com"
 FILE_NAME = "ldap_generated.ldif"
 
 # Predefined users data
@@ -8,7 +8,7 @@ predefined_users = [
         "sn": "Doe",
         "givenName": "John",
         "cn": "John Doe",
-        "mail": "john.doe@keep.com",
+        "mail": "john.doe@techhala.com",
         "team": "teamA",
     },
     {
@@ -16,7 +16,7 @@ predefined_users = [
         "sn": "Smith",
         "givenName": "Jane",
         "cn": "Jane Smith",
-        "mail": "jane.smith@keep.com",
+        "mail": "jane.smith@techhala.com",
         "team": "teamB",
     },
     {
@@ -24,7 +24,7 @@ predefined_users = [
         "sn": "Johnson",
         "givenName": "Alice",
         "cn": "Alice Johnson",
-        "mail": "alice.johnson@keep.com",
+        "mail": "alice.johnson@techhala.com",
         "team": "teamA",
     },
 ]
@@ -56,8 +56,8 @@ dn: {BASE_DN}
 objectClass: top
 objectClass: dcObject
 objectClass: organization
-o: Keep Organization
-dc: keep
+o: techhala Organization
+dc: techhala
 
 # Administrator user
 dn: cn=admin,{BASE_DN}
@@ -101,7 +101,7 @@ cn: {user['cn']}
 displayName: {user['cn']}
 userPassword: password123
 mail: {user['mail']}
-o: Keep Organization
+o: techhala Organization
 employeeType: Developer
 memberOf: cn={user['team']},ou=groups,{BASE_DN}
 
@@ -115,7 +115,7 @@ memberOf: cn={user['team']},ou=groups,{BASE_DN}
             givenName = f"User{i}"
             cn = f"User{i} LastName{i}"
             displayName = f"User{i} LastName{i}"
-            mail = f"user{i}@keep.com"
+            mail = f"user{i}@techhala.com"
             team = teams[(i - 1) % 10]
             user_dn = f"uid={uid},ou=users,{BASE_DN}"
             team_members[team].append(user_dn)
@@ -129,7 +129,7 @@ cn: {cn}
 displayName: {displayName}
 userPassword: password123
 mail: {mail}
-o: Keep Organization
+o: techhala Organization
 employeeType: Developer
 memberOf: cn={team},ou=groups,{BASE_DN}
 

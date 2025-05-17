@@ -3,8 +3,8 @@ import os
 
 from fastapi import Depends, HTTPException
 
-from keep.identitymanager.authenticatedentity import AuthenticatedEntity
-from keep.identitymanager.authverifierbase import AuthVerifierBase, oauth2_scheme
+from techhala.identitymanager.authenticatedentity import AuthenticatedEntity
+from techhala.identitymanager.authverifierbase import AuthVerifierBase, oauth2_scheme
 from keycloak import KeycloakOpenID, KeycloakOpenIDConnection
 from keycloak.keycloak_uma import KeycloakUMA
 from keycloak.uma_permissions import UMAPermission
@@ -67,7 +67,7 @@ class KeycloakAuthVerifier(AuthVerifierBase):
         org_realm = payload.get("active_organization", {}).get("name")
         if org_id is None or org_realm is None:
             logger.warning(
-                "Invalid Keycloak configuration - no org information for user. Check organization mapper: https://github.com/keephq/keep/blob/main/keycloak/keep-realm.json#L93"
+                "Invalid Keycloak configuration - no org information for user. Check organization mapper: https://github.com/keephq/techhala/blob/main/keycloak/techhala-realm.json#L93"
             )
         role = (
             payload.get("resource_access", {})

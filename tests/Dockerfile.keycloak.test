@@ -8,7 +8,7 @@ WORKDIR /opt/keycloak
 COPY tests/keycloak-test-realm-export.json /opt/keycloak/data/import/keep-realm.json
 
 # Copy the custom theme
-COPY keycloak/themes/keep.jar /opt/keycloak/providers/keep.jar
+COPY keycloak/themes/techhala.jar /opt/keycloak/providers/techhala.jar
 
 # Copy the last login event listener
 COPY keycloak/event_listeners/last-login-event-listener-0.0.1-SNAPSHOT.jar /opt/keycloak/providers/keycloak-event-listener.jar

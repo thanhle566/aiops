@@ -1,5 +1,5 @@
 id: update-workflows-from-http
-description: Dump workflows from HTTP and update them in Keep
+description: Dump workflows from HTTP and update them in techhala
 triggers:
   - type: manual
 
@@ -9,11 +9,11 @@ steps:
       type: http
       with:
         method: GET
-        url: "https://raw.githubusercontent.com/keephq/keep/refs/heads/main/examples/workflows/new_github_stars.yml"
+        url: "https://raw.githubusercontent.com/keephq/techhala/refs/heads/main/examples/workflows/new_github_stars.yml"
 
 actions:
   - name: update
     provider:
-      type: keep
+      type: techhala
       with:
         workflow_to_update_yaml: "raw_render_without_execution({{ steps.get-workflow.results.body }})"

@@ -13,5 +13,5 @@ actions:
         from_name: "Workflow user"
         to_email:
           - "matvey@keephq.dev"
-        subject: "Hello from Keep workflow!"
-        body: "Hello! This is a test email from Keep workflow."
+        subject: "Hello from techhala workflow!"
+        body: "Hello! This is a test email from techhala workflow."

@@ -6,7 +6,7 @@ workflow:
     - type: manual
   actions:
     - name: dismiss-alert
-      if: "keep.is_business_hours(timezone='America/New_York')"
+      if: "techhala.is_business_hours(timezone='America/New_York')"
       provider:
         type: mock
         with:

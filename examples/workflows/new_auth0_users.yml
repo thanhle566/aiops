@@ -24,7 +24,7 @@ alert:
             - type: section
               text:
                 type: plain_text
-                text: There are new keep.len({{ steps.get-auth0-users.results.new_users }}) users!
+                text: There are new techhala.len({{ steps.get-auth0-users.results.new_users }}) users!
                 emoji: true
             - type: section
               text:

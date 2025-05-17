@@ -1,5 +1,5 @@
 # AUTO GENERATED
-# Alert that was created with Keep semantic layer
+# Alert that was created with techhala semantic layer
 # Prompt: can you write an alert spec that triggers when a service has more than 0.01% error rate in datadog for more than an hour?
 alert:
   id: service-error-rate

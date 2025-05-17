@@ -5,7 +5,7 @@ import uuid
 
 import pytest
 
-from keep.providers.providers_factory import ProvidersFactory
+from techhala.providers.providers_factory import ProvidersFactory
 from tests.fixtures.client import client, setup_api_key, test_app  # noqa
 
 # Set the log level to DEBUG

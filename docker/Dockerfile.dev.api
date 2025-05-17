@@ -24,6 +24,6 @@ ENV VIRTUAL_ENV="/venv"
 ENV POSTHOG_DISABLED="true"
 ENV FRIGADE_DISABLED="true"
 
-ENTRYPOINT ["/app/keep/entrypoint.sh"]
+ENTRYPOINT ["/app/techhala/entrypoint.sh"]
 
-CMD ["gunicorn", "keep.api.api:get_app", "--bind" , "0.0.0.0:8080" , "--workers", "1" , "-k" , "uvicorn.workers.UvicornWorker", "-c", "./keep/api/config.py", "--reload"]
+CMD ["gunicorn", "techhala.api.api:get_app", "--bind" , "0.0.0.0:8080" , "--workers", "1" , "-k" , "uvicorn.workers.UvicornWorker", "-c", "./techhala/api/config.py", "--reload"]

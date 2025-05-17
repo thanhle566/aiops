@@ -12,7 +12,7 @@ actions:
       with:
         run_action: true
         repo_owner: keephq
-        repo_name: keep
+        repo_name: techhala
         workflow: test-docs.yml
         inputs:
           input1: value1

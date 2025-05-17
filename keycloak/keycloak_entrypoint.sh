@@ -14,16 +14,16 @@ if [ -z "$KC_HTTP_RELATIVE_PATH" ]; then
     exit 1
 fi
 
-# If not KEEP_URL, default Keep frontend to http://localhost:3000
+# If not KEEP_URL, default techhala frontend to http://localhost:3000
 if [ -z "$KEEP_URL" ]; then
     echo "KEEP_URL is not set. Defaulting to http://localhost:3000"
     KEEP_URL="http://localhost:3000"
 fi
 
-# IF KEEP_REALM, default Keep realm to keep
+# IF KEEP_REALM, default techhala realm to techhala
 if [ -z "$KEEP_REALM" ]; then
-    echo "KEEP_REALM is not set. Defaulting to keep"
-    KEEP_REALM="keep"
+    echo "KEEP_REALM is not set. Defaulting to techhala"
+    KEEP_REALM="techhala"
 fi
 
 # Enabled debug if $KEYCLOAK_DEBUG is set to true
@@ -70,11 +70,11 @@ echo "Configuring event listener provider"
 echo "Event listener 'last_login' configured"
 
 # Configure Content-Security-Policy and X-Frame-Options
-# So that the SSO connect works with the Keep UI
+# So that the SSO connect works with the techhala UI
 echo "Configuring Content-Security-Policy and X-Frame-Options"
 /opt/keycloak/bin/kcadm.sh update realms/${KEEP_REALM} -s 'browserSecurityHeaders.contentSecurityPolicy="frame-src '\''self'\'' '${KEEP_URL}'; frame-ancestors '\''self'\'' '${KEEP_URL}'; object-src '\''none'\'';"'
 /opt/keycloak/bin/kcadm.sh update realms/${KEEP_REALM} -s 'browserSecurityHeaders.xFrameOptions="ALLOW"'
 echo "Content-Security-Policy and X-Frame-Options configured"
 
-# just to keep the container running
+# just to techhala the container running
 tail -f /dev/null

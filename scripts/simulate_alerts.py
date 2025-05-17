@@ -4,7 +4,7 @@ import argparse
 
 import asyncio
 
-from keep.api.core.demo_mode import (
+from techhala.api.core.demo_mode import (
     simulate_alerts,
     simulate_alerts_worker,
     simulate_alerts_async,

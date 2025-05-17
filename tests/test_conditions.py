@@ -1,10 +1,10 @@
 import pytest
 
-from keep.conditions.assert_condition import AssertCondition
-from keep.conditions.condition_factory import ConditionFactory
-from keep.conditions.stddev_condition import StddevCondition
-from keep.conditions.threshold_condition import ThresholdCondition
-from keep.contextmanager.contextmanager import ContextManager
+from techhala.conditions.assert_condition import AssertCondition
+from techhala.conditions.condition_factory import ConditionFactory
+from techhala.conditions.stddev_condition import StddevCondition
+from techhala.conditions.threshold_condition import ThresholdCondition
+from techhala.contextmanager.contextmanager import ContextManager
 
 
 def test_condition_factory():

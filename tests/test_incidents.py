@@ -7,8 +7,8 @@ import pytest
 from fastapi import HTTPException
 from sqlalchemy import and_, desc, distinct, func
 
-from keep.api.bl.incidents_bl import IncidentBl
-from keep.api.core.db import (
+from techhala.api.bl.incidents_bl import IncidentBl
+from techhala.api.core.db import (
     IncidentSorting,
     add_alerts_to_incident_by_incident_id,
     create_incident_from_dict,
@@ -20,24 +20,24 @@ from keep.api.core.db import (
     merge_incidents_to_id,
     remove_alerts_to_incident_by_incident_id,
 )
-from keep.api.core.db_utils import get_json_extract_field
-from keep.api.core.dependencies import SINGLE_TENANT_EMAIL, SINGLE_TENANT_UUID
-from keep.api.models.alert import AlertSeverity, AlertStatus
-from keep.api.models.db.alert import (
+from techhala.api.core.db_utils import get_json_extract_field
+from techhala.api.core.dependencies import SINGLE_TENANT_EMAIL, SINGLE_TENANT_UUID
+from techhala.api.models.alert import AlertSeverity, AlertStatus
+from techhala.api.models.db.alert import (
     NULL_FOR_DELETED_AT,
     Alert,
     Incident,
     LastAlertToIncident,
 )
-from keep.api.models.db.incident import IncidentSeverity, IncidentStatus
-from keep.api.models.db.mapping import MappingRule
-from keep.api.models.db.rule import CreateIncidentOn, ResolveOn, Rule
-from keep.api.models.db.tenant import Tenant
-from keep.api.models.incident import IncidentDto, IncidentDtoIn
-from keep.api.utils.enrichment_helpers import convert_db_alerts_to_dto_alerts
-from keep.identitymanager.authenticatedentity import AuthenticatedEntity
-from keep.identitymanager.rbac import Admin
-from keep.rulesengine.rulesengine import RulesEngine
+from techhala.api.models.db.incident import IncidentSeverity, IncidentStatus
+from techhala.api.models.db.mapping import MappingRule
+from techhala.api.models.db.rule import CreateIncidentOn, ResolveOn, Rule
+from techhala.api.models.db.tenant import Tenant
+from techhala.api.models.incident import IncidentDto, IncidentDtoIn
+from techhala.api.utils.enrichment_helpers import convert_db_alerts_to_dto_alerts
+from techhala.identitymanager.authenticatedentity import AuthenticatedEntity
+from techhala.identitymanager.rbac import Admin
+from techhala.rulesengine.rulesengine import RulesEngine
 from tests.conftest import ElasticClientMock, PusherMock, WorkflowManagerMock
 from tests.fixtures.client import client, test_app  # noqa
 
@@ -497,7 +497,7 @@ def test_incident_status_change_manual_alert_enrichment(
     assert incident._alerts[0].event["status"] == AlertStatus.FIRING.value
 
     with patch(
-        "keep.identitymanager.identity_managers.noauth.noauth_authverifier.NoAuthVerifier._verify_api_key",
+        "techhala.identitymanager.identity_managers.noauth.noauth_authverifier.NoAuthVerifier._verify_api_key",
         return_value=AuthenticatedEntity(
             tenant_id=SINGLE_TENANT_UUID,
             email=SINGLE_TENANT_EMAIL,
@@ -1144,7 +1144,7 @@ def test_incident_bl_create_incident(db_session):
     pusher = PusherMock()
     workflow_manager = WorkflowManagerMock()
 
-    with patch("keep.api.bl.incidents_bl.WorkflowManager", workflow_manager):
+    with patch("techhala.api.bl.incidents_bl.WorkflowManager", workflow_manager):
         incident_bl = IncidentBl(
             tenant_id=SINGLE_TENANT_UUID, session=db_session, pusher_client=pusher
         )
@@ -1213,7 +1213,7 @@ def test_incident_bl_update_incident(db_session):
     pusher = PusherMock()
     workflow_manager = WorkflowManagerMock()
 
-    with patch("keep.api.bl.incidents_bl.WorkflowManager", workflow_manager):
+    with patch("techhala.api.bl.incidents_bl.WorkflowManager", workflow_manager):
         incident_bl = IncidentBl(
             tenant_id=SINGLE_TENANT_UUID, session=db_session, pusher_client=pusher
         )
@@ -1277,7 +1277,7 @@ def test_incident_bl_delete_incident(db_session):
     pusher = PusherMock()
     workflow_manager = WorkflowManagerMock()
 
-    with patch("keep.api.bl.incidents_bl.WorkflowManager", workflow_manager):
+    with patch("techhala.api.bl.incidents_bl.WorkflowManager", workflow_manager):
         incident_bl = IncidentBl(
             tenant_id=SINGLE_TENANT_UUID, session=db_session, pusher_client=pusher
         )
@@ -1335,8 +1335,8 @@ async def test_incident_bl_add_alert_to_incident(db_session, create_alert):
     workflow_manager = WorkflowManagerMock()
     elastic_client = ElasticClientMock()
 
-    with patch("keep.api.bl.incidents_bl.WorkflowManager", workflow_manager):
-        with patch("keep.api.bl.incidents_bl.ElasticClient", elastic_client):
+    with patch("techhala.api.bl.incidents_bl.WorkflowManager", workflow_manager):
+        with patch("techhala.api.bl.incidents_bl.ElasticClient", elastic_client):
             incident_bl = IncidentBl(
                 tenant_id=SINGLE_TENANT_UUID, session=db_session, pusher_client=pusher
             )
@@ -1413,8 +1413,8 @@ async def test_incident_bl_delete_alerts_from_incident(db_session, create_alert)
     workflow_manager = WorkflowManagerMock()
     elastic_client = ElasticClientMock()
 
-    with patch("keep.api.bl.incidents_bl.WorkflowManager", workflow_manager):
-        with patch("keep.api.bl.incidents_bl.ElasticClient", elastic_client):
+    with patch("techhala.api.bl.incidents_bl.WorkflowManager", workflow_manager):
+        with patch("techhala.api.bl.incidents_bl.ElasticClient", elastic_client):
             incident_bl = IncidentBl(
                 tenant_id=SINGLE_TENANT_UUID, session=db_session, pusher_client=pusher
             )

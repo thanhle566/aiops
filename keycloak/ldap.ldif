@@ -1,13 +1,13 @@
 # Root entry for the domain
-dn: dc=keep,dc=com
+dn: dc=techhala,dc=com
 objectClass: top
 objectClass: dcObject
 objectClass: organization
-o: Keep Organization
-dc: keep
+o: techhala Organization
+dc: techhala
 
 # Administrator user
-dn: cn=admin,dc=keep,dc=com
+dn: cn=admin,dc=techhala,dc=com
 objectClass: simpleSecurityObject
 objectClass: organizationalRole
 cn: admin
@@ -15,30 +15,30 @@ userPassword: admin_password
 description: LDAP administrator
 
 # Groups
-dn: ou=groups,dc=keep,dc=com
+dn: ou=groups,dc=techhala,dc=com
 objectClass: top
 objectClass: organizationalUnit
 ou: groups
 
-dn: cn=developers,ou=groups,dc=keep,dc=com
+dn: cn=developers,ou=groups,dc=techhala,dc=com
 objectClass: top
 objectClass: groupOfUniqueNames
 cn: developers
-uniqueMember: cn=admin,dc=keep,dc=com
+uniqueMember: cn=admin,dc=techhala,dc=com
 
-dn: cn=managers,ou=groups,dc=keep,dc=com
+dn: cn=managers,ou=groups,dc=techhala,dc=com
 objectClass: top
 objectClass: groupOfUniqueNames
 cn: managers
-uniqueMember: cn=admin,dc=keep,dc=com
+uniqueMember: cn=admin,dc=techhala,dc=com
 
 # Users
-dn: ou=users,dc=keep,dc=com
+dn: ou=users,dc=techhala,dc=com
 objectClass: top
 objectClass: organizationalUnit
 ou: users
 
-dn: uid=john.doe,ou=users,dc=keep,dc=com
+dn: uid=john.doe,ou=users,dc=techhala,dc=com
 objectClass: inetOrgPerson
 uid: john.doe
 sn: Doe
@@ -46,12 +46,12 @@ givenName: John
 cn: John Doe
 displayName: John Doe
 userPassword: password123
-mail: john.doe@keep.com
-o: Keep Organization
+mail: john.doe@techhala.com
+o: techhala Organization
 employeeType: Developer
-memberOf: cn=developers,ou=groups,dc=keep,dc=com
+memberOf: cn=developers,ou=groups,dc=techhala,dc=com
 
-dn: uid=jane.smith,ou=users,dc=keep,dc=com
+dn: uid=jane.smith,ou=users,dc=techhala,dc=com
 objectClass: inetOrgPerson
 uid: jane.smith
 sn: Smith
@@ -59,12 +59,12 @@ givenName: Jane
 cn: Jane Smith
 displayName: Jane Smith
 userPassword: password123
-mail: jane.smith@keep.com
-o: Keep Organization
+mail: jane.smith@techhala.com
+o: techhala Organization
 employeeType: Manager
-memberOf: cn=managers,ou=groups,dc=keep,dc=com
+memberOf: cn=managers,ou=groups,dc=techhala,dc=com
 
-dn: uid=alice.johnson,ou=users,dc=keep,dc=com
+dn: uid=alice.johnson,ou=users,dc=techhala,dc=com
 objectClass: inetOrgPerson
 uid: alice.johnson
 sn: Johnson
@@ -72,12 +72,12 @@ givenName: Alice
 cn: Alice Johnson
 displayName: Alice Johnson
 userPassword: password123
-mail: alice.johnson@keep.com
-o: Keep Organization
+mail: alice.johnson@techhala.com
+o: techhala Organization
 employeeType: Developer
-memberOf: cn=developers,ou=groups,dc=keep,dc=com
+memberOf: cn=developers,ou=groups,dc=techhala,dc=com
 
-dn: uid=alice.bob,ou=users,dc=keep,dc=com
+dn: uid=alice.bob,ou=users,dc=techhala,dc=com
 objectClass: inetOrgPerson
 uid: alice.bob
 sn: Bob
@@ -85,7 +85,7 @@ givenName: Alice
 cn: Alice Bob
 displayName: Alice Bob
 userPassword: password123
-mail: alice.bob@keep.com
-o: Keep Organization
+mail: alice.bob@techhala.com
+o: techhala Organization
 employeeType: Developer
-memberOf: cn=developers,ou=groups,dc=keep,dc=com
+memberOf: cn=developers,ou=groups,dc=techhala,dc=com

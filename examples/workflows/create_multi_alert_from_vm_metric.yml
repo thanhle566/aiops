@@ -26,10 +26,10 @@ workflow:
           queryType: query
 
   actions:
-    # Create an alert in Keep based on the query results
+    # Create an alert in techhala based on the query results
     - name: create-alert
       provider:
-        type: keep
+        type: techhala
         with:
           # Only create alert if CPU usage is above threshold
           if: "{{ value.1 }} > 0.01 "

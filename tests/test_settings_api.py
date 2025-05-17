@@ -1,8 +1,8 @@
 import os
 import pytest
 
-from keep.api.core.db import create_rule as create_rule_db
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.core.db import create_rule as create_rule_db
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
 from tests.fixtures.client import client, setup_api_key, test_app  # noqa
 
 

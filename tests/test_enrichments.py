@@ -5,13 +5,13 @@ from unittest.mock import MagicMock, Mock, patch
 import pytest
 from sqlalchemy import text
 
-from keep.api.bl.enrichments_bl import EnrichmentsBl
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.action_type import ActionType
-from keep.api.models.alert import AlertDto
-from keep.api.models.db.extraction import ExtractionRule
-from keep.api.models.db.mapping import MappingRule
-from keep.api.models.db.topology import TopologyService
+from techhala.api.bl.enrichments_bl import EnrichmentsBl
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.action_type import ActionType
+from techhala.api.models.alert import AlertDto
+from techhala.api.models.db.extraction import ExtractionRule
+from techhala.api.models.db.mapping import MappingRule
+from techhala.api.models.db.topology import TopologyService
 from tests.fixtures.client import client, setup_api_key, test_app  # noqa
 
 
@@ -19,7 +19,7 @@ from tests.fixtures.client import client, setup_api_key, test_app  # noqa
 def patch_get_tenants_configurations():
     """Automatically patch get_tenants_configurations for all tests."""
     with patch(
-        "keep.api.core.tenant_configuration.TenantConfiguration._TenantConfiguration.get_configuration",
+        "techhala.api.core.tenant_configuration.TenantConfiguration._TenantConfiguration.get_configuration",
         return_value=None,
     ):
         yield
@@ -256,12 +256,12 @@ def test_run_mapping_rules_with_regex_match(mock_session, mock_alert_dto):
     enrichment_bl = EnrichmentsBl(tenant_id="test_tenant", db=mock_session)
 
     # Test case where the alert name matches the regex pattern with 'keep-' prefix
-    mock_alert_dto.name = "keep-backend-service"
+    mock_alert_dto.name = "techhala-backend-service"
     del mock_alert_dto.service
     enrichment_bl.run_mapping_rules(mock_alert_dto)
     assert (
         mock_alert_dto.service == "backend_service"
-    ), "Service should match 'backend_service' for 'keep-backend-service'"
+    ), "Service should match 'backend_service' for 'techhala-backend-service'"
 
     # Test case where the alert name matches the regex pattern without 'keep-' prefix
     mock_alert_dto.name = "backend-service"
@@ -581,12 +581,12 @@ def test_topology_mapping_rule_enrichment(mock_session, mock_alert_dto):
 
     # Mock the get_topology_data_by_dynamic_matcher to return the mock topology service
     with patch(
-        "keep.api.bl.enrichments_bl.get_topology_data_by_dynamic_matcher",
+        "techhala.api.bl.enrichments_bl.get_topology_data_by_dynamic_matcher",
         return_value=mock_topology_service,
     ):
         # Mock the enrichment database function so no actual DB actions occur
         with patch(
-            "keep.api.bl.enrichments_bl.enrich_alert_db"
+            "techhala.api.bl.enrichments_bl.enrich_alert_db"
         ) as mock_enrich_alert_db:
             # Run the mapping rule logic for the topology
             result_event = enrichment_bl.run_mapping_rules(mock_alert_dto)

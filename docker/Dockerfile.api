@@ -12,7 +12,7 @@ ENV PYTHONFAULTHANDLER=1 \
 #    procps && \
 #    rm -rf /var/lib/apt/lists/*
 
-RUN useradd --user-group --system --create-home --no-log-init keep
+RUN useradd --user-group --system --create-home --no-log-init techhala
 WORKDIR /app
 
 FROM base as builder
@@ -28,10 +28,10 @@ COPY pyproject.toml poetry.lock ./
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes --only main && \
     /venv/bin/python -m pip install --upgrade -r requirements.txt && \
     pip uninstall -y poetry
-COPY keep keep
-COPY ee keep/ee
+COPY techhala techhala
+COPY ee techhala/ee
 COPY examples examples
-COPY keep-ui/public/icons/unknown-icon.png unknown-icon.png
+COPY techhala-ui/public/icons/unknown-icon.png unknown-icon.png
 RUN /venv/bin/pip install --use-deprecated=legacy-resolver . && \
     rm -rf /root/.cache/pip && \
     find /venv -type d -name "__pycache__" -exec rm -r {} + && \
@@ -46,10 +46,10 @@ COPY --from=builder /app/examples /examples
 COPY --from=builder /app/unknown-icon.png unknown-icon.png
 # as per Openshift guidelines, https://docs.openshift.com/container-platform/4.11/openshift_images/create-images.html#use-uid_create-images
 RUN chgrp -R 0 /app && chmod -R g=u /app && \
-    chown -R keep:keep /app && \
-    chown -R keep:keep /venv
-USER keep
+    chown -R techhala:techhala /app && \
+    chown -R techhala:techhala /venv
+USER techhala
 
-ENTRYPOINT ["/venv/lib/python3.11/site-packages/keep/entrypoint.sh"]
+ENTRYPOINT ["/venv/lib/python3.11/site-packages/techhala/entrypoint.sh"]
 
-CMD ["gunicorn", "keep.api.api:get_app", "--bind" , "0.0.0.0:8080" , "--workers", "4" , "-k" , "uvicorn.workers.UvicornWorker", "-c", "/venv/lib/python3.11/site-packages/keep/api/config.py", "--preload"]
+CMD ["gunicorn", "techhala.api.api:get_app", "--bind" , "0.0.0.0:8080" , "--workers", "4" , "-k" , "uvicorn.workers.UvicornWorker", "-c", "/venv/lib/python3.11/site-packages/techhala/api/config.py", "--preload"]

@@ -1,0 +1,23 @@
+/* Button utility classes to replace  color="red" */
+
+/* Primary variant */
+.btn-primary {
+  @apply bg-primary-500 hover:bg-primary-600 text-white border-primary-500 hover:border-primary-600;
+}
+
+/* Secondary variant */
+.btn-secondary {
+  @apply text-primary-500 bg-white hover:bg-primary-50 border-primary-500;
+}
+
+/* Light variant */
+.btn-light {
+  @apply text-primary-500 bg-primary-50 hover:bg-primary-100 border-primary-50 hover:border-primary-100;
+}
+
+/* Disabled state */
+.btn-disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* This provides a quick way to replace  color="red" attribute with className="btn-primary" */ 

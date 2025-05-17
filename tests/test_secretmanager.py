@@ -1,6 +1,6 @@
 import pytest
 
-from keep.secretmanager.vaultsecretmanager import VaultSecretManager
+from techhala.secretmanager.vaultsecretmanager import VaultSecretManager
 
 
 class MockVault:

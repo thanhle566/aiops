@@ -21,19 +21,19 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
-      - keep-frontend
+      - techhala-frontend
 
-  keep-frontend:
+  techhala-frontend:
     # platform: linux/amd64
     ports:
       - "3000:3000"
     extends:
       file: ../docker-compose.common.yml
-      service: keep-frontend-common
+      service: techhala-frontend-common
     image: us-central1-docker.pkg.dev/keephq/keep/keep-ui:0.37.1-console
     environment:
       - HOSTNAME=0.0.0.0
-      - API_URL=http://keep-backend:8080
+      - API_URL=http://techhala-backend:8080
       - http_proxy=http://proxy:3128
       - https_proxy=http://proxy:3128
       - HTTP_PROXY=http://proxy:3128
@@ -52,18 +52,18 @@ services:
     # - /app/node_modules
     # - /app/.next
     depends_on:
-      - keep-backend
+      - techhala-backend
       - proxy
     networks:
       # - proxy-net
       - internal
 
-  keep-backend:
+  techhala-backend:
     ports:
       - "8080:8080"
     extends:
       file: ../docker-compose.common.yml
-      service: keep-backend-common
+      service: techhala-backend-common
     image: us-central1-docker.pkg.dev/keephq/keep/keep-api
     environment:
       - AUTH_TYPE=NO_AUTH
@@ -73,10 +73,10 @@ services:
       - proxy-net
       - internal
 
-  keep-websocket-server:
+  techhala-websocket-server:
     extends:
       file: ../docker-compose.common.yml
-      service: keep-websocket-server-common
+      service: techhala-websocket-server-common
     networks:
       - internal
 

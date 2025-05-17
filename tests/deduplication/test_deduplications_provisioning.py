@@ -1,12 +1,12 @@
 import json
 from uuid import UUID
 import pytest
-from keep.api.alert_deduplicator.deduplication_rules_provisioning import (
+from techhala.api.alert_deduplicator.deduplication_rules_provisioning import (
     provision_deduplication_rules_from_env,
 )
 from unittest.mock import patch
-from keep.api.models.db.alert import AlertDeduplicationRule
-from keep.api.models.provider import Provider
+from techhala.api.models.db.alert import AlertDeduplicationRule
+from techhala.api.models.provider import Provider
 
 
 @pytest.fixture
@@ -101,19 +101,19 @@ def setup(monkeypatch):
     ]
 
     with patch(
-        "keep.api.core.db.get_all_deduplication_rules",
+        "techhala.api.core.db.get_all_deduplication_rules",
         return_value=deduplication_rules_in_db,
     ) as mock_get_all, patch(
-        "keep.api.core.db.delete_deduplication_rule", return_value=None
+        "techhala.api.core.db.delete_deduplication_rule", return_value=None
     ) as mock_delete, patch(
-        "keep.api.core.db.update_deduplication_rule", return_value=None
+        "techhala.api.core.db.update_deduplication_rule", return_value=None
     ) as mock_update, patch(
-        "keep.api.core.db.create_deduplication_rule", return_value=None
+        "techhala.api.core.db.create_deduplication_rule", return_value=None
     ) as mock_create, patch(
-        "keep.providers.providers_factory.ProvidersFactory.get_installed_providers",
+        "techhala.providers.providers_factory.ProvidersFactory.get_installed_providers",
         return_value=installed_providers,
     ) as mock_get_providers, patch(
-        "keep.providers.providers_factory.ProvidersFactory.get_linked_providers",
+        "techhala.providers.providers_factory.ProvidersFactory.get_linked_providers",
         return_value=linked_providers,
     ) as mock_get_linked_providers:
 

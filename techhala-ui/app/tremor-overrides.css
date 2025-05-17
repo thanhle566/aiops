@@ -1,0 +1,106 @@
+/* Override Tremor UI button colors */
+
+/* Primary Button */
+.tremor-Button-root[color="orange"] {
+  --tw-bg-opacity: 1;
+  --tw-border-opacity: 1;
+  --tw-text-opacity: 1;
+}
+
+/* Primary variant */
+.tremor-Button-root[color="orange"][data-variant="primary"] {
+  background-color: #243E40 !important;
+  border-color: #243E40 !important;
+}
+
+.tremor-Button-root[color="orange"][data-variant="primary"]:hover {
+  background-color: #1a2e2f !important;
+  border-color: #1a2e2f !important;
+}
+
+/* Secondary variant */
+.tremor-Button-root[color="orange"][data-variant="secondary"] {
+  color: #243E40 !important;
+  border-color: #243E40 !important;
+}
+
+.tremor-Button-root[color="orange"][data-variant="secondary"]:hover {
+  background-color: rgba(36, 62, 64, 0.1) !important;
+}
+
+/* Light variant */
+.tremor-Button-root[color="orange"][data-variant="light"] {
+  color: #243E40 !important;
+  background-color: rgba(36, 62, 64, 0.1) !important;
+}
+
+.tremor-Button-root[color="orange"][data-variant="light"]:hover {
+  background-color: rgba(36, 62, 64, 0.2) !important;
+}
+
+/* Icon color override */
+.tremor-Button-root[color="orange"] svg {
+  color: currentColor;
+}
+
+/* Tremor Tab focus and selected states */
+.tremor-Tab-root[aria-selected="true"] {
+  border-color: #243E40 !important;
+  color: #243E40 !important;
+}
+
+.tremor-Tab-root:focus-visible {
+  outline-color: #243E40 !important;
+}
+
+/* Tremor select and input focus states */
+.tremor-Select-root:focus-within,
+.tremor-TextInput-root:focus-within,
+.tremor-DateRangePicker-root:focus-within,
+.tremor-MultiSelect-root:focus-within,
+.tremor-NumberInput-root:focus-within,
+.tremor-TextArea-root:focus-within {
+  --tw-ring-color: rgba(36, 62, 64, 0.4) !important;
+  border-color: #243E40 !important;
+}
+
+/* TextInput placeholder styling */
+.tremor-TextInput-root input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+  opacity: 1 !important;
+}
+
+.tremor-TextInput-root:hover input::placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Dark sidebar specific TextInput */
+.bg-\[\#1E2D2F\] .tremor-TextInput-root,
+.bg-\[\#243E40\] .tremor-TextInput-root {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-\[\#1E2D2F\] .tremor-TextInput-root input,
+.bg-\[\#243E40\] .tremor-TextInput-root input {
+  color: white !important;
+}
+
+.bg-\[\#1E2D2F\] .tremor-TextInput-root input::placeholder,
+.bg-\[\#243E40\] .tremor-TextInput-root input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Tremor links */
+.tremor-Link-root {
+  color: #243E40 !important;
+}
+
+.tremor-Link-root:hover {
+  color: #1a2e2f !important;
+}
+
+/* Tremor pagination */
+.tremor-Select-root[aria-expanded="true"] {
+  border-color: #243E40 !important;
+  --tw-ring-color: rgba(36, 62, 64, 0.4) !important;
+} 

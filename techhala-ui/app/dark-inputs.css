@@ -1,0 +1,70 @@
+/* Styles for dark mode inputs */
+
+/* General dark input styles */
+.dark-input {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.dark-input:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark-input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #34595c;
+  box-shadow: 0 0 0 2px rgba(52, 89, 92, 0.25);
+}
+
+/* Placeholder styling fixes */
+.dark-input::placeholder,
+input[class*="bg-[#1E2D2F]"]::placeholder,
+input[class*="bg-[#243E40]"]::placeholder,
+.tremor-TextInput-root input[class*="sidebar-search-input"]::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+  opacity: 1 !important;
+}
+
+.dark-input:hover::placeholder,
+input[class*="bg-[#1E2D2F]"]:hover::placeholder,
+input[class*="bg-[#243E40]"]:hover::placeholder,
+.tremor-TextInput-root:hover input[class*="sidebar-search-input"]::placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Fix for Tremor TextInput in dark backgrounds */
+.bg-\[\#1E2D2F\] .tremor-TextInput-root,
+.bg-\[\#243E40\] .tremor-TextInput-root {
+  background-color: transparent !important;
+}
+
+.bg-\[\#1E2D2F\] .tremor-TextInput-root input,
+.bg-\[\#243E40\] .tremor-TextInput-root input {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+/* Filter navigator styling */
+input[placeholder*="Filter navigator"] {
+  color: white !important;
+}
+
+input[placeholder*="Filter navigator"]::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
+}
+
+/* Apply styles to all inputs in dark containers */
+.bg-\[\#1E2D2F\] input,
+.bg-\[\#243E40\] input {
+  color: white !important;
+}
+
+.bg-\[\#1E2D2F\] input::placeholder,
+.bg-\[\#243E40\] input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
+} 

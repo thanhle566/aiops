@@ -17,9 +17,9 @@ steps:
 
 actions:
   - name: raise-alert
-    if: keep.len( {{ steps.cw-logs.results }} ) > 0
+    if: techhala.len( {{ steps.cw-logs.results }} ) > 0
     provider:
-      type: keep
+      type: techhala
       with:
         alert:
           name: "CW logs found!"

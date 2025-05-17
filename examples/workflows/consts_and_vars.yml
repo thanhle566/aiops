@@ -12,7 +12,7 @@ workflow:
   consts:
     email_template: |
       <strong>Hi,<br>
-      This {{ vars.alert_tier }} is triggered because the pipelines for {{ alert.host }} are down for more than keep.get_firing_time('{{ alert }}', 'minutes') minutes.<br>
+      This {{ vars.alert_tier }} is triggered because the pipelines for {{ alert.host }} are down for more than techhala.get_firing_time('{{ alert }}', 'minutes') minutes.<br>
       Please visit monitoring.keeohq.dev for more!<br>
       Regards,<br>
       KeepHQ dev Monitoring</strong>
@@ -21,12 +21,12 @@ workflow:
       {{ vars.alert_tier }} Alert: SA Pipelines are down
 
       Hi,
-      This {{ vars.alert_tier }} alert is triggered because the pipelines for {{ alert.host }} are down for more than keep.get_firing_time('{{ alert }}', 'minutes') minutes.
+      This {{ vars.alert_tier }} alert is triggered because the pipelines for {{ alert.host }} are down for more than techhala.get_firing_time('{{ alert }}', 'minutes') minutes.
       Please visit monitoring.keeohq.dev for more!
 
   actions:
     # Sendgrid Tier 0 Alert
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 0 and keep.get_firing_time('{{ alert }}', 'minutes') < 10"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 0 and techhala.get_firing_time('{{ alert }}', 'minutes') < 10"
       name: Sendgrid_Tier_0_alert
       vars:
         alert_tier: "Alert 0"
@@ -40,7 +40,7 @@ workflow:
           html: "{{ consts.email_template }}"
 
     # Sendgrid Tier 1 Alert
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 10 and keep.get_firing_time('{{ alert }}', 'minutes') < 15"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 10 and techhala.get_firing_time('{{ alert }}', 'minutes') < 15"
       name: Sendgrid_Tier_1_alert
       vars:
         alert_tier: "Alert 1"
@@ -54,7 +54,7 @@ workflow:
           html: "{{ consts.email_template }}"
 
     # Sendgrid Tier 2 Alert
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 60 and keep.get_firing_time('{{ alert }}', 'minutes') < 70"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 60 and techhala.get_firing_time('{{ alert }}', 'minutes') < 70"
       name: Sendgrid_Tier_2_alert
       vars:
         alert_tier: "Alert 2"
@@ -68,7 +68,7 @@ workflow:
           html: "{{ consts.email_template }}"
 
     # Sendgrid Tier 3 Alert
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 120 and keep.get_firing_time('{{ alert }}', 'minutes') < 130"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 120 and techhala.get_firing_time('{{ alert }}', 'minutes') < 130"
       name: Sendgrid_Tier_3_alert
       vars:
         alert_tier: "Alert 3"
@@ -82,7 +82,7 @@ workflow:
           html: "{{ consts.email_template }}"
 
     # Sendgrid Tier 4 Alert
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 1440 and keep.get_firing_time('{{ alert }}', 'minutes') < 1450"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 1440 and techhala.get_firing_time('{{ alert }}', 'minutes') < 1450"
       name: Sendgrid_Tier_4_alert
       vars:
         alert_tier: "Alert 4"
@@ -96,7 +96,7 @@ workflow:
           html: "{{ consts.email_template }}"
 
     # Slack Alerts
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 0 and keep.get_firing_time('{{ alert }}', 'minutes') < 10"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 0 and techhala.get_firing_time('{{ alert }}', 'minutes') < 10"
       name: Slack_Tier_0_alert
       vars:
         alert_tier: "Alert 0"
@@ -106,7 +106,7 @@ workflow:
         with:
           message: "{{ consts.slack_message }}"
 
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 10 and keep.get_firing_time('{{ alert }}', 'minutes') < 15"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 10 and techhala.get_firing_time('{{ alert }}', 'minutes') < 15"
       name: Slack_Tier_1_alert
       vars:
         alert_tier: "Alert 1"
@@ -116,7 +116,7 @@ workflow:
         with:
           message: "{{ consts.slack_message }}"
 
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 60 and keep.get_firing_time('{{ alert }}', 'minutes') < 70"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 60 and techhala.get_firing_time('{{ alert }}', 'minutes') < 70"
       name: Slack_Tier_2_alert
       vars:
         alert_tier: "Alert 2"
@@ -126,7 +126,7 @@ workflow:
         with:
           message: "{{ consts.slack_message }}"
 
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 120 and keep.get_firing_time('{{ alert }}', 'minutes') < 130"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 120 and techhala.get_firing_time('{{ alert }}', 'minutes') < 130"
       name: Slack_Tier_3_alert
       vars:
         alert_tier: "Alert 3"
@@ -136,7 +136,7 @@ workflow:
         with:
           message: "{{ consts.slack_message }}"
 
-    - if: "keep.get_firing_time('{{ alert }}', 'minutes') >= 1440 and keep.get_firing_time('{{ alert }}', 'minutes') < 1450"
+    - if: "techhala.get_firing_time('{{ alert }}', 'minutes') >= 1440 and techhala.get_firing_time('{{ alert }}', 'minutes') < 1450"
       name: Slack_Tier_4_alert
       vars:
         alert_tier: "Alert 4"

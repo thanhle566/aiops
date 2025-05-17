@@ -5,12 +5,12 @@ from dateutil import parser
 from dateutil.parser import ParserError
 from dotenv import load_dotenv
 
-from keep.api.consts import STATIC_PRESETS
-from keep.api.core.db import get_alerts_with_filters
-from keep.api.core.elastic import ElasticClient
-from keep.api.models.alert import AlertDto
-from keep.api.utils.enrichment_helpers import convert_db_alerts_to_dto_alerts
-from keep.searchengine.searchengine import SearchEngine
+from techhala.api.consts import STATIC_PRESETS
+from techhala.api.core.db import get_alerts_with_filters
+from techhala.api.core.elastic import ElasticClient
+from techhala.api.models.alert import AlertDto
+from techhala.api.utils.enrichment_helpers import convert_db_alerts_to_dto_alerts
+from techhala.searchengine.searchengine import SearchEngine
 
 load_dotenv()
 TENANT_ID = os.environ.get("MIGRATION_TENANT_ID")

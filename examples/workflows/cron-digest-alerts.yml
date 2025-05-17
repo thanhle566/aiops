@@ -6,10 +6,10 @@ workflow:
     - type: interval
       cron: 0 11,14 * * *
   steps:
-    # get the alerts from keep
+    # get the alerts from techhala
     - name: get-alerts
       provider:
-        type: keep
+        type: techhala
         with:
           version: 2
           filter: "status == 'firing'"

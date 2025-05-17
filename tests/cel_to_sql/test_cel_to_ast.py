@@ -1,8 +1,8 @@
 import datetime
 import pytest
 
-from keep.api.core.cel_to_sql.ast_nodes import ComparisonNode, ConstantNode, LogicalNode, MethodAccessNode, ParenthesisNode, PropertyAccessNode, UnaryNode
-from keep.api.core.cel_to_sql.cel_ast_converter import CelToAstConverter
+from techhala.api.core.cel_to_sql.ast_nodes import ComparisonNode, ConstantNode, LogicalNode, MethodAccessNode, ParenthesisNode, PropertyAccessNode, UnaryNode
+from techhala.api.core.cel_to_sql.cel_ast_converter import CelToAstConverter
 
 
 @pytest.mark.parametrize(

@@ -4,10 +4,10 @@ workflow:
   triggers:
     - type: manual
   steps:
-    # get the alerts from keep
+    # get the alerts from techhala
     - name: get-alerts
       provider:
-        type: keep
+        type: techhala
         # get all the alerts with sys_id (means that ticket exists for them)
         with:
           filters:

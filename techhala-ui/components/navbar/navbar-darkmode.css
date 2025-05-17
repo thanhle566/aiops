@@ -1,0 +1,37 @@
+/* Dark mode styles for navbar/sidebar */
+.dark .navbar-container {
+  background-color: #1a1a1a;
+  border-right: 1px solid #333;
+}
+
+.dark .sidebar-header {
+  background-color: #252525;
+  color: #e0e0e0;
+}
+
+.dark .sidebar-menu-item {
+  color: #e0e0e0;
+}
+
+.dark .sidebar-menu-item:hover {
+  background-color: #333;
+}
+
+.dark .sidebar-menu-item.active {
+  background-color: #404040;
+}
+
+.dark .scrollable-menu-shadow {
+  scrollbar-color: #444 #1a1a1a;
+}
+
+.dark .navbar-search-container input {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.dark .navbar-search-container input:focus {
+  border-color: #555;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+} 

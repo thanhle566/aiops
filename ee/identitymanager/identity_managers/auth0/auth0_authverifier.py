@@ -3,16 +3,16 @@ import os
 import jwt
 from fastapi import HTTPException
 
-from keep.identitymanager.authenticatedentity import AuthenticatedEntity
-from keep.identitymanager.authverifierbase import AuthVerifierBase
-from keep.identitymanager.rbac import Admin as AdminRole
+from techhala.identitymanager.authenticatedentity import AuthenticatedEntity
+from techhala.identitymanager.authverifierbase import AuthVerifierBase
+from techhala.identitymanager.rbac import Admin as AdminRole
 
 # Note: cache_keys is set to True to avoid fetching the jwks keys on every request
 auth_domain = os.environ.get("AUTH0_DOMAIN")
 if auth_domain:
     jwks_uri = f"https://{auth_domain}/.well-known/jwks.json"
     jwks_client = jwt.PyJWKClient(
-        jwks_uri, cache_keys=True, headers={"User-Agent": "keep-api"}
+        jwks_uri, cache_keys=True, headers={"User-Agent": "techhala-api"}
     )
 else:
     jwks_client = None

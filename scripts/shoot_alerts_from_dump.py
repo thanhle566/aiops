@@ -5,9 +5,9 @@ import csv
 import logging
 import argparse
 
-from keep.api.core.db import get_session_sync
-from keep.api.models.alert import AlertDto
-from keep.api.tasks.process_event_task import __handle_formatted_events
+from techhala.api.core.db import get_session_sync
+from techhala.api.models.alert import AlertDto
+from techhala.api.tasks.process_event_task import __handle_formatted_events
 
 
 # configure logging

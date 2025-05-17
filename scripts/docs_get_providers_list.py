@@ -40,7 +40,7 @@ def validate_all_providers_are_documented(documented_providers):
     sys.path.insert(0, parent_dir)
 
     documented_providers = [provider.lower() for provider in documented_providers]
-    from keep.providers.providers_factory import ProvidersFactory
+    from techhala.providers.providers_factory import ProvidersFactory
 
     for provider in ProvidersFactory.get_all_providers():
         provider_name = provider.display_name.lower()

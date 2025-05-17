@@ -1,11 +1,11 @@
-- UI display name: keep-ldap
+- UI display name: techhala-ldap
 - Vendor: Active Directory
 - Connection URL: ldap://openldap:389
 - Bind Type: simple
-- Bind DN: cn=admin,dc=keep,dc=com
+- Bind DN: cn=admin,dc=techhala,dc=com
 - Bind credentials: admin_password
 - Edit mode: READ_ONLY
-- Users DN: ou=users,dc=keep,dc=com
+- Users DN: ou=users,dc=techhala,dc=com
 - Username LDAP attribute: uid
 - RDN LDAP attribute: uid
 - UUID LDAP attribute: entryUUID
@@ -14,7 +14,7 @@
 
 ## Mappers
 - groups
-  - LDAP Groups DN: ou=groups,dc=keep,dc=com
+  - LDAP Groups DN: ou=groups,dc=techhala,dc=com
   - Group Name LDAP Attribute: cn
   - Group Object Classes: groupOfUniqueNames
   - Membership LDAP Attribute: uniqueMember

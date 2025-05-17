@@ -8,7 +8,7 @@ alert:
         type: datadog
         config: "{{ providers.datadog }}"
         with:
-          query: "service:keep-github-app"
+          query: "service:techhala-github-app"
           timeframe: "3d"
           query_type: "logs"
   actions:
@@ -16,7 +16,7 @@ alert:
       condition:
       - name: threshold-condition
         type: threshold
-        value: "keep.len({{ steps.check-error-rate.results.logs }})"
+        value: "techhala.len({{ steps.check-error-rate.results.logs }})"
         compare_to: 0
         operator: ">"
       provider:
@@ -34,7 +34,7 @@ alert:
               text: |
                     Query: {{ steps.check-error-rate.provider_parameters.query }}
                     Timeframe: {{ steps.check-error-rate.provider_parameters.timeframe }}
-                    Number of logs: keep.len({{ steps.check-error-rate.results.logs }})
+                    Number of logs: techhala.len({{ steps.check-error-rate.results.logs }})
                     From: {{ steps.check-error-rate.provider_parameters.from }}
                     To: {{ steps.check-error-rate.provider_parameters.to }}
 

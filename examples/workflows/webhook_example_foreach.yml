@@ -17,7 +17,7 @@ workflow:
     - name: get-alerts
       foreach: " {{ steps.webhook-get.results.body.ids }}"
       provider:
-        type: keep
+        type: techhala
         with:
           version: 2
           filter: 'id=="{{ foreach.value }}"'

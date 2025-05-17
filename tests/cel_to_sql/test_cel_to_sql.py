@@ -2,11 +2,11 @@ import json
 import os
 import pytest
 
-from keep.api.core.cel_to_sql.properties_metadata import (
+from techhala.api.core.cel_to_sql.properties_metadata import (
     FieldMappingConfiguration,
     PropertiesMetadata,
 )
-from keep.api.core.cel_to_sql.sql_providers.get_cel_to_sql_provider_for_dialect import (
+from techhala.api.core.cel_to_sql.sql_providers.get_cel_to_sql_provider_for_dialect import (
     get_cel_to_sql_provider_for_dialect,
 )
 

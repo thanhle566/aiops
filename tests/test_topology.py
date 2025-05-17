@@ -3,15 +3,15 @@ import uuid
 import pytest
 from sqlmodel import select
 
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.db.topology import (
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.db.topology import (
     TopologyApplication,
     TopologyApplicationDtoIn,
     TopologyService,
     TopologyServiceDependency,
     TopologyServiceDtoIn,
 )
-from keep.topologies.topologies_service import (
+from techhala.topologies.topologies_service import (
     TopologiesService,
     ApplicationNotFoundException,
     InvalidApplicationDataException,

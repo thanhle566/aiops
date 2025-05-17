@@ -3,13 +3,13 @@ import time
 
 import pytest
 
-from keep.api.bl.enrichments_bl import EnrichmentsBl
-from keep.api.core.dependencies import SINGLE_TENANT_UUID
-from keep.api.models.action_type import ActionType
-from keep.api.models.alert import AlertDto
-from keep.api.models.db.mapping import MappingRule
-from keep.api.models.db.preset import PresetSearchQuery as SearchQuery
-from keep.searchengine.searchengine import SearchEngine
+from techhala.api.bl.enrichments_bl import EnrichmentsBl
+from techhala.api.core.dependencies import SINGLE_TENANT_UUID
+from techhala.api.models.action_type import ActionType
+from techhala.api.models.alert import AlertDto
+from techhala.api.models.db.mapping import MappingRule
+from techhala.api.models.db.preset import PresetSearchQuery as SearchQuery
+from techhala.searchengine.searchengine import SearchEngine
 from tests.fixtures.client import client, setup_api_key, test_app  # noqa
 
 # Shahar: If you are struggling - you can play with https://playcel.undistro.io/ to see how the CEL expressions work

@@ -1,5 +1,5 @@
 {
-  "id": "keep",
+  "id": "techhala",
   "realm": "${KEEP_REALM}",
   "enabled": true,
   "users": [
@@ -23,14 +23,14 @@
           "manage-identity-providers",
           "realm-admin"
         ],
-        "keep": ["admin"]
+        "techhala": ["admin"]
       }
     }
   ],
   "clients": [
     {
       "clientId": "${KEEP_CLIENT_ID}",
-      "name": "Keep Application",
+      "name": "techhala Application",
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": ["${KEEP_AUTH_REDICERT_URL}"],
@@ -74,7 +74,7 @@
       },
       "protocolMappers": [
         {
-          "name": "keep-audience-mapper",
+          "name": "techhala-audience-mapper",
           "protocol": "openid-connect",
           "protocolMapper": "oidc-audience-mapper",
           "consentRequired": false,
@@ -85,7 +85,7 @@
           }
         },
         {
-          "name": "keep-tenant-id-claim",
+          "name": "techhala-tenant-id-claim",
           "protocol": "openid-connect",
           "protocolMapper": "oidc-hardcoded-claim-mapper",
           "consentRequired": false,
@@ -97,7 +97,7 @@
           }
         },
         {
-          "name": "keep-role-mapper",
+          "name": "techhala-role-mapper",
           "protocol": "openid-connect",
           "protocolMapper": "oidc-usermodel-attribute-mapper",
           "consentRequired": false,
@@ -111,7 +111,7 @@
           }
         },
         {
-          "name": "keep-organization-mapper",
+          "name": "techhala-organization-mapper",
           "protocol": "openid-connect",
           "protocolMapper": "oidc-active-organization-mapper",
           "consentRequired": false,

@@ -28,7 +28,7 @@ class DynatraceProviderAuthConfig:
     environment_id: str = dataclasses.field(
         metadata={
             "required": True,
-            "description": "Dynatrace's environment ID",
+            "description": "Dynatrace url",
             "hint": "e.g. abcde",
         },
     )
@@ -109,7 +109,7 @@ class DynatraceProvider(BaseProvider):
         """
         self.logger.info("Getting alerts from Dynatrace")
         response = requests.get(
-            f"https://{self.authentication_config.environment_id}.live.dynatrace.com/api/v2/problems",
+            f"https://{self.authentication_config.environment_id}/api/v2/problems",
             headers={
                 "Authorization": f"Api-Token {self.authentication_config.api_token}"
             },
@@ -124,92 +124,10 @@ class DynatraceProvider(BaseProvider):
                 self._format_alert(event)
                 for event in response.json().get("problems", [])
             ]
-
-    def validate_scopes(self):
-        self.logger.info("Validating dynatrace scopes")
+    def validate_scopes(self) -> dict[str, bool | str]:
         scopes = {}
-        try:
-            self._get_alerts()
-        except Exception as e:
-            # wrong environment
-            if "Not Found" in str(e):
-                self.logger.info(
-                    "Failed to validate dynatrace scopes - wrong environment id"
-                )
-                scopes["problems.read"] = (
-                    "Failed to validate scope, wrong environment id (Keep got 404)"
-                )
-                scopes["settings.read"] = scopes["problems.read"]
-                scopes["settings.write"] = scopes["problems.read"]
-                return scopes
-            # authentication
-            if "401" in str(e):
-                self.logger.info(
-                    "Failed to validate dynatrace scopes - invalid API token"
-                )
-                scopes["problems.read"] = (
-                    "Invalid API token - authentication failed (401)"
-                )
-                scopes["settings.read"] = scopes["problems.read"]
-                scopes["settings.write"] = scopes["problems.read"]
-                return scopes
-            if "403" in str(e):
-                self.logger.info(
-                    "Failed to validate dynatrace scopes - no problems.read scopes"
-                )
-                scopes["problems.read"] = (
-                    "Token is missing required scope - problems.read (403)"
-                )
-        else:
-            self.logger.info("Validated dynatrace scopes - problems.read")
-            scopes["problems.read"] = True
-
-        # check webhook scopes:
-        # settings.read:
-        try:
-            self._get_alerting_profiles()
-            self.logger.info("Validated dynatrace scopes - settings.read")
-            scopes["settings.read"] = True
-        except Exception as e:
-            self.logger.info(
-                f"Failed to validate dynatrace scopes - settings.read: {e}"
-            )
-            scopes["settings.read"] = str(e)
-            scopes["settings.write"] = (
-                "Cannot validate the settings.write scope without the settings.read scope, you need to first add the settings.read scope"
-            )
-            # we are done
-            return scopes
-        # if we have settings.read, we can try settings.write
-        try:
-            self.logger.info("Validating dynatrace scopes - settings.write")
-            keep_api_url = os.environ.get("KEEP_API_URL")
-            self.setup_webhook(
-                tenant_id=self.context_manager.tenant_id,
-                keep_api_url=keep_api_url,
-                api_key="TEST",
-                setup_alerts=False,
-            )
-            scopes["settings.write"] = True
-            self.logger.info("Validated dynatrace scopes - settings.write")
-        except Exception as e:
-            self.logger.info(
-                f"Failed to validate dynatrace scopes - settings.write: {e}"
-            )
-            # understand if its localhost:
-            if "The environment does not allow for site-local URLs" in str(e):
-                scopes["settings.write"] = (
-                    "Cannot use localhost as a webhook URL, please use a public URL when installing dynatrace webhook (you can use Keep with ngrok or similar)"
-                )
-            else:
-                scopes["settings.write"] = (
-                    f"Failed to validate the settings.write scope: {e}"
-                )
-            return scopes
-
-        self.logger.info(f"Validated dynatrace scopes: {scopes}")
         return scopes
-
+    
     @staticmethod
     def _format_alert(
         event: dict, provider_instance: "BaseProvider" = None
@@ -297,7 +215,7 @@ class DynatraceProvider(BaseProvider):
     def _get_alerting_profiles(self):
         self.logger.info("Getting alerting profiles")
         response = requests.get(
-            f"https://{self.authentication_config.environment_id}.live.dynatrace.com/api/v2/settings/objects?schemaIds=builtin:alerting.profile",
+            f"https://{self.authentication_config.environment_id}/api/v2/settings/objects?schemaIds=builtin:alerting.profile",
             headers={
                 "Authorization": f"Api-Token {self.authentication_config.api_token}"
             },
@@ -381,10 +299,10 @@ class DynatraceProvider(BaseProvider):
                 "value": payload,
             }
         ]
-        url = f"https://{self.authentication_config.environment_id}.live.dynatrace.com/api/v2/settings/objects"
+        url = f"https://{self.authentication_config.environment_id}/api/v2/settings/objects"
         # if its a dry run to validate the scopes
         if not setup_alerts:
-            url = f"https://{self.authentication_config.environment_id}.live.dynatrace.com/api/v2/settings/objects?validateOnly=true"
+            url = f"https://{self.authentication_config.environment_id}/api/v2/settings/objects?validateOnly=true"
 
         # install the webhook
         response = requests.post(
@@ -457,9 +375,9 @@ if __name__ == "__main__":
         provider_config=config,
     )
     problems = provider._get_alerts()
-    provider.setup_webhook(
-        tenant_id=SINGLE_TENANT_UUID,
-        keep_api_url=os.environ.get("KEEP_API_URL"),
-        api_key=context_manager.api_key,
-        setup_alerts=True,
-    )
+    # provider.setup_webhook(
+    #     tenant_id=SINGLE_TENANT_UUID,
+    #     keep_api_url=os.environ.get("KEEP_API_URL"),
+    #     api_key=context_manager.api_key,
+    #     setup_alerts=True,
+    # )

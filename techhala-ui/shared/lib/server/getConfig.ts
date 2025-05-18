@@ -45,7 +45,7 @@ export function getConfig(): InternalConfig {
     PUSHER_CLUSTER: process.env.PUSHER_CLUSTER,
     // The API URL is used by the server to make requests to the API
     //   note that we need two different URLs for the client and the server
-    //   because in some environments, e.g. docker-compose, the server can get techhala-backend
+    //   because in some environments, e.g. docker-compose, the server can get keep-backend
     //   whereas the client (browser) can get only localhost
     API_URL: process.env.API_URL,
     // could be relative (e.g. for ingress) or absolute (e.g. for cloud run)

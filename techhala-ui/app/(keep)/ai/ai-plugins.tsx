@@ -110,7 +110,7 @@ export function AIPlugins() {
               <Title>No AI enabled for this tenant</Title>
               <p className="pt-2">
                 AI plugins can correlate, enrich, or summarize your alerts and
-                incidents by leveraging the the context within techhala.
+                incidents by leveraging the the context within Keep.
               </p>
               <p className="pt-2">
                 AI plugins work in air-gapped environments, no external data

@@ -25,7 +25,7 @@ describe("V2ActionSchema", () => {
             customfield_10201: "Critical",
           },
           description:
-            '"This ticket was created by techhala.\nPlease check the alert details below:\n{code:json} {{ alert }} {code}"\n',
+            '"This ticket was created by Keep.\nPlease check the alert details below:\n{code:json} {{ alert }} {code}"\n',
           enrich_alert: [
             {
               key: "ticket_type",

@@ -568,7 +568,7 @@ const ProviderForm = ({
                     variant="simple"
                     color="gray"
                     size="sm"
-                    tooltip={`Whether to install TechHala as a webhook integration in ${provider.type}. This allows TechHala to asynchronously receive alerts from ${provider.type}. Please note that this will install a new integration in ${provider.type} and slightly modify your monitors/notification policy to include techhala.`}
+                    tooltip={`Whether to install TechHala as a webhook integration in ${provider.type}. This allows TechHala to asynchronously receive alerts from ${provider.type}. Please note that this will install a new integration in ${provider.type} and slightly modify your monitors/notification policy to include Keep.`}
                   />
                 </label>
                 {provider.pulling_available && (
@@ -783,7 +783,7 @@ const ProviderForm = ({
         {Object.keys(provider.config).length > 0 && (
           <div className="flex items-center">
             <Image
-              src={`/techhala.png`}
+              src={`/keep.png`}
               width={55}
               height={64}
               alt={provider.type}

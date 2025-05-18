@@ -20,7 +20,7 @@ export default function NotFound() {
           Slack
         </Link>
       </Subtitle>
-      <Image src="/techhala.svg" alt="Keep" width={150} height={150} />
+      <Image src="/keep.svg" alt="Keep" width={150} height={150} />
       <Button
         onClick={() => {
           router.back();

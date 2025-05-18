@@ -18,7 +18,7 @@ export function KeepLoader({
     >
       <Image
         className="animate-bounce -my-10"
-        src="/techhala.svg"
+        src="/keep.svg"
         alt="loading"
         width={200}
         height={200}

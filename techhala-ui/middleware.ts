@@ -97,7 +97,7 @@ export const config = {
      * Match all request paths except for the ones starting with:
      * - api (API routes)
      * - keep_big.svg (logo)
-     * - techhala.svg (logo)
+     * - keep.svg (logo)
      * - gnip.webp (logo)
      * - api/aws-marketplace (aws marketplace)
      * - api/auth (auth)

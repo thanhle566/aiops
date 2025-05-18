@@ -83,7 +83,7 @@ export const KeepLogoError = ({
             >
               <div>
                 <Image
-                  src="/techhala.svg"
+                  src="/keep.svg"
                   alt="Keep Logo"
                   width={width}
                   height={height}
@@ -98,7 +98,7 @@ export const KeepLogoError = ({
             >
               <div>
                 <Image
-                  src="/techhala.svg"
+                  src="/keep.svg"
                   alt="Keep Logo"
                   width={width}
                   height={height}
@@ -113,7 +113,7 @@ export const KeepLogoError = ({
             >
               <div>
                 <Image
-                  src="/techhala.svg"
+                  src="/keep.svg"
                   alt="Keep Logo"
                   width={width}
                   height={height}

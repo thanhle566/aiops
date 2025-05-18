@@ -26,5 +26,5 @@ export default async function Page() {
 
 export const metadata = {
   title: "TechHala - Workflows",
-  description: "Automate your workflows with techhala.",
+  description: "Automate your workflows with Keep.",
 };

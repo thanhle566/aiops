@@ -66,7 +66,7 @@ export const ProviderSemiAutomated = ({ provider }: Props) => {
         />
         <Icon icon={ArrowLongRightIcon} size="xl"  color="red" />
         <Image
-          src={`/techhala.png`}
+          src={`/keep.png`}
           width={55}
           height={64}
           alt={provider.type}

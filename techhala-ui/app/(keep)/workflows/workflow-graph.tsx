@@ -95,7 +95,7 @@ export default function WorkflowGraph({
     let icon = (
       <Image
         className="animate-bounce size-6 cover"
-        src="/techhala.svg"
+        src="/keep.svg"
         alt="loading"
         width={40}
         height={40}

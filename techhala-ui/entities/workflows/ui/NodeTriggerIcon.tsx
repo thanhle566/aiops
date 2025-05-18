@@ -31,12 +31,12 @@ export function NodeTriggerIcon({ nodeData }: { nodeData: NodeData }) {
         );
       }
       return (
-        <DynamicImageProviderIcon src="/techhala.png" height="32" width="32" />
+        <DynamicImageProviderIcon src="/keep.png" height="32" width="32" />
       );
     }
     case "incident":
       return (
-        <DynamicImageProviderIcon src="/techhala.png" height="32" width="32" />
+        <DynamicImageProviderIcon src="/keep.png" height="32" width="32" />
       );
     default:
       return <QuestionMarkCircleIcon className="size-8" />;

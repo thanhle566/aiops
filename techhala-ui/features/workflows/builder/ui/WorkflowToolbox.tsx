@@ -63,8 +63,8 @@ const GroupedMenu = ({
 
   function IconUrlProvider(data: any) {
     const { type } = data || {};
-    if (type === "alert" || type === "workflow") return "/techhala.png";
-    if (type === "incident" || type === "workflow") return "/techhala.png";
+    if (type === "alert" || type === "workflow") return "/keep.png";
+    if (type === "incident" || type === "workflow") return "/keep.png";
     return `/icons/${type
       ?.replace("step-", "")
       ?.replace("action-", "")
@@ -125,7 +125,7 @@ const GroupedMenu = ({
                         <NodeTriggerIcon nodeData={step} />
                       ) : (
                         <DynamicImageProviderIcon
-                          src={IconUrlProvider(step) || "/techhala.png"}
+                          src={IconUrlProvider(step) || "/keep.png"}
                           alt={step?.type}
                           className="object-contain aspect-auto"
                           width={32}

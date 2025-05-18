@@ -18,9 +18,9 @@ import { JsonCard } from "@/shared/ui";
 function getStepIconUrl(data: V2Step | V2StepTrigger) {
   const { type } = data || {};
   if (type === "alert" || type === "workflow" || type === "trigger" || !type)
-    return "/techhala.png";
+    return "/keep.png";
   if (type === "incident" || type === "workflow" || type === "trigger" || !type)
-    return "/techhala.png";
+    return "/keep.png";
   return `/icons/${normalizeStepType(type)}-icon.png`;
 }
 

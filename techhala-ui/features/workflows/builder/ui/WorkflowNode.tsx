@@ -42,9 +42,9 @@ export function DebugNodeInfo({ id, data }: Pick<FlowNode, "id" | "data">) {
 function IconUrlProvider(data: FlowNode["data"]) {
   const { type } = data || {};
   if (type === "alert" || type === "workflow" || type === "trigger" || !type)
-    return "/techhala.png";
+    return "/keep.png";
   if (type === "incident" || type === "workflow" || type === "trigger" || !type)
-    return "/techhala.png";
+    return "/keep.png";
   return `/icons/${normalizeStepType(type)}-icon.png`;
 }
 
@@ -167,7 +167,7 @@ function WorkflowNode({ id, data }: FlowNode) {
                 />
               ) : (
                 <DynamicImageProviderIcon
-                  src={IconUrlProvider(data) || "/techhala.png"}
+                  src={IconUrlProvider(data) || "/keep.png"}
                   alt={data?.type}
                   className="object-cover w-8 h-8"
                   width={32}
@@ -237,7 +237,7 @@ function WorkflowNode({ id, data }: FlowNode) {
                   <PiSquareLogoFill className="size-20 rounded bg-white-400 p-2" />
                 ) : (
                   <Image
-                    src={IconUrlProvider(data) || "/techhala.png"}
+                    src={IconUrlProvider(data) || "/keep.png"}
                     alt={data?.type}
                     className="object-contain size-20 rounded bg-white-400 p-2"
                     width={32}

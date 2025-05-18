@@ -2,7 +2,7 @@
 import React from "react";
 import { Text, Button } from "@tremor/react";
 import Image from "next/image";
-import KeepPng from "../../techhala.png";
+import KeepPng from "../../keep.png";
 import { capture } from "@/shared/lib/capture";
 
 type KeepBannerProps = {

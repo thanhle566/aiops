@@ -37,7 +37,7 @@ export function TriggerIcon({
       }
       return (
         <DynamicImageProviderIcon
-          src="/techhala.png"
+          src="/keep.png"
           height="32"
           width="32"
           className={clsx("object-contain object-center", className)}
@@ -47,7 +47,7 @@ export function TriggerIcon({
     case "incident":
       return (
         <DynamicImageProviderIcon
-          src="/techhala.png"
+          src="/keep.png"
           height="32"
           width="32"
           className={clsx("object-contain object-center", className)}

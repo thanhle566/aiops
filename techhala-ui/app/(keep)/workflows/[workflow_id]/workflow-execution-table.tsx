@@ -90,7 +90,7 @@ export function getIcon(status: string) {
   let icon = (
     <Image
       className="animate-bounce size-6 cover"
-      src="/techhala.svg"
+      src="/keep.svg"
       alt="loading"
       width={40}
       height={40}
@@ -123,7 +123,7 @@ export function getIcon(status: string) {
 
 const KeepIncidentIcon = () => (
   <Image
-    src="/techhala.png"
+    src="/keep.png"
     className="tremor-Badge-icon shrink-0 -ml-1 mr-1.5"
     width={16}
     height={16}
@@ -133,7 +133,7 @@ const KeepIncidentIcon = () => (
 
 const KeepAlertIcon = () => (
   <Image
-    src="/techhala.png"
+    src="/keep.png"
     className="tremor-Badge-icon shrink-0 -ml-1 mr-1.5"
     width={16}
     height={16}

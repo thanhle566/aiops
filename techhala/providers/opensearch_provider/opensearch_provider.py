@@ -7,7 +7,7 @@ import json
 import typing
 
 import pydantic
-# from opensearchpy import OpenSearch
+from opensearchpy import OpenSearch
 
 from techhala.contextmanager.contextmanager import ContextManager
 from techhala.exceptions.provider_connection_failed import ProviderConnectionFailed

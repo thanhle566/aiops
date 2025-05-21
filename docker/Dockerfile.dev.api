@@ -15,7 +15,7 @@ ENV PIP_DEFAULT_TIMEOUT=100 \
 RUN pip install "poetry==$POETRY_VERSION"
 RUN python -m venv /venv
 COPY pyproject.toml ./
-RUN . /venv/bin/activate && poetry install --no-root
+RUN . /venv/bin/activate && poetry install --no-root && poetry add pyOpenSSL@latest
 
 # Setting the virtual environment path
 ENV PYTHONPATH="/app:${PYTHONPATH}"
